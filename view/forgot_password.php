@@ -13,8 +13,7 @@
 		<fieldset>
 			<legend>Forgot Password Form</legend>
 			<label for="username">Username</label>
-			<input type="text" name="username" id="username" value="<?php echo $_REQUEST["username"]; ?>">
-			<font color="red"><?php echo $errors["username"]; ?></font>
+			<input type="text" name="username" id="username" value="">
 			<br>
 			<input type="hidden" name="page" value="forgot_password">
 			<input type="hidden" name="caller" value="self">

@@ -50,35 +50,6 @@ class Controller
 		$status=$this->model->profile($errors, $profile);
 		include_once "view/profile.php";
 	}
-
-	public function book_add()
-	{
-		$logged_in=$this->model->logged_in();
-		$status=$this->model->book_add($errors);
-		include_once "view/book_add.php";
-	}
-
-	public function book_list()
-	{
-		$logged_in=$this->model->logged_in();
-		$books=$this->model->book_list();
-		include_once "view/book_list.php";
-	}
-
-	public function book_edit()
-	{
-		$logged_in=$this->model->logged_in();
-		$status=$this->model->book_edit($errors, $book);
-		include_once "view/book_edit.php";
-	}
-
-	public function book_delete()
-	{
-		$logged_in=$this->model->logged_in();
-		$status=$this->model->book_delete($errors, $book);
-		include_once "view/book_delete.php";
-	}
-
 }
 
 ?>

@@ -1,17 +1,14 @@
 <?php
-include_once("model/book.php");
 include_once("model/user.php");
 
 class Model 
 {
 	protected $user;
-	protected $book;
 	
 	
 	public function __construct()  
     {  
 		$this->user = new User();
-		$this->book = new Book();
     } 
 	
 	public function register(&$errors)
@@ -43,27 +40,6 @@ class Model
 	{
 		return $this->user->profile($errors, $profile);
 	}
-
-	public function book_add(&$errors)
-	{
-		return $this->book->add($errors);
-	}
-
-	public function book_list()
-	{
-		return $this->book->list();
-	}
-
-	public function book_edit(&$errors, &$book)
-	{
-		return $this->book->edit($errors, $book);
-	}
-
-	public function book_delete(&$errors, &$book)
-	{
-		return $this->book->delete($errors, $book);
-	}
-
 }
 
 ?>

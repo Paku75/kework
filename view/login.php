@@ -13,12 +13,10 @@
 		<fieldset>
 			<legend>Login Form</legend>
 			<label for="username">Username</label>
-			<input type="text" name="username" id="username" value="<?php echo $_REQUEST["username"]; ?>">
-			<font color="red"><?php echo $errors["username"]; ?></font>
+			<input type="text" name="username" id="username" value="">
 			<br>
 			<label for="password">Password</label>
 			<input type="password" name="password" id="password">
-			<font color="red"><?php echo $errors["password"]; ?></font>
 			<br>
 			<input type="hidden" name="page" value="login">
 			<input type="hidden" name="caller" value="self">
