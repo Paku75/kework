@@ -13,6 +13,8 @@
      
      <link rel="stylesheet" type="text/css" href="css/style.css">
      
+     <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
+     
   </head>
 
   <body>
@@ -51,20 +53,28 @@
              <li><a href="logout">Se déconnecter</a></li>
           </ul>
         </div>
+        <a href="admin">Home</a>
 			  
              <?php } else { ?>
              <li><a href="login">Se connecter</a></li>	
              <?php } ?>
             
         </nav>
-        
-        
-        
     </header>
+       
         <?php 
             echo $content;
         ?>
         <footer> 
         </footer>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" charset="utf8" src="../DataTables/datatables.js">
+        </script>
+      
+        <script type="text/javascript">
+                $(document).ready( function () {
+                    $('#myTable').DataTable();
+                } );
+        </script>
     </body>
 <html>	

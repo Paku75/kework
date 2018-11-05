@@ -16,7 +16,7 @@
 
                 if($user_level==1)
                 {
-                    header("Location:adminView.php");   
+                    header("Location:admin");   
                 }
                 else
                 { 
