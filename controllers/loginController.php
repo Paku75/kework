@@ -1,13 +1,12 @@
 <?php
-    require __DIR__ . "/../models/loginModel.php";
+    require __DIR__ ."/../models/loginModel.php";
 
     if(isset ($_POST['submit']))
-        {   
-            
-            
-            $login = $_POST['login'];
-            $mdp = sha1($_POST['pass']);
-            if(login() == true) 
+        {     
+            $user_login = $_POST['username'];
+            $user_pass = sha1($_POST['pass']);
+            $requete = $bdd->query("SELECT * FROM users WHERE user_login ='$user_login' AND user_pass='$user_pass'"); 
+            if($reponse = $requete->fetch()) 
             {
                 $_SESSION['connecte'] = true;
                 $user_id = $reponse['user_id'];
@@ -17,7 +16,7 @@
 
                 if($user_level==1)
                 {
-                    header("Location:adminView.php");   
+                    header("Location:admin");   
                 }
                 else
                 { 
@@ -26,9 +25,8 @@
             }
             else
             {
-                var_dump($requete);
                 echo 'Identifiant ou mot de passe incorrect';
             }
         }
 
-    require __DIR__ . "/../views/loginView.php";
+    require __DIR__ ."/../views/loginView.php";

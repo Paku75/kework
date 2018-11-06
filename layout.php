@@ -1,46 +1,68 @@
 <html>
 
   <head>
-    <title></title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
-
-    <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/frytyler/pen/EGdtg" />
-
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
-
-
-    <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-
-
-
+     <title></title>
+     
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+     
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     
+     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 
   <body>
-				
-        <nav>
-             <?php if(isset($_SESSION['connecte']))
-             { ?> 
-			 <ul> 
-                <li><a href="">Suivi / relation clients</a></li>			 
-                <li><a href="">Registres internes</a></li>
-                <li><a href="logout">Se déconnecter</a></li>	
-			  
+    <header>  
+        <nav class="menu">
+             <?php if(isset($_SESSION['connecte'])) { ?>
+       
+          <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> SUIVI / RELATION CLIENTS<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+             <li><a href="#">PROSPECTION CLIENT</a></li>
+             <li><a href="#">PROJETS CLIENTS</a></li>
+             <li><a href="#" title="Facturation - Contrats - Contacts - Coordonnées">FACTURATION </a></li>
+             <li><a href="#">CONTRATS</a></li>
+          </ul>
+        </div>
+        
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> REGISTRES INTERNES <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+             <li><a href="#" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
+             <li><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
+             <li><a href="#">JURIDIQUE</a></li>
+          </ul>
+        </div>
+        
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> MOI <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+             <li><a href="#" title="Lien 1">Profil</a></li>
+             <li><a href="register">Inscire un nouveau utilisateur</a></li>
+             <li><a href="logout">Se déconnecter</a></li>
+          </ul>
+        </div>
+        
              <?php } else { ?>
-             <li><a href="login">Se connecter</a></li>
-             <li><a href="registerView">S'inscrire</a></li>	
+             <li><a class="" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
              <?php } ?>
-            </ul>
+            
         </nav>
+        
+        
+        
+    </header>
         <?php 
             echo $content;
         ?>
         <footer> 
         </footer>
     </body>
-<html>	
+<html>  s
