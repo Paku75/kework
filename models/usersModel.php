@@ -9,4 +9,4 @@
         return $requete->fetchAll();
     }
     $users = get_users(0,10);
-?>
+?> 
