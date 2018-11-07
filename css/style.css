@@ -74,4 +74,8 @@ input:focus {
       color:white !important;
       text-align: center;
       font-size: 30px;
-  }
+}
+
+#myTable {
+    background-color: red!important;
+}

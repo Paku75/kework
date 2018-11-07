@@ -30,7 +30,6 @@
     </div>
   </div>
 </div>
-    
 
 <!--Table-->
 <div class="table-responsive">
@@ -48,6 +47,9 @@
         </th>
         <th>
           E-mail
+        </th>
+        <th>
+          Fonction occupée
         </th>
         <th>
           Entreprise

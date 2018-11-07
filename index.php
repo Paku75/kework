@@ -14,7 +14,7 @@ catch(Exeption $e)
 
 //Routeur
 if(!isset($_GET['p']))
-{   
+{
     if(isset($_SESSION['connecte'])){
         $page = "admin";
     } else {
