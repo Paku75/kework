@@ -16,54 +16,51 @@
   </head>
 
   <body>
-  <div class="container">
-  <div class="row">
-    <div class="collapse navbar-collapse" id="menu">
-      <?php if(isset($_SESSION['connecte'])) { ?>
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">DEV & RELATION CLIENTS <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-             <li><a href="client">PROSPECTION CLIENT</a></li>
-             <li><a href="#">PROJETS CLIENTS</a></li>
-             <li><a href="#" title="Facturation - Contrats - Contacts - Coordonnées">FACTURATION </a></li>
-             <li><a href="#">CONTRATS</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">PARTENERS <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">REGISTRES INTERNES <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
-            <li><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
-            <li><a href="#">JURIDIQUE</a></li>
-            <li><a href="#">COMMUNITY</a></li>
-            <li><a href="#">AUTRE</a></li>
-            <li><a href="#">LOGISTIQUE</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">MOI <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-             <li><a href="#" title="Lien 1">Profil</a></li>
-             <li><a href="register">Inscire un nouveau utilisateur</a></li>
-             <li><a href="logout">Se déconnecter</a></li>
-          </ul>
-          <a href="admin">Home</a>
-        </li>
-      </ul>
-      
-      <?php } else { ?>
-      <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
-      <?php } ?>
-    </div>
-  </div>
+<div id="app" class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <?php if(isset($_SESSION['connecte'])) { ?>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DEV & RELATION CLIENTS <b class="caret"></b></a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="dropdown-item dropdown"><a href="client">PROSPECTION CLIENT</a></li>
+                    <li class="dropdown-item"><a href="#">PROJETS CLIENTS</a></li>
+                    <li class="dropdown-item"><a href="#" title="Facturation - Contrats - Contacts - Coordonnées">FACTURATION </a></li>
+                    <li class="dropdown-item"><a href="#">CONTRATS</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PARTENERS <b class="caret"></b></a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="dropdown-item"><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
+                    <li class="dropdown-item"><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
+                    <li class="dropdown-item"><a href="#">JURIDIQUE</a></li>
+                    <li class="dropdown-item"><a href="#">COMMUNITY</a></li>
+                    <li class="dropdown-item"><a href="#">AUTRE</a></li>
+                    <li class="dropdown-item"><a href="#">LOGISTIQUE</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOI <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-item"><a href="#" title="Lien 1">Profil</a></li>
+                     <li class="dropdown-item"><a href="register">Inscire un nouveau utilisateur</a></li>
+                     <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
+                  </ul>
+                </li>
+                
+                  <a href="admin">Home</a>
+            </ul>
+            <?php } else { ?>
+            <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
+            <?php } ?>
+        </div>
+    </nav>
 </div>
 
         <?php 

@@ -76,6 +76,10 @@ input:focus {
       font-size: 30px;
 }
 
+.navbar-nav li:hover>.dropdown-menu {
+  display: block;
+}
+
 #myTable {
     background-color: red!important;
 }
