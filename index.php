@@ -30,7 +30,8 @@ else
 	else
 	    $page = $_GET['p'];
 }
-    ob_start();//permet de suspendre l'affichage
+    ob_start();
+    //permet de suspendre l'affichage
 	   include "controllers/".$page."Controller.php";
 	   $content = ob_get_contents();
 	ob_end_clean();
