@@ -33,7 +33,7 @@
 
 <!--Table-->
 <div class="table-responsive">
-  <table id="myTable" class="table table-bordered display" style="width:100%">
+  <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
     <thead>
       <tr>
         <th>
