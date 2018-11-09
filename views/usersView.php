@@ -1,9 +1,8 @@
-
 <h1>Liste des utilisateurs</h1>
 
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="myModal_edit" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -37,7 +36,7 @@
 
 <!--Table-->
 <div class="table-responsive">
-    <table id="myTable" class="table table-bordered display" style="width:100%">
+    <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
             <tr>
                 <th>
@@ -93,5 +92,3 @@
         </tbody>
     </table>
 </div>
-
-

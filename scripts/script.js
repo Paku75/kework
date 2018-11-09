@@ -2,13 +2,11 @@
 //$(window).load(function() {});
 function delete_user() {
     $("#supprimer").click(function(){
-        console.log("hh");
-        alert("hh");
+        console.log("2");
+        alert("Test ok");
         /*
         var id = $(this).parent("td").data('id');
         var c_obj = $(this).parents("tr");
-
-
         $.ajax({
             dataType: 'json',
             type:'POST',
@@ -23,4 +21,3 @@ function delete_user() {
 
     });
 };
-

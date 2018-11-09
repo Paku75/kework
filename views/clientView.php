@@ -1,4 +1,3 @@
-
 <h1>Prospection client</h1>
 
 <!-- Modal -->
@@ -31,10 +30,18 @@
   </div>
 </div>
 
-<!--Table-->
+<!--Table 1-->
 <div class="table-responsive">
-  <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
+  <table style="color: black;" id="myTable" class="display" style="width:100%">
     <thead>
+     
+      <tr>
+        <th colspan="2">Identité</th>
+        <th colspan="2">Coordonées</th>
+        <th colspan="2">Poste entreprise</th>
+        <th colspan="3"></th>
+      </tr>
+      
       <tr>
         <th>
           Nom
@@ -59,6 +66,9 @@
         </th>
         <th>
           Historique
+        </th>
+        <th>
+            Modifier
         </th>
       </tr>
     </thead>
@@ -128,4 +138,84 @@
     <?php } ?>
     </tbody>
   </table>
+</div>
+
+
+
+<!--Table 2-->
+<div class="table-responsive">
+    <table style="color: black;" id="myTable2" class="display" style="width:100%">
+        <thead>
+           <tr>
+               <th colspan="5">Menu famille</th>
+               <th colspan="3">Suivi client</th>
+           </tr>
+           <tr>
+               <th>
+                 CAC 40
+               </th>
+               <th>
+                 RELA Estate
+               </th>
+               <th>
+                 Banque
+               </th>
+               <th>
+                 Cabinets avocats
+               </th>
+               <th>
+                 Family office
+               </th>
+               <th>
+                 Clients en négociation
+               </th>
+               <th>
+                 Clients équipes
+               </th>
+               <th>
+                 Clients pas intéressés
+               </th>
+               <th>
+                   Modifier
+               </th>
+           </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($clients as $client) { ?>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <label id="email" for="email" class="control-label">
+            <?php echo $client['client_email']; ?>
+          </label>
+          <input type="hidden" class="edit-input1" />
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+
+        <td>
+          <div class="edit">
+            <a id="btn_edit" class="btn btn-default"> 
+              <i id="edit" class="fa fa-pencil fa-lg"> </i>
+            </a>
+            <a id="supprimer" class="btn btn-default"> 
+              <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+            </a>
+         </div>
+        </td>
+      </tr>
+    <?php } ?>
+        </tbody>
+    </table>
 </div>

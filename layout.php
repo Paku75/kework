@@ -2,6 +2,7 @@
 
   <head>
     <title></title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
 
@@ -31,9 +32,12 @@
                   </ul>
                 </li>
             </ul>
+            <div class="navbar-nav">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false">PARTENERS</b></a>
+            </div>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PARTENERS <b class="caret"></b></a>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRES INTERNES <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class="dropdown-item"><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
                     <li class="dropdown-item"><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
@@ -78,16 +82,23 @@
          
 <!--         DataTable-->
          <script type="text/javascript">
-                $(document).ready( function () {
-                    $('#myTable').DataTable();
+                $(document).ready(function() {
+                    $('table.display').DataTable();
                 } );
          </script>
          
 <!--         Modal-->
          <script>
                 $(document).ready(function(){
+                    $("#btn_add").click(function(){
+                        $("#myModal_add").modal();
+                    });
+                });
+         </script>
+         <script>
+                $(document).ready(function(){
                     $("#btn_edit").click(function(){
-                        $("#myModal").modal();
+                        $("#myModal_edit").modal();
                     });
                 });
          </script>

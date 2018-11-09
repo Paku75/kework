@@ -83,3 +83,11 @@ input:focus {
 #myTable {
     background-color: red!important;
 }
+
+#myTable2 {
+    background-color: red!important;
+}
+
+#btn_add {
+    color: black;
+}
