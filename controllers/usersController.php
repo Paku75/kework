@@ -18,8 +18,6 @@
 
         echo json_encode($data);
     }
-  
-
 
  //Delete
     function delete(){

@@ -1,7 +1,7 @@
 <?php
     require __DIR__ ."/../models/registerModel.php";
 
-        if(isset ($_POST['submit']))
+        if(isset ($_POST['submit'])) 
         {    
             if(!empty($_POST['username']) AND !empty($_POST['email1']) AND!empty($_POST['email2']) AND !empty($_POST['pass1']) AND !empty($_POST['pass2']))
             { 

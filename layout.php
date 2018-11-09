@@ -54,8 +54,9 @@
                      <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
                   </ul>
                 </li>
+                  <a class="nav-link dropdown-toggle" href="admin" role="button" aria-haspopup="true" aria-expanded="false">HOME <b class="caret"></b></a>
                 
-                  <a href="admin">Home</a>
+                  
             </ul>
             <?php } else { ?>
             <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
@@ -69,12 +70,13 @@
         ?>
         <footer> 
         </footer>
-
-    <script src="scripts/script.js"></script>
+    
+<!--    Library import-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="DataTables/datatables.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
          
          
 <!--         DataTable-->
@@ -87,11 +89,20 @@
 <!--         Modal-->
          <script>
                 $(document).ready(function(){
+                    $("#show_detail").click(function(){
+                        $("#myModal_detailClient").modal();
+                    });
+                });
+         </script>
+         
+         <script>
+                $(document).ready(function(){
                     $("#btn_add").click(function(){
                         $("#myModal_add").modal();
                     });
                 });
          </script>
+         
          <script>
                 $(document).ready(function(){
                     $("#btn_edit").click(function(){

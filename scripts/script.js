@@ -24,3 +24,24 @@ function delete_user() {
     });
 };
 
+$(document).on('click', '.edit_test', function(){  
+           var client_id = $(this).attr("id"); 
+           console.log(client_id);
+//           $.ajax({  
+//                url:"../rhController.php",  
+//                method:"POST",  
+//                data:{client_id:client_id},  
+//                dataType:"json",  
+//                success:function(data){  
+//                     $('#name').val(data.name);  
+//                     $('#address').val(data.address);  
+//                     $('#gender').val(data.gender);  
+//                     $('#designation').val(data.designation);  
+//                     $('#age').val(data.age);  
+//                     $('#employee_id').val(data.id);  
+//                     $('#insert').val("Update");  
+//                     $('#add_data_Modal').modal('show'); 
+//                    
+//                }  
+//           });  
+      }); 

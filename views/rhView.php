@@ -1,7 +1,7 @@
+<br><br>
+<h1>REGISTRE UNIQUE DU PERSONNEL</h1>
 
-<h1>Registre unique du personnel</h1>
-
-<br><br><br><br>
+<br><br>
     
     <a id="btn_add" class="btn btn-default"> 
         Ajouter un collaborateur
@@ -17,10 +17,11 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un employeur</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un collaborateur</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form id="colla_add" role="form">
+            <h5>- IDENTITE -</h5>
             <div class="form-group">
               <label for="login"><span class="glyphicon glyphicon-user"></span></label>
               <input type="text" class="form-control" id="login" placeholder="Nom">
@@ -37,6 +38,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
               <input type="text" class="form-control" id="pass" placeholder="Sécurité sociale">
             </div>
+            <h5>- COORDONNES -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
               <input type="text" class="form-control" id="pass" placeholder="Email">
@@ -49,6 +51,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Adresse">
             </div>
+            <h5>- POSTE ENTREPRISE -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Poste">
@@ -61,6 +64,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Date sortie entreprise">
             </div>
+            <h5>- MANAGER INTERNE -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Département">
@@ -88,7 +92,8 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Modifier un employeur</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form id="colla_add" role="form">
+            <h5>- IDENTITE -</h5>
             <div class="form-group">
               <label for="login"><span class="glyphicon glyphicon-user"></span></label>
               <input type="text" class="form-control" id="login" placeholder="Nom">
@@ -105,6 +110,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
               <input type="text" class="form-control" id="pass" placeholder="Sécurité sociale">
             </div>
+            <h5>- COORDONNES -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
               <input type="text" class="form-control" id="pass" placeholder="Email">
@@ -117,6 +123,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Adresse">
             </div>
+            <h5>- POSTE ENTREPRISE -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Poste">
@@ -129,6 +136,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Date sortie entreprise">
             </div>
+            <h5>- MANAGER INTERNE -</h5>
             <div class="form-group">
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Département">
@@ -137,6 +145,7 @@
               <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
               <input type="text" class="form-control" id="pass" placeholder="Accès user">
             </div>
+              <input type="hidden" name="employee_id" id="client_id" /> 
               <button type="submit" class="btn btn-success btn-block">Valider</button>
           </form>
         </div>
@@ -150,11 +159,11 @@
 <div class="table-responsive">
     <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
-           <tr>
-              <th colspan="4">Identité</th>
-              <th colspan="3">Coordonées</th>
-              <th colspan="3">Poste entreprise</th>
-              <th colspan="2">Manager interne</th>
+           <tr id="menuRH">
+              <th colspan="4">IDENTITE</th>
+              <th colspan="3">COORDONNEES</th>
+              <th colspan="3">POSTE ENTREPRISE</th>
+              <th colspan="2">MANAGER INTERNE</th>
             </tr>
             <tr>
                 <th>
@@ -278,7 +287,7 @@
         
                     <td>
                         <div class="edit">
-                           <a id="btn_edit" class="btn btn-default"> 
+                           <a id="<?php echo $emp["employee_id"]; ?>" class="btn btn-default edit_test"> 
                                <i id="edit" class="fa fa-pencil fa-lg"> </i>
                            </a>
                            <a id="supprimer" class="btn btn-default"> 
