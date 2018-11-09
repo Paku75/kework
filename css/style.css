@@ -76,18 +76,70 @@ input:focus {
       font-size: 30px;
 }
 
+.detail {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.detail td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.detail tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 .navbar-nav li:hover>.dropdown-menu {
   display: block;
 }
 
 #myTable {
-    background-color: red!important;
+    background-color: coral!important;
 }
 
 #myTable2 {
-    background-color: red!important;
+    background-color: coral!important;
 }
 
 #btn_add {
     color: black;
+}
+
+#historique {display:none;}
+
+#menuClient{
+    background-color:cadetblue;
+}
+
+#menuRH{
+    background-color:cadetblue;
+}
+
+#client_edit{
+    color:black;
+}
+
+#colla_add{
+    color:black;
+}
+
+#modal_menu_detail{
+    background-color:cadetblue;
+}
+
+#modal_sous_menu_detail{
+    background-color:coral;
+}
+.navbar {
+    background: none!important;
+}
+
+.container .navbar .navbar-collapse .navbar-nav .dropdown-menu {
+    background-color: rgb(0, 0, 0, 0.8)!important;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    background: red!important;
 }

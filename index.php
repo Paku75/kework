@@ -2,6 +2,7 @@
 session_start();
 
 //connexion bdd
+global $bdd;
 try
 {
     $bdd = new PDO ("mysql:host=localhost;dbname=manager","root","");
