@@ -1,0 +1,128 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  ven. 09 nov. 2018 à 09:45
+-- Version du serveur :  5.7.21
+-- Version de PHP :  5.6.35
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `manager`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+CREATE TABLE IF NOT EXISTS `clients` (
+  `client_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_nom` varchar(255) NOT NULL,
+  `client_prenom` varchar(255) NOT NULL,
+  `client_tel` varchar(255) NOT NULL,
+  `client_email` varchar(255) NOT NULL,
+  `client_fonction_occupee` varchar(255) NOT NULL,
+  `client_entreprise` varchar(255) NOT NULL,
+  `client_effectif` int(11) NOT NULL,
+  `client_contact_entreprise` varchar(255) NOT NULL,
+  `client_historique` text NOT NULL,
+  `client_cac40` varchar(255) NOT NULL,
+  `client_rela_estate` varchar(255) NOT NULL,
+  `client_banque` varchar(255) NOT NULL,
+  `client_cabinet_avocat` varchar(255) NOT NULL,
+  `client_family_office` varchar(255) NOT NULL,
+  `client_en_negociation` varchar(255) NOT NULL,
+  `client_equipe` varchar(255) NOT NULL,
+  `client_pas_interesse` varchar(255) NOT NULL,
+  `client_date` varchar(255) NOT NULL,
+  `client_accueil` varchar(255) NOT NULL,
+  `client_conciergerie` varchar(255) NOT NULL,
+  `client_buisness_office` varchar(255) NOT NULL,
+  `client_happiness` varchar(255) NOT NULL,
+  `client_cowork` varchar(255) NOT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `clients`
+--
+
+INSERT INTO `clients` (`client_id`, `client_nom`, `client_prenom`, `client_tel`, `client_email`, `client_fonction_occupee`, `client_entreprise`, `client_effectif`, `client_contact_entreprise`, `client_historique`, `client_cac40`, `client_rela_estate`, `client_banque`, `client_cabinet_avocat`, `client_family_office`, `client_en_negociation`, `client_equipe`, `client_pas_interesse`, `client_date`, `client_accueil`, `client_conciergerie`, `client_buisness_office`, `client_happiness`, `client_cowork`) VALUES
+(1, 'Archisio', 'Francoise', '0142121500', 'email@gmail.com', 'Services Generaux', 'Archon ', 6, 'N/A', 'le 021215 a 17H36 : presentaiton amil envoyee de mail victoria suite echnge tel . le 02 12 15 : echnage call avec MME Antoine nous ayant communqiue son adresse mail . Durant cet echange Mme Antoije nous a egalement transmis recevoir regulierement des Invites etrnagers , et nous a precise qu\'a ce jour le groupe Ajjirwafa représentait 25 agences sur paris et 150 collaborateurs.Le 021215 a 16H30 : echnage call Mme Fauconnierdu service juridique nous ayant transmis 2 contacts : celui de la Direction , Mme Antoine ligne directe 0153757516 et de sservice sgeneraux 0153758131. .  le 021215: echange call avec serive sgeneraux nous disant de voir avec MME Fauconnier', '', '', '', '', '', 'Oui', 'Non', 'Non', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `employeurs`
+--
+
+DROP TABLE IF EXISTS `employeurs`;
+CREATE TABLE IF NOT EXISTS `employeurs` (
+  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `date_de_naissance` date NOT NULL,
+  `n_ss` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(11) NOT NULL,
+  `addresse` varchar(255) NOT NULL,
+  `poste_occupee` varchar(255) NOT NULL,
+  `date_entree_entreprise` date NOT NULL,
+  `date_sortie_entreprise` date NOT NULL,
+  `departement_ratache` varchar(255) NOT NULL,
+  `access_departement` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`employee_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `employeurs`
+--
+
+INSERT INTO `employeurs` (`employee_id`, `nom`, `prenom`, `date_de_naissance`, `n_ss`, `email`, `telephone`, `addresse`, `poste_occupee`, `date_entree_entreprise`, `date_sortie_entreprise`, `departement_ratache`, `access_departement`, `user_id`) VALUES
+(1, 'Pham ', 'Tien Quyen', '2018-01-01', '1616541216541616', 'paku2957@gmail.com', '0650255971', '08 Rue Leriche 75015 Paris', 'Developpeur', '2018-11-15', '2018-11-16', 'Informatique', 1, 1),
+(2, 'Thibault', 'Thibault', '2018-11-06', '123456123465', 'thibault@gmail.com', '060605050', 'Rue thibault', 'Thibault', '2018-11-14', '2018-11-15', 'Commercial', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(255) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_date_inscription` date NOT NULL,
+  `user_poste` varchar(255) NOT NULL,
+  `user_level` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_login`, `user_pass`, `user_email`, `user_date_inscription`, `user_poste`, `user_level`) VALUES
+(1, 'paku', 'ffbdcb6949ae829a4cf2aa836b6187a198ee9988', 'paku@gmail.com', '2018-11-05', 'Dev', 1);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
