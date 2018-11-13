@@ -1,9 +1,9 @@
 /* Remove Item */
 //$(window).load(function() {});
-function delete_user() {
-    $("#supprimer").click(function(){
-        console.log("2");
-        alert("Test ok");
+//function delete_user() {
+//    $("#supprimer").click(function(){
+//        console.log("2");
+//        alert("Test ok");
         /*
         var id = $(this).parent("td").data('id');
         var c_obj = $(this).parents("tr");
@@ -20,19 +20,19 @@ function delete_user() {
             getPageData();
         });
         */
+//
+//    });
+//};
 
-    });
-};
-
-$(document).on('click', '.edit_test', function(){  
-           var client_id = $(this).attr("id"); 
-           console.log(client_id);
-           $.ajax({  
-                url:"../rhController.php",  
-                method:"POST",  
-                data:{client_id:client_id},  
-                dataType:"json",  
-                success:function(data){  
+//$(document).on('click', '.edit_test', function(){  
+//           var client_id = $(this).attr("id"); 
+//           console.log(client_id);
+//           $.ajax({  
+//                url:"../rhController.php",  
+//                method:"POST",  
+//                data:{client_id:client_id},  
+//                dataType:"json",  
+//                success:function(data){  
 //                     $('#name').val(data.name);  
 //                     $('#address').val(data.address);  
 //                     $('#gender').val(data.gender);  
@@ -42,36 +42,67 @@ $(document).on('click', '.edit_test', function(){
 //                     $('#insert').val("Update");  
 //                     $('#add_data_Modal').modal('show'); 
 //                    
-                }  
-           });  
-      }); 
+//                }  
+//           });  
+//      }); 
 
 
+$( document ).ready(function() {
+    
+    /* Ajouter un employeur */
+    $(".add_rh").click(function(e){
+        e.preventDefault();
+//        var form_action = $("#myModal_add_rh").find("form").attr("action");
+        var nom = $("#myModal_add_rh").find("input[name='nom']").val();
+        var prenom = $("#myModal_add_rh").find("input[name='prenom']").val();
+        var naissance = $("#myModal_add_rh").find("input[name='naissance']").val();
+        var ss = $("#myModal_add_rh").find("input[name='ss']").val();
+        var email = $("#myModal_add_rh").find("input[name='email']").val();
+        var tel = $("#myModal_add_rh").find("input[name='tel']").val();
+        var adresse = $("#myModal_add_rh").find("input[name='adresse']").val();
+        var poste = $("#myModal_add_rh").find("input[name='poste']").val();
+        var date_entree = $("#myModal_add_rh").find("input[name='date_entree']").val();
+        var date_sortie = $("#myModal_add_rh").find("input[name='date_sortie']").val();
+        var departement = $("#myModal_add_rh").find("input[name='departement']").val();
+        var access_interface = $("#myModal_add_rh").find("select[name='access_interface']").val();
+        
+//        if(nom != '' && prenom != '' ){
+            $.ajax({
+                dataType: 'json',
+                type:'POST',
+                url: 'controllers/rhController/add',
+                data:{
+                    nom:nom, 
+                    prenom:prenom,
+                    naissance:naissance,
+                    ss:ss,
+                    email:email,
+                    tel:tel,
+                    adresse:adresse,
+                    poste:poste,
+                    date_entree:date_entree,
+                    date_sortie:date_sortie,
+                    departement:departement,
+                    access_interface:access_interface,
+                },
+                success: function (data) {
+//                            $("#create-item").find("input[name='title']").val('');
+//                            $("#create-item").find("textarea[name='description']").val('');
+//                            getPageData();
+                            toastr.success('Halleluyahhh', 'Succès', {timeOut: 5000});
+                            $(".modal").modal('hide');
+                        },
+                error: function(data) {
+                            toastr.error('Ressaie..', 'Erreur', {timeOut: 5000});
+                            $(".modal").modal('hide');
+                            console.log(data);
+                }
+            }); 
+//        } else {
+//            alert('Veuillez compléter tous les champs')
+//        }
 
-/* Create new Item */
-$(".add_rh").click(function(e){
-    e.preventDefault();
-    var form_action = $("#myModal_add_rh").find("form").attr("action");
-    var title = $("#myModal_add_rh").find("input[name='title']").val();
-    var description = $("#myModal_add_rh").find("textarea[name='description']").val();
 
-
-    if(title != '' && description != ''){
-        $.ajax({
-            dataType: 'json',
-            type:'POST',
-            url: url + form_action,
-            data:{title:title, description:description}
-        }).done(function(data){
-            $("#create-item").find("input[name='title']").val('');
-            $("#create-item").find("textarea[name='description']").val('');
-            getPageData();
-            $(".modal").modal('hide');
-            toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
-        });
-    } else {
-        alert('You are missing title or description.')
-    }
-
-
+    });
+    
 });

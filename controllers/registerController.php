@@ -24,14 +24,8 @@
                             {
                                 $requete = $bdd->prepare("INSERT INTO users (user_login,user_pass,user_email,user_date_inscription,user_poste) VALUES($user_login,$user_pass1,$user_email1,$dt,$user_poste)");
                                 $requete->execute(array($user_login,$user_pass1,$user_email1,$dt,$user_poste));
-                                
-                                
-                                var_dump($user_login);
-                                var_dump($user_email1);
-                                var_dump($user_pass1);
-                                 var_dump($dt);
-                                 var_dump($user_poste);
-                                
+                            
+                                 var_dump($requete);
                                 
                                 $erreur = "Le compte a bien été crée";
 //                                header('Location: admin');

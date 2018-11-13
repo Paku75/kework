@@ -1,25 +1,25 @@
 <br><br>
-<h1>PARTENERS</h1>
+<h1>PARTENAIRES</h1>
 <br><br>
 
 <a id="btn_add" class="btn btn-default">
-  Ajouter un partener
+  Ajouter un partenaire
 </a>
 <br><br><br>
 
 
 <!-- Modal add-->
-<div class="modal fade" id="myModal_add" role="dialog">
+<div class="modal fade" id="myModal_add_partenaire" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span>Ajouter un partener</h4>
+        <h4><span class="glyphicon glyphicon-lock"></span>Ajouter un partenaire</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
         <form id="client_edit" role="form" method="POST">
-            <h5>INFORMATION PARTENER</h5>
+            <h5>INFORMATION PARTENAIRE</h5>
               <div class="form-group">
                 <label for="entreprise"><span class="glyphicon glyphicon-user"></span></label>
                 <input type="text" class="form-control" name="entreprise_modal" id="entreprise_modal" placeholder="Entreprise">
@@ -115,7 +115,7 @@
     <thead>
       
       <tr class="menuPrincipalTab">
-        <th colspan="3">INFORMATION PARTENER</th>
+        <th colspan="3">INFORMATION PARTENAIRE</th>
         <th colspan="4">COORDONNES</th>
         <th colspan="2">CHIFRES / HISTORIQUE</th>
         <th colspan="3">INFO CONRACT</th>
