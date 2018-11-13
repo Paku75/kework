@@ -7,6 +7,7 @@
 </a>
 <br><br><br>
 
+
 <!-- Modal detail-->
 <div class="modal fade higherWider" id="myModal_detailClient" role="dialog">
   <div class="modal-dialog modal-lg" id="modal-dialog">
@@ -22,100 +23,60 @@
             <table class="detail" style="color: black;" style="width:100%">
                 <thead>
                    <tr id="modal_menu_detail">
-                       <th colspan="5">MENU FAMILLE</th>
-                       <th colspan="3">SUIVI CLIENT</th>
-                       <th colspan="2"></th>
-                       <th colspan="5">SERVICES INSTALLES </th>
+                       <th colspan="4">CONTACT ENTREPRISE</th>
+                       <th colspan="2">HISTORIQUE</th>
                    </tr>
-                   
                    <tr id="modal_sous_menu_detail">
                        <th>
-                         CAC 40
+                         Nom
                        </th>
                        <th>
-                         RELA Estate
+                         Prénom
                        </th>
                        <th>
-                         Banque
+                         Tel
                        </th>
                        <th>
-                         Cabinets avocats
-                       </th>
-                       <th>
-                         Family office
-                       </th>
-                       <th>
-                         Clients en négociation
-                       </th>
-                       <th>
-                         Clients équipés
-                       </th>
-                       <th>
-                         Clients pas interessés
-                       </th>
-                       <th>
-                         Historique
+                         Email
                        </th>
                        <th>
                          Date
                        </th>
                        <th>
-                         Accueil 
+                         Historique
                        </th>
-                       <th>
-                         Conciergerie 
-                       </th>
-                       <th>
-                         Buisness office 
-                       </th>
-                       <th>
-                         Happiness 
-                       </th>
-                       <th>
-                         Cowork 
-                       </th>
-                       
                    </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($clients as $client) { ?>
               <tr>
                 <td>
+                  <label id="nom" for="nom" class="control-label">
+                    <?php echo $client['client_nom']; ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
                 </td>
                 <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_cac40']; ?>
+                  <label id="prenom" for="prenom" class="control-label">
+                    <?php echo $client['client_prenom']; ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
+                </td>
+                <td>
+                  <label id="tel" for="tel" class="control-label">
+                    <?php echo $client['client_tel']; ?>
                   </label>
                   <input type="hidden" class="edit-input1" />
                 </td>
                 <td>
                   <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_rela_estate']; ?>
+                    <?php echo $client['client_email']; ?>
                   </label>
+                  <input type="hidden" class="edit-input1" />
                 </td>
                 <td>
                   <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_banque']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_cabinet_avocat']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_en_negociation']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_equipe']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_pas_interesse']; ?>
+                    <?php echo $client['client_date']; ?>
                   </label>
                 </td>
                 <td>
@@ -125,37 +86,6 @@
                   <p><a href="#" onclick="document.getElementById('historique').style.display = 'block'; this.style.display = 'none';">Lire...</a></p>
                   <input type="hidden" class="edit-input1" />
                 </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_date']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_accueil']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_conciergerie']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_buisness_office']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_happiness']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_cowork']; ?>
-                  </label>
-                </td>
-                
               </tr>
             <?php } ?>
                 </tbody>
@@ -186,12 +116,28 @@
                 <label for="email"><span class="glyphicon glyphicon-user"></span> </label>
                 <input type="text" class="form-control" id="email" placeholder="Effectifs">
               </div>
+            <h5>- ACTIVITE -</h5>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Contact entreprise">
+                <select>
+                    <option>CAC 40</option>
+                    <option>RELA estate</option>
+                    <option>Banque</option>
+                    <option>Cabinets avocats</option>
+                    <option>Family office</option>
+                </select>
               </div>
+            <h5>- DEPARTEMENT ACHETEUR -</h5>
               <div class="form-group">
+                <select>
+                    <option>Services generaux</option>
+                    <option>Achats</option>
+                    <option>Commercials</option>
+                    <option>Conseils</option>
+                </select>
+              </div>
             <h5>- CONTACT ENTREPRISE -</h5>
+              <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Nom">
               </div>
@@ -201,88 +147,18 @@
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Fonction occupée">
-              </div>
-            <h5>- COORDONNES -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Téléphone">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Email">
               </div>
-            <h5>- MENU FAMILLE -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="CAC 40">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="RELA estate">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Banque">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Cabinets avocats">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Family office">
-              </div>
             <h5>- SUIVI CLIENT -</h5>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients en négociation </label>
                 <select>
-                    <option>Oui</option>
-                    <option>Non</option>
+                    <option>Client en négociation</option>
+                    <option>Client pas interessé</option>
                 </select>
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients équipés </label>
-                <select>
-                    <option>Oui</option>
-                    <option>Non</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients pas interessé </label>
-                <select>
-                    <option>Oui</option>
-                    <option>Non</option>
-                </select>
-              </div>
-              <div class="form-group">
-                  <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Historique">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Date">
-              </div>
-            <h5>- SERVICES INSTALLES -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Accueil">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Conciergerie">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Buisness office">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Happiness">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Cowork">
               </div>
                 <button type="submit" class="btn btn-success btn-block">Valider</button>
         </form>
@@ -311,12 +187,28 @@
                 <label for="email"><span class="glyphicon glyphicon-user"></span> </label>
                 <input type="text" class="form-control" id="email" placeholder="Effectifs">
               </div>
+            <h5>- ACTIVITE -</h5>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Contact entreprise">
+                <select>
+                    <option>CAC 40</option>
+                    <option>RELA estate</option>
+                    <option>Banque</option>
+                    <option>Cabinets avocats</option>
+                    <option>Family office</option>
+                </select>
               </div>
+            <h5>- DEPARTEMENT ACHETEUR -</h5>
               <div class="form-group">
+                <select>
+                    <option>Services generaux</option>
+                    <option>Achats</option>
+                    <option>Commercials</option>
+                    <option>Conseils</option>
+                </select>
+              </div>
             <h5>- CONTACT ENTREPRISE -</h5>
+              <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Nom">
               </div>
@@ -326,58 +218,17 @@
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Fonction occupée">
-              </div>
-            <h5>- COORDONNES -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Téléphone">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" id="pass" placeholder="Email">
               </div>
-            <h5>- MENU FAMILLE -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="CAC 40">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="RELA estate">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Banque">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Cabinets avocats">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Family office">
-              </div>
             <h5>- SUIVI CLIENT -</h5>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients en négociation </label>
                 <select>
-                    <option>Oui</option>
-                    <option>Non</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients équipés </label>
-                <select>
-                    <option>Oui</option>
-                    <option>Non</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> Clients pas interessé </label>
-                <select>
-                    <option>Oui</option>
-                    <option>Non</option>
+                    <option>Client en négociation</option>
+                    <option>Client pas interessé</option>
                 </select>
               </div>
               <div class="form-group">
@@ -389,25 +240,19 @@
                 <input type="text" class="form-control" id="pass" placeholder="Date">
               </div>
             <h5>- SERVICES INSTALLES -</h5>
+                Accueil<input type="checkbox" id="Accueil" name="Accueil"> 
+              
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Accueil">
+                Conciergerie<input type="checkbox" id="Accueil" name="Accueil" > 
               </div>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Conciergerie">
+                Buisness office<input type="checkbox" id="Accueil" name="Accueil" > 
               </div>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Buisness office">
+                Happiness<input type="checkbox" id="Accueil" name="Accueil" > 
               </div>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Happiness">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Cowork">
+                Cowork<input type="checkbox" id="Accueil" name="Accueil" > 
               </div>
                 <button type="submit" class="btn btn-success btn-block">Valider</button>
         </form>
@@ -422,35 +267,40 @@
     <thead>
      
       <tr id="menuClient">
-        <th colspan="3">INFORMATION ENTREPRISE</th>
-        <th colspan="3">CONTACT ENTREPRISE</th>
-        <th colspan="2">COORDONNES</th>
+        <th colspan="1"></th>
+        <th colspan="4">INFORMATION ENTREPRISE</th>
+        <th colspan="3">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
+        <th colspan="1">SUIVI CLIENT</th>
+        <th colspan="1"></th>
       </tr>
-      
+          
       <tr>
+       <th>
+          Pertinance
+        </th>
         <th>
           Entreprise
         </th>
         <th>
-          Effectifs
+          Effectif
         </th>
         <th>
-          Contact entreprise
+          Activité
         </th>
         <th>
-          Nom
+          Département acheteur
         </th>
         <th>
-          Prénom
+          Services installés sur site
         </th>
         <th>
-          Fonction occupée
+          Début
         </th>
         <th>
-          Tel
+          Fin
         </th>
         <th>
-          E-mail
+          Statut
         </th>
         <th>
           Modifier
@@ -460,6 +310,9 @@
     <tbody>
     <?php foreach ($clients as $client) { ?>
       <tr>
+       <td>
+           <i class="fa fa-exclamation-circle"></i>
+       </td>
         <td id="show_detail">
           <label id="entreprise" for="entreprise" class="control-label">
             <?php echo $client['client_entreprise']; ?>
@@ -472,21 +325,9 @@
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
-        <td>
-          <label id="contact_entreprise" for="contact_entreprise" class="control-label">
-            <?php echo $client['client_contact_entreprise']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td>
-          <label id="nom" for="nom" class="control-label">
-            <?php echo $client['client_nom']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td>
-          <label id="prenom" for="prenom" class="control-label">
-            <?php echo $client['client_prenom']; ?>
+        <td id="show_detail">
+          <label id="entreprise" for="entreprise" class="control-label">
+            <?php echo $client['client_menu_famille']; ?>
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
@@ -496,18 +337,32 @@
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
+        <td id="show_detail">
+          <label id="entreprise" for="entreprise" class="control-label">
+            <?php echo $client['client_services']; ?>
+          </label>
+          <input type="hidden" class="edit-input1" />
+        </td>
+        
         <td>
-          <label id="tel" for="tel" class="control-label">
-            <?php echo $client['client_tel']; ?>
+          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
+            <?php echo $client['client_contrat_deb']; ?>
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
         <td>
-          <label id="email" for="email" class="control-label">
-            <?php echo $client['client_email']; ?>
+          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
+            <?php echo $client['client_contrat_fin']; ?>
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
+        <td>
+          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
+            <?php echo $client['client_suivi']; ?>
+          </label>
+          <input type="hidden" class="edit-input1" />
+        </td>
+        
         <td>
             <div class="edit">
                 <a id="btn_edit" class="btn btn-default"> 

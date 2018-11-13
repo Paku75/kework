@@ -122,7 +122,7 @@ input:focus {
     color:black;
 }
 
-#colla_add{
+#rh_add{
     color:black;
 }
 
@@ -132,4 +132,12 @@ input:focus {
 
 #modal_sous_menu_detail{
     background-color:coral;
+}
+
+#filterOptions{
+    display: flex;
+}
+
+li a #filterOptions{
+    margin-left: 60px;
 }

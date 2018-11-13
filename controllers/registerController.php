@@ -22,7 +22,8 @@
                         {
                             if ($user_pass1 == $user_pass2)
                             {
-                                $requete = $bdd->query("INSERT INTO users (user_login,user_pass,user_email,user_date_inscription,user_poste) VALUES($user_login,$user_pass1,$user_email1,$dt,$user_poste)");
+                                $requete = $bdd->prepare("INSERT INTO users (user_login,user_pass,user_email,user_date_inscription,user_poste) VALUES($user_login,$user_pass1,$user_email1,$dt,$user_poste)");
+                                $requete->execute(array($user_login,$user_pass1,$user_email1,$dt,$user_poste));
                                 
                                 
                                 var_dump($user_login);

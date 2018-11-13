@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 09 nov. 2018 à 09:45
+-- Généré le :  mar. 13 nov. 2018 à 08:51
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -31,38 +31,32 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
   `client_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_entreprise` varchar(255) NOT NULL,
+  `client_menu_famille` varchar(255) NOT NULL,
+  `client_services` varchar(255) NOT NULL,
+  `client_fonction_occupee` varchar(255) NOT NULL,
+  `client_effectif` int(11) NOT NULL,
   `client_nom` varchar(255) NOT NULL,
   `client_prenom` varchar(255) NOT NULL,
   `client_tel` varchar(255) NOT NULL,
   `client_email` varchar(255) NOT NULL,
-  `client_fonction_occupee` varchar(255) NOT NULL,
-  `client_entreprise` varchar(255) NOT NULL,
-  `client_effectif` int(11) NOT NULL,
-  `client_contact_entreprise` varchar(255) NOT NULL,
+  `client_contrat_deb` varchar(255) NOT NULL,
+  `client_contrat_fin` varchar(255) NOT NULL,
+  `client_suivi` varchar(255) NOT NULL,
   `client_historique` text NOT NULL,
-  `client_cac40` varchar(255) NOT NULL,
-  `client_rela_estate` varchar(255) NOT NULL,
-  `client_banque` varchar(255) NOT NULL,
-  `client_cabinet_avocat` varchar(255) NOT NULL,
-  `client_family_office` varchar(255) NOT NULL,
-  `client_en_negociation` varchar(255) NOT NULL,
-  `client_equipe` varchar(255) NOT NULL,
-  `client_pas_interesse` varchar(255) NOT NULL,
   `client_date` varchar(255) NOT NULL,
-  `client_accueil` varchar(255) NOT NULL,
-  `client_conciergerie` varchar(255) NOT NULL,
-  `client_buisness_office` varchar(255) NOT NULL,
-  `client_happiness` varchar(255) NOT NULL,
-  `client_cowork` varchar(255) NOT NULL,
   PRIMARY KEY (`client_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`client_id`, `client_nom`, `client_prenom`, `client_tel`, `client_email`, `client_fonction_occupee`, `client_entreprise`, `client_effectif`, `client_contact_entreprise`, `client_historique`, `client_cac40`, `client_rela_estate`, `client_banque`, `client_cabinet_avocat`, `client_family_office`, `client_en_negociation`, `client_equipe`, `client_pas_interesse`, `client_date`, `client_accueil`, `client_conciergerie`, `client_buisness_office`, `client_happiness`, `client_cowork`) VALUES
-(1, 'Archisio', 'Francoise', '0142121500', 'email@gmail.com', 'Services Generaux', 'Archon ', 6, 'N/A', 'le 021215 a 17H36 : presentaiton amil envoyee de mail victoria suite echnge tel . le 02 12 15 : echnage call avec MME Antoine nous ayant communqiue son adresse mail . Durant cet echange Mme Antoije nous a egalement transmis recevoir regulierement des Invites etrnagers , et nous a precise qu\'a ce jour le groupe Ajjirwafa représentait 25 agences sur paris et 150 collaborateurs.Le 021215 a 16H30 : echnage call Mme Fauconnierdu service juridique nous ayant transmis 2 contacts : celui de la Direction , Mme Antoine ligne directe 0153757516 et de sservice sgeneraux 0153758131. .  le 021215: echange call avec serive sgeneraux nous disant de voir avec MME Fauconnier', '', '', '', '', '', 'Oui', 'Non', 'Non', '', '', '', '', '', '');
+INSERT INTO `clients` (`client_id`, `client_entreprise`, `client_menu_famille`, `client_services`, `client_fonction_occupee`, `client_effectif`, `client_nom`, `client_prenom`, `client_tel`, `client_email`, `client_contrat_deb`, `client_contrat_fin`, `client_suivi`, `client_historique`, `client_date`) VALUES
+(1, 'Archon ', 'Banque', 'Conciergerie', 'Services Generaux', 6, 'Archisio', 'Francoise', '0142121500', 'email@gmail.com', '01/01/2014', '01/01/2016', 'En negociation', 'le 021215 a 17H36 : presentaiton amil envoyee de mail victoria suite echnge tel . le 02 12 15 : echnage call avec MME Antoine nous ayant communqiue son adresse mail . Durant cet echange Mme Antoije nous a egalement transmis recevoir regulierement des Invites etrnagers , et nous a precise qu\'a ce jour le groupe Ajjirwafa représentait 25 agences sur paris et 150 collaborateurs.Le 021215 a 16H30 : echnage call Mme Fauconnierdu service juridique nous ayant transmis 2 contacts : celui de la Direction , Mme Antoine ligne directe 0153757516 et de sservice sgeneraux 0153758131. .  le 021215: echange call avec serive sgeneraux nous disant de voir avec MME Fauconnier', '05/01/2016'),
+(2, 'BNP', 'Banque', 'Accueil', 'Conseils', 21, 'Blanc', 'Pierre', '01 50 45 79 23', 'pierreb@gmail.com', '10/10/2016', '10/10/2020', 'Pas interesse', '', ''),
+(3, 'Sandro Paris', 'CAC 40', 'Happiness', 'Commercial', 13, 'Baudois', 'Maryn', '01 50 31 46 44', 'marynb@gmail.com', '02/02/2015', '02/02/2018', 'En negociation', '', ''),
+(4, 'Mercure', 'RELA estate', 'Cowork', 'Services generaux', 30, 'Thauvois', 'Paul', '01 22 84 44 22', 'pault@gmail.com', '01/01/2016', '01/01/2020', 'En negociation', '', '');
 
 -- --------------------------------------------------------
 
@@ -113,14 +107,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_poste` varchar(255) NOT NULL,
   `user_level` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_login`, `user_pass`, `user_email`, `user_date_inscription`, `user_poste`, `user_level`) VALUES
-(1, 'paku', 'ffbdcb6949ae829a4cf2aa836b6187a198ee9988', 'paku@gmail.com', '2018-11-05', 'Dev', 1);
+(1, 'paku', 'ffbdcb6949ae829a4cf2aa836b6187a198ee9988', 'paku@gmail.com', '2018-11-05', 'Dev', 1),
+(2, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@gmail.com', '2018-11-04', '', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

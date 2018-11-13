@@ -3,14 +3,14 @@
 
 <br><br>
     
-    <a id="btn_add" class="btn btn-default"> 
+    <a id="btn_add" class="btn btn-default" data-target="#myModal_add_rh"> 
         Ajouter un collaborateur
     </a>
     
 <br><br>
 
 <!-- Modal add -->
-  <div class="modal fade" id="myModal_add" role="dialog">
+  <div class="modal fade" id="myModal_add_rh" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -20,60 +20,53 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un collaborateur</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form id="colla_add" role="form">
+         
+          <form data-toggle="validator" id="rh_add" action="api/create.php" method="POST">
             <h5>- IDENTITE -</h5>
             <div class="form-group">
-              <label for="login"><span class="glyphicon glyphicon-user"></span></label>
-              <input type="text" class="form-control" id="login" placeholder="Nom">
+              <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
             </div>
             <div class="form-group">
-              <label for="email"><span class="glyphicon glyphicon-user"></span></label>
-              <input type="text" class="form-control" id="email" placeholder="Prenom">
+              <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prenom">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Date de naissance">
+              <input type="text" name="naissance" class="form-control" id="naissance" placeholder="Date de naissance">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Sécurité sociale">
+              <input type="text" name="ss" class="form-control" id="ss" placeholder="Sécurité sociale">
             </div>
             <h5>- COORDONNES -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Email">
+              <input type="text" name="email" class="form-control" id="email" placeholder="Email">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Telephone">
+              <input type="text" name="tel" class="form-control" id="tel" placeholder="Telephone">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Adresse">
+              <input type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse">
             </div>
             <h5>- POSTE ENTREPRISE -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Poste">
+              <input type="text" name="poste" class="form-control" id="poste" placeholder="Poste">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Date entrée entreprise">
+              <input type="text" name="date_entree" class="form-control" id="date_entree" placeholder="Date entrée entreprise">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Date sortie entreprise">
+              <input type="text" name="date_sortie" class="form-control" id="date_sortie" placeholder="Date sortie entreprise">
             </div>
             <h5>- MANAGER INTERNE -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Département">
+              <input type="text" name="departement" class="form-control" id="departement" placeholder="Département">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Accès user">
+              <h5>- ACCES USER -</h5>
+              <select>
+                  <option value="1">Oui</option>
+                  <option value="0" selected>Non</option>
+              </select>
             </div>
-              <button type="submit" class="btn btn-success btn-block">Valider</button>
+              <button type="submit" class="btn btn-success btn-block add_rh">Valider</button>
           </form>
         </div>
       </div>

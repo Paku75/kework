@@ -98,7 +98,7 @@
          <script>
                 $(document).ready(function(){
                     $("#btn_add").click(function(){
-                        $("#myModal_add").modal();
+                        $("#myModal_add_rh").modal();
                     });
                 });
          </script>
