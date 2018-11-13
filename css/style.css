@@ -141,3 +141,26 @@ input:focus {
 li a #filterOptions{
     margin-left: 60px;
 }
+
+.menuPrincipalTab {
+    background-color: cadetblue;
+}
+
+#client_edit, #partener_add {
+    color: black;
+}
+
+.container .navbar .navbar-collapse .navbar-nav .dropdown-menu {
+    background-color: rgb(0, 0, 0, 0.7)!important;
+    transition: all .5s ease;
+}
+
+.container .navbar .navbar-collapse .navbar-nav .dropdown-menu .dropdown-item a {
+    list-style-type: none;
+    color: rgba(255, 255, 255, .3);
+}
+ .container .navbar .navbar-collapse .navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(155, 155, 155, 0.3)!important;
+    transition: all .5s ease;
+    list-style-type: none;
+}

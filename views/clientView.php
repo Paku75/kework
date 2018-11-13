@@ -266,7 +266,7 @@
   <table style="color: black;" id="myTable" class="display" style="width:100%">
     <thead>
      
-      <tr id="menuClient">
+      <tr class="menuPrincipalTab">
         <th colspan="1"></th>
         <th colspan="4">INFORMATION ENTREPRISE</th>
         <th colspan="3">CONTRAT ET SERVICES INSTALLES SUR SITE</th>

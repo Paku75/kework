@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 13 nov. 2018 à 08:51
+-- Généré le :  mar. 13 nov. 2018 à 09:32
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -90,6 +90,37 @@ CREATE TABLE IF NOT EXISTS `employeurs` (
 INSERT INTO `employeurs` (`employee_id`, `nom`, `prenom`, `date_de_naissance`, `n_ss`, `email`, `telephone`, `addresse`, `poste_occupee`, `date_entree_entreprise`, `date_sortie_entreprise`, `departement_ratache`, `access_departement`, `user_id`) VALUES
 (1, 'Pham ', 'Tien Quyen', '2018-01-01', '1616541216541616', 'paku2957@gmail.com', '0650255971', '08 Rue Leriche 75015 Paris', 'Developpeur', '2018-11-15', '2018-11-16', 'Informatique', 1, 1),
 (2, 'Thibault', 'Thibault', '2018-11-06', '123456123465', 'thibault@gmail.com', '060605050', 'Rue thibault', 'Thibault', '2018-11-14', '2018-11-15', 'Commercial', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `parteners`
+--
+
+DROP TABLE IF EXISTS `parteners`;
+CREATE TABLE IF NOT EXISTS `parteners` (
+  `partener_id` int(11) NOT NULL AUTO_INCREMENT,
+  `partener_entreprise` varchar(255) NOT NULL,
+  `partener_activite` varchar(255) NOT NULL,
+  `partener_departement_soucripteur` varchar(255) NOT NULL,
+  `partener_nom` varchar(255) NOT NULL,
+  `partener_tel` varchar(255) NOT NULL,
+  `partener_portable` varchar(255) NOT NULL,
+  `partener_email` varchar(255) NOT NULL,
+  `partener_ca_rapporte` text NOT NULL,
+  `partener_historique` text NOT NULL,
+  `partener_contrat` varchar(255) NOT NULL,
+  `partener_debut_contrat` date NOT NULL,
+  `partener_fin_contrat` date NOT NULL,
+  PRIMARY KEY (`partener_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `parteners`
+--
+
+INSERT INTO `parteners` (`partener_id`, `partener_entreprise`, `partener_activite`, `partener_departement_soucripteur`, `partener_nom`, `partener_tel`, `partener_portable`, `partener_email`, `partener_ca_rapporte`, `partener_historique`, `partener_contrat`, `partener_debut_contrat`, `partener_fin_contrat`) VALUES
+(1, 'Microsoft', 'OS', 'lorem ipsum', 'Bill Gates', '(206) 709-3400', '(206) 709-3400', 'info@gatesfoundation.org', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...', 'Integer laoreet faucibus libero sit amet convallis.', 'Contrat 1', '2017-10-02', '2018-11-08');
 
 -- --------------------------------------------------------
 

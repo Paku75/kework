@@ -18,9 +18,14 @@
 
   <body>
 <div id="app" class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
             <?php if(isset($_SESSION['connecte'])) { ?>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="admin">HOME</a>
+              </li>
+            </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DEV & RELATION CLIENTS <b class="caret"></b></a>
@@ -33,8 +38,13 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="partenaire">PARTENAIRES</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PARTENERS <b class="caret"></b></a>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRES INTERNES <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class="dropdown-item"><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
                     <li class="dropdown-item"><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
@@ -54,9 +64,6 @@
                      <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
                   </ul>
                 </li>
-                  <a class="nav-link dropdown-toggle" href="admin" role="button" aria-haspopup="true" aria-expanded="false">HOME <b class="caret"></b></a>
-                
-                  
             </ul>
             <?php } else { ?>
             <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
