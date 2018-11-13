@@ -421,7 +421,7 @@
   <table style="color: black;" id="myTable" class="display" style="width:100%">
     <thead>
      
-      <tr id="menuClient">
+      <tr class="menuPrincipalTab">
         <th colspan="3">INFORMATION ENTREPRISE</th>
         <th colspan="3">CONTACT ENTREPRISE</th>
         <th colspan="2">COORDONNES</th>

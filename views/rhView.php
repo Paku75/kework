@@ -159,7 +159,7 @@
 <div class="table-responsive">
     <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
-           <tr id="menuRH">
+           <tr class="menuPrincipalTab">
               <th colspan="4">IDENTITE</th>
               <th colspan="3">COORDONNEES</th>
               <th colspan="3">POSTE ENTREPRISE</th>
