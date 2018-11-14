@@ -100,7 +100,8 @@
          // Modal edit
             $(document).ready(function(){
                 $("#btn_edit").click(function(){
-                    $("#myModal_edit").modal();
+                    $("#myModal_edit_rh").modal();
+                    $("#myModal_edit_client").modal();
                 });
             });
          
@@ -109,6 +110,7 @@
                 $("#btn_add").click(function(){
                     $("#myModal_add_rh").modal();
                     $("#myModal_add_partenaire").modal();
+                    $("#myModal_add_client").modal();
                 });
             });
 

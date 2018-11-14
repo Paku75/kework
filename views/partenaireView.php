@@ -158,6 +158,9 @@
         <th>
           Fin contrat
         </th>
+        <th>
+          Modifier
+        </th>
       </tr>
     </thead>
     <tbody>

@@ -12,6 +12,7 @@
                 $user_pass2 = sha1($_POST['pass2']);
                 $dt = date('Y-m-d H:i:s');
                 $user_poste = $_POST['user_poste'];
+                $user_level = 1;
                 
                 $loginlength = strlen($user_login);
                 if($loginlength <= 255)
@@ -22,10 +23,21 @@
                         {
                             if ($user_pass1 == $user_pass2)
                             {
-                                $requete = $bdd->prepare("INSERT INTO users (user_login,user_pass,user_email,user_date_inscription,user_poste) VALUES($user_login,$user_pass1,$user_email1,$dt,$user_poste)");
-                                $requete->execute(array($user_login,$user_pass1,$user_email1,$dt,$user_poste));
-                            
-                                 var_dump($requete);
+                                $requete = $bdd->prepare("INSERT INTO users (user_login,user_pass,user_email,user_date_inscription,user_poste) VALUES(:user_login,:user_pass1,:user_email1,:dt,:user_poste)");
+                                $requete->bindValue(':user_login', $user_login);
+                                $requete->bindValue(':user_pass1', $user_pass1);
+                                $requete->bindValue(':user_email1', $user_email1);
+                                $requete->bindValue(':dt', $dt);
+                                $requete->bindValue(':user_poste', $user_poste);
+                                try
+                                {
+                                    $requete->execute();
+                                }
+                                catch(PDOException $e)
+                                {
+                                    exit($e->getMessage());
+                                }
+                                
                                 
                                 $erreur = "Le compte a bien été crée";
 //                                header('Location: admin');
@@ -41,8 +53,6 @@
                 } else {
                     $erreur = "Le login ne doit pas dépasser 255 caractères";
                 }
-                
-                echo "ok";
             } else {
                 $erreur = "Tous les champs doivent être complétés";
             }

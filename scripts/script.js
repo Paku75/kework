@@ -66,11 +66,11 @@ $( document ).ready(function() {
         var departement = $("#myModal_add_rh").find("input[name='departement']").val();
         var access_interface = $("#myModal_add_rh").find("select[name='access_interface']").val();
         
-//        if(nom != '' && prenom != '' ){
+//        if(nom != '' && prenom != '' ){ 
             $.ajax({
                 dataType: 'json',
                 type:'POST',
-                url: 'controllers/rhController/add',
+                url: 'models/rhModel/add',
                 data:{
                     nom:nom, 
                     prenom:prenom,
@@ -89,17 +89,19 @@ $( document ).ready(function() {
 //                            $("#create-item").find("input[name='title']").val('');
 //                            $("#create-item").find("textarea[name='description']").val('');
 //                            getPageData();
-                            toastr.success('Halleluyahhh', 'Succès', {timeOut: 5000});
+                            toastr.success('Ok', 'Succès', {timeOut: 5000});
                             $(".modal").modal('hide');
+                            console.log(data);
+                            console.log(nom);
                         },
                 error: function(data) {
-                            toastr.error('Ressaie..', 'Erreur', {timeOut: 5000});
+                            toastr.error('Nope', 'Erreur', {timeOut: 5000});
                             $(".modal").modal('hide');
                             console.log(data);
                 }
             }); 
 //        } else {
-//            alert('Veuillez compléter tous les champs')
+//            toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});
 //        }
 
 

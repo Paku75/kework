@@ -97,7 +97,7 @@
 </div>
 
 <!-- Modal add-->
-<div class="modal fade" id="myModal_add" role="dialog">
+<div class="modal fade" id="myModal_add_client" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -168,7 +168,7 @@
 </div>
 
 <!-- Modal edit-->
-<div class="modal fade" id="myModal_edit" role="dialog">
+<div class="modal fade" id="myModal_edit_client" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">

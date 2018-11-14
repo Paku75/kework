@@ -94,7 +94,7 @@
         </div>
         <div class="modal-body" style="padding:40px 50px;">
          
-          <form data-toggle="validator" id="rh_add" action="rh/add" method="POST">
+          <form data-toggle="validator" id="rh_add" action="" method="POST">
             <h5>- IDENTITE -</h5>
             <div class="form-group">
               <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
@@ -139,7 +139,7 @@
                   <option value="0" selected>Non</option>
               </select>
             </div>
-              <button type="submit" class="btn btn-success btn-block add_rh">Valider</button>
+              <button name="rhadd" type="submit" class="btn btn-success btn-block ">Valider</button>
           </form>
         </div>
       </div>
@@ -148,7 +148,7 @@
   
   
 <!-- Modal edit -->
-  <div class="modal fade" id="myModal_edit" role="dialog">
+  <div class="modal fade" id="myModal_edit_rh" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -353,7 +353,7 @@
         
                     <td>
                         <div class="edit">
-                           <a id="<?php echo $emp["employee_id"]; ?>" class="btn btn-default edit_test"> 
+                           <a id="btn_edit" class="btn btn-default "> 
                                <i id="edit" class="fa fa-pencil fa-lg"> </i>
                            </a>
                            <a id="supprimer" class="btn btn-default"> 
