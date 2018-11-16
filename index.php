@@ -6,6 +6,7 @@ require ('config.php');
 try
 {
     $bdd = new PDO ("mysql:host=$host;dbname=$dbname",$user,$mdp);
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(Exeption $e)
 {
@@ -19,7 +20,7 @@ if(!isset($_GET['p']))
     if(isset($_SESSION['connecte'])){
         $page = "admin";
     } else {
-        $page = "accueil";
+        $page = "login";
     }
 	
 }
@@ -28,7 +29,9 @@ else
 {
 	if(!file_exists("controllers/".$_GET['p']."Controller.php"))
 		$page = "404";
-	else
+	else if(!isset($_SESSION['connecte']))
+        $page = "login" ;
+    else
 	    $page = $_GET['p'];
 }
     ob_start();

@@ -103,7 +103,7 @@
               <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prenom">
             </div>
             <div class="form-group">
-              <input type="text" name="naissance" class="form-control" id="naissance" placeholder="Date de naissance">
+              <input type="date" name="naissance" class="form-control" id="naissance" placeholder="Date de naissance">
             </div>
             <div class="form-group">
               <input type="text" name="ss" class="form-control" id="ss" placeholder="Sécurité sociale">
@@ -123,10 +123,10 @@
               <input type="text" name="poste" class="form-control" id="poste" placeholder="Poste">
             </div>
             <div class="form-group">
-              <input type="text" name="date_entree" class="form-control" id="date_entree" placeholder="Date entrée entreprise">
+              <input type="date" name="date_entree" class="form-control" id="date_entree" placeholder="Date entrée entreprise">
             </div>
             <div class="form-group">
-              <input type="text" name="date_sortie" class="form-control" id="date_sortie" placeholder="Date sortie entreprise">
+              <input type="date" name="date_sortie" class="form-control" id="date_sortie" placeholder="Date sortie entreprise">
             </div>
             <h5>- MANAGER INTERNE -</h5>
             <div class="form-group">
