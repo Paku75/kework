@@ -201,7 +201,7 @@
         </td>
         <td>
             <div class="edit">
-                <a id="btn_edit" class="btn btn-default"> 
+                <a href="#edit_<?php echo $partener['partener_id']; ?>" data-toggle="modal" class="btn btn-default"> 
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
                 </a>
                 <a id="supprimer" class="btn btn-default"> 
@@ -209,6 +209,7 @@
                 </a>
             </div>
         </td>
+        <?php include ('Modals/partenaire.php') ?>
       </tr>
     <?php } ?>
     </tbody>

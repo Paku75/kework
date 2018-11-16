@@ -212,14 +212,12 @@
               <input type="text" class="form-control" id="pass" placeholder="Accès user">
             </div>
               <input type="hidden" name="employee_id" id="client_id" /> 
-              <button type="submit" class="btn btn-success btn-block">Valider</button>
+              <button name="rhedit" type="submit" class="btn btn-success btn-block">Valider</button>
           </form>
         </div>
       </div>
     </div>
-  </div>     
-    
-    
+  </div>  
 
 <!--Table-->
 <div class="table-responsive">
@@ -342,7 +340,7 @@
                        <label id="mdp" for="mdp" class="control-label">
                            <?php echo $emp['departement_ratache']; ?>
                        </label>
-                       <input type="hidden" class="edit-input1" />
+                       <input name="nom" type="hidden" class="edit-input1" />
                     </td>
                     <td>
                        <label id="mdp" for="mdp" class="control-label">
@@ -362,8 +360,7 @@
                        </div>
                     </td>
                 </tr>
-      <?php }
-        ?>
+                <?php } ?>
         </tbody>
     </table>
 </div>
