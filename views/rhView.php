@@ -3,14 +3,87 @@
 
 <br><br>
     
-    <a id="btn_add" class="btn btn-default"> 
+    <a id="btn_add" class="btn btn-default" data-target="#myModal_add_rh"> 
         Ajouter un collaborateur
     </a>
     
 <br><br>
 
+<!-- Modal detail-->
+<div class="modal fade higherWider" id="myModal_detailRH" role="dialog">
+  <div class="modal-dialog modal-lg" id="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-lock"></span> Détail</h4>
+      </div>
+      <div class="modal-body" style="padding:40px 50px;">
+        <!--Table modal-->
+        <div class="table-responsive">
+            <table class="detail" style="color: black;" style="width:100%">
+                <thead>
+                   <tr id="modal_menu_detail">
+                       <th colspan="4">ACCES A L'INTERFACE</th>
+                   </tr>
+                   <tr id="modal_sous_menu_detail">
+                       <th>
+                         Login
+                       </th>
+                       <th>
+                         Email
+                       </th>
+                       <th>
+                         Mot de passe
+                       </th>
+                       <th>
+                         Modifier
+                       </th>
+                   </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($users as $user) { ?>
+              <tr>
+                <td>
+                  <label id="nom" for="nom" class="control-label">
+                    <?php echo $user['user_login']; ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
+                </td>
+                <td>
+                  <label id="prenom" for="prenom" class="control-label">
+                    <?php echo $user['user_email']; ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
+                </td>
+                <td>
+                  <label id="tel" for="tel" class="control-label">
+                    <?php echo $user['user_pass']; ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
+                </td>
+                <td>
+                    <div class="edit">
+                        <a id="<?php echo $user["user_id"]; ?>" class="btn btn-default edit_test"> 
+                            <i id="edit" class="fa fa-pencil fa-lg"> </i>
+                        </a>
+                        <a id="supprimer" class="btn btn-default"> 
+                            <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+                        </a>
+                    </div>
+                </td>
+              </tr>
+            <?php } ?>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal add -->
-  <div class="modal fade" id="myModal_add" role="dialog">
+  <div class="modal fade" id="myModal_add_rh" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -20,69 +93,62 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un collaborateur</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form id="colla_add" role="form">
+         
+          <form data-toggle="validator" id="rh_add" action="" method="POST">
             <h5>- IDENTITE -</h5>
             <div class="form-group">
-              <label for="login"><span class="glyphicon glyphicon-user"></span></label>
-              <input type="text" class="form-control" id="login" placeholder="Nom">
+              <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
             </div>
             <div class="form-group">
-              <label for="email"><span class="glyphicon glyphicon-user"></span></label>
-              <input type="text" class="form-control" id="email" placeholder="Prenom">
+              <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prenom">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Date de naissance">
+              <input type="date" name="naissance" class="form-control" id="naissance" placeholder="Date de naissance">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Sécurité sociale">
+              <input type="text" name="ss" class="form-control" id="ss" placeholder="Sécurité sociale">
             </div>
             <h5>- COORDONNES -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-              <input type="text" class="form-control" id="pass" placeholder="Email">
+              <input type="text" name="email" class="form-control" id="email" placeholder="Email">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Telephone">
+              <input type="text" name="tel" class="form-control" id="tel" placeholder="Telephone">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Adresse">
+              <input type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse">
             </div>
             <h5>- POSTE ENTREPRISE -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Poste">
+              <input type="text" name="poste" class="form-control" id="poste" placeholder="Poste">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Date entrée entreprise">
+              <input type="date" name="date_entree" class="form-control" id="date_entree" placeholder="Date entrée entreprise">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Date sortie entreprise">
+              <input type="date" name="date_sortie" class="form-control" id="date_sortie" placeholder="Date sortie entreprise">
             </div>
             <h5>- MANAGER INTERNE -</h5>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Département">
+              <input type="text" name="departement" class="form-control" id="departement" placeholder="Département">
             </div>
             <div class="form-group">
-              <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-              <input type="text" class="form-control" id="pass" placeholder="Accès user">
+              <h5>- ACCES USER -</h5>
+              <select name="access_interface">
+                  <option value="1">Oui</option>
+                  <option value="0" selected>Non</option>
+              </select>
             </div>
-              <button type="submit" class="btn btn-success btn-block">Valider</button>
+              <button name="rhadd" type="submit" class="btn btn-success btn-block ">Valider</button>
           </form>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
   
   
 <!-- Modal edit -->
-  <div class="modal fade" id="myModal_edit" role="dialog">
+  <div class="modal fade" id="myModal_edit_rh" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -157,6 +223,7 @@
 
 <!--Table-->
 <div class="table-responsive">
+  <!-- <form data-toggle="validator" id="rh_operations" action="" method="POST"> -->
     <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
            <tr class="menuPrincipalTab">
@@ -212,7 +279,7 @@
             foreach ($employeur as $emp)
             {   ?>
                 <tr>
-                    <td>
+                    <td id="show_detail">
                         <label id="nom" for="nom" class="control-label">
                             <?php echo $emp['nom']; ?>
                         </label>
@@ -287,12 +354,18 @@
         
                     <td>
                         <div class="edit">
-                           <a id="<?php echo $emp["employee_id"]; ?>" class="btn btn-default edit_test"> 
+                           <a hid="btn_edit" class="btn btn-default"> 
                                <i id="edit" class="fa fa-pencil fa-lg"> </i>
                            </a>
-                           <a id="supprimer" class="btn btn-default"> 
-                               <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
-                           </a>
+
+                           <!-- <input type="hidden" value="supprimer<?= $emp['employee_id'] ?>" name="supprimer<?= $emp['employee_id'] ?>"/> -->
+                           
+                           <button id="supprimer<?= $emp['employee_id'] ?>" name="supprimer" value="supprimer<?= $emp['employee_id'] ?>" type="submit" class="btn btn-default">
+                            <i id="edit" class="fa fa-trash fa-lg remove-item"></i>
+                           </button>
+<!--                            <a type="submit" id="supprimer<?= $emp['employee_id'] ?>" class="btn btn-default">
+                               <i id="edit" class="fa fa-trash fa-lg remove-item"></i>
+                           </a> -->
                        </div>
                     </td>
                 </tr>
@@ -300,6 +373,41 @@
         ?>
         </tbody>
     </table>
+  <!-- </form> -->
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
 
+<script type="text/javascript">
+$(document).ready(function ()
+{
+  // $("#supprimer<?= $emp['employee_id']?>").click(function() {
+  //   var currentValue = $(this).val();
+  //   alert(currentValue);
+  // });
+
+  var btn = $("[name='supprimer']");
+
+  for(var i = 0; i < btn.length; i++) {
+    btn[i].onclick = function() {
+      //alert(this.id);
+      var btnId = this.id;
+      $.ajax({
+      type: "POST",
+      url: 'rh',
+      data: { id: btnId }, // name of the post variable ($_POST['id'])
+      success: function(data) {
+       console.log('successfully posted data! response body: ' + data);
+      },
+      error: function(data) {
+       console.log('error');
+      }
+      });
+    }
+  }
+});
+</script>
 

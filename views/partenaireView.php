@@ -1,57 +1,57 @@
 <br><br>
-<h1>PARTENERS</h1>
+<h1>PARTENAIRES</h1>
 <br><br>
 
 <a id="btn_add" class="btn btn-default">
-  Ajouter un partener
+  Ajouter un partenaire
 </a>
 <br><br><br>
 
 
 <!-- Modal add-->
-<div class="modal fade" id="myModal_add" role="dialog">
+<div class="modal fade" id="myModal_add_partenaire" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span>Ajouter un partener</h4>
+        <h4><span class="glyphicon glyphicon-lock"></span>Ajouter un partenaire</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form id="client_edit" role="form" method="POST">
-            <h5>INFORMATION PARTENER</h5>
+        <form id="partenaire_delete" role="form" method="POST">
+            <h5>INFORMATION PARTENAIRE</h5>
               <div class="form-group">
                 <label for="entreprise"><span class="glyphicon glyphicon-user"></span></label>
-                <input type="text" class="form-control" name="entreprise_modal" id="entreprise_modal" placeholder="Entreprise">
+                <input type="text" class="form-control" name="entreprise" id="entreprise_modal" placeholder="Entreprise">
               </div>
               <div class="form-group">
                 <label for="activite"><span class="glyphicon glyphicon-user"></span></label>
-                <input type="text" class="form-control" name="activite_modal" id="activite_modal" placeholder="Activité">
+                <input type="text" class="form-control" name="activite" id="activite_modal" placeholder="Activité">
               </div>
               <div class="form-group">
                 <label for="departement_soucripteur"><span class="glyphicon glyphicon-user"></span>Departement soucripteur</label>
-                <select>
-                  <option value="horus_paris">Horus paris</option>
-                  <option value="horus_corporate">Horus corporate</option>
-                  <option value="kework">Kework</option>
+                <select name="departement">
+                  <option value="Horus Paris">Horus paris</option>
+                  <option value="Horus Corporate">Horus corporate</option>
+                  <option value="Kework">Kework</option>
                 </select>
               </div>
             <h5>COORDONNES</h5>
               <div class="form-group">
                 <label for="nom"><span class="glyphicon glyphicon-eye-open"></span></label>
-                <input type="text" class="form-control" name="nom_modal" id="nom_modal" placeholder="Nom">
+                <input type="text" class="form-control" name="nom" id="nom_modal" placeholder="Nom">
               </div>
               <div class="form-group">
                 <label for="tel"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" name="tel_modal" id="tel_modal" placeholder="Téléphone">
+                <input type="text" class="form-control" name="tel" id="tel_modal" placeholder="Téléphone">
               </div>
               <div class="form-group">
                 <label for="portable"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" name="portable_modal" id="portable_modal" placeholder="Portable">
+                <input type="text" class="form-control" name="portable" id="portable_modal" placeholder="Portable">
               </div>
               <div class="form-group">
                 <label for="email"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" name="email_modal" id="email_modal" placeholder="E-mail">
+                <input type="text" class="form-control" name="email" id="email_modal" placeholder="E-mail">
               </div>
               <!--
               <div class="form-group">
@@ -59,52 +59,13 @@
                 <input type="text" class="form-control" name="_modal" id="xxxxx_modal" placeholder="xxxxx">
               </div>
               -->
-            <h5>CHIFRES / HISTORIQUE</h5>
-              <div class="form-group">
-                <label for="ca"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" name="ca_modal" id="ca_modal" placeholder="CA">
-              </div>
-              <div class="form-group">
-                <label for="historique"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <textarea cols="40" rows="5" class="form-control" name="historique_modal" id="historique_modal" placeholder="Historique"></textarea>
-              </div>
-            <h5>INFO CONTRAT</h5>
-              <div class="form-group">
-                <label for="tip_contrat"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" name="tip_contrat_modal" id="tip_contrat_modal" placeholder="Tipopologie du contrat">
-              </div>
-              <div class="form-group">
-                <label for="debut_contrat"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="date" class="form-control" name="debut_contrat_modal" id="debut_contrat_modal" placeholder="Debut contrat" value="" min="" max="">
-              </div>
-              <div class="form-group">
-                <label for="fin_contrat"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="date" class="form-control" name="fin_contrat_modal" id="fin_contrat_modal" placeholder="Fin contrat" value="" min="" max="">
-              </div>
-            <button type="submit" id="submit_button" class="btn btn-success btn-block">Valider</button>
+            <button type="submit" name="partenaireadd" class="btn btn-success btn-block">Valider</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {   
-    $('#submit_button').on('click',function (e){
-      $.ajax({
-        type:'POST',
-        dataType: 'json',
-        success: function(data) {
-            alert('success',data);
-
-        },
-        error:function(exception){alert('Exeption:'+exception);}
-      }); 
-      e.preventDefault();
-    });
-  });
-</script>
 
 <!-- Table -->
 <div class="table-responsive">
@@ -115,7 +76,7 @@
     <thead>
       
       <tr class="menuPrincipalTab">
-        <th colspan="3">INFORMATION PARTENER</th>
+        <th colspan="3">INFORMATION PARTENAIRE</th>
         <th colspan="4">COORDONNES</th>
         <th colspan="2">CHIFRES / HISTORIQUE</th>
         <th colspan="3">INFO CONRACT</th>
@@ -157,6 +118,9 @@
         </th>
         <th>
           Fin contrat
+        </th>
+        <th>
+          Modifier
         </th>
       </tr>
     </thead>
@@ -235,16 +199,20 @@
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
+        
         <td>
             <div class="edit">
-                <a id="btn_edit" class="btn btn-default"> 
+                <a href="#edit_<?= $partener['partener_id'] ?>" data-toggle="modal" class="btn btn-default"> 
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
                 </a>
-                <a id="supprimer" class="btn btn-default"> 
-                    <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+            </div>
+            <div class="delete">
+                <a href="#delete_<?= $partener['partener_id'] ?>" data-toggle="modal" class="btn btn-default">
+                    <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
                 </a>
             </div>
         </td>
+        <?php include ('Modals/partenaire.php') ?>
       </tr>
     <?php } ?>
     </tbody>

@@ -2,10 +2,11 @@
 session_start();
 
 //connexion bdd
-global $bdd;
+require ('config.php');
 try
 {
-    $bdd = new PDO ("mysql:host=localhost;dbname=manager","root","");
+    $bdd = new PDO ("mysql:host=$host;dbname=$dbname",$user,$mdp);
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(Exeption $e)
 {
