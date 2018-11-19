@@ -1,4 +1,16 @@
 <?php
+	/*
+    function get_client($deb, $fin)
+    {
+        global $bdd;
+        
+        $requete = $bdd->prepare("SELECT * FROM clients LIMIT {$deb},{$fin}");
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
+    $clients = get_client(0, 10);
+    */
 
     function get_client()
     {
@@ -8,6 +20,7 @@
         $requete->execute();
         return $requete->fetchAll();
     }
+ 
     $clients = get_client();
 
     function add_client($entreprise,$effetif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
@@ -106,5 +119,6 @@
                <script src="Toastr/toastr.min.js"></script>
                <script>toastr.error('Error on deleting this partener', 'Error', {timeOut: 5000});</script>;
       <?php }
-    } 
+    }
+
 ?>

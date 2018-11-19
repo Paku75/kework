@@ -1,4 +1,5 @@
 <?php 
+    
     require __DIR__ ."/../models/clientModel.php";
     require __DIR__ ."/../views/clientView.php";
 
@@ -13,10 +14,8 @@
             $tel = $_POST['tel'];
             $email = $_POST['email'];
             $suivi = $_POST['suivi'];
-
             add_client($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
         }
-
     if(isset($_POST['clientedit']))
         {
             $id = $_POST['client_id'];
@@ -29,7 +28,6 @@
             $tel = $_POST['tel'];
             $email = $_POST['email'];
             $suivi = $_POST['suivi'];
-
             edit_client($id,$entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
         }
     
