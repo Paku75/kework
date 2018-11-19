@@ -144,7 +144,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
   
   
 <!-- Modal edit -->
@@ -212,18 +212,15 @@
               <input type="text" class="form-control" id="pass" placeholder="Accès user">
             </div>
               <input type="hidden" name="employee_id" id="client_id" /> 
-              <button type="submit" class="btn btn-success btn-block">Valider</button>
+              <button name="rhedit" type="submit" class="btn btn-success btn-block">Valider</button>
           </form>
         </div>
       </div>
     </div>
-  </div>     
-    
-    
+  </div>  
 
 <!--Table-->
 <div class="table-responsive">
-  <!-- <form data-toggle="validator" id="rh_operations" action="" method="POST"> -->
     <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
            <tr class="menuPrincipalTab">
@@ -343,7 +340,7 @@
                        <label id="mdp" for="mdp" class="control-label">
                            <?php echo $emp['departement_ratache']; ?>
                        </label>
-                       <input type="hidden" class="edit-input1" />
+                       <input name="nom" type="hidden" class="edit-input1" />
                     </td>
                     <td>
                        <label id="mdp" for="mdp" class="control-label">
@@ -354,60 +351,18 @@
         
                     <td>
                         <div class="edit">
-                           <a hid="btn_edit" class="btn btn-default"> 
+                           <a id="btn_edit" class="btn btn-default "> 
                                <i id="edit" class="fa fa-pencil fa-lg"> </i>
                            </a>
-
-                           <!-- <input type="hidden" value="supprimer<?= $emp['employee_id'] ?>" name="supprimer<?= $emp['employee_id'] ?>"/> -->
-                           
-                           <button id="supprimer<?= $emp['employee_id'] ?>" name="supprimer" value="supprimer<?= $emp['employee_id'] ?>" type="submit" class="btn btn-default">
-                            <i id="edit" class="fa fa-trash fa-lg remove-item"></i>
-                           </button>
-<!--                            <a type="submit" id="supprimer<?= $emp['employee_id'] ?>" class="btn btn-default">
-                               <i id="edit" class="fa fa-trash fa-lg remove-item"></i>
-                           </a> -->
+                           <a id="supprimer" class="btn btn-default"> 
+                               <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+                           </a>
                        </div>
                     </td>
                 </tr>
-      <?php }
-        ?>
+                <?php } ?>
         </tbody>
     </table>
-  <!-- </form> -->
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous">
-</script>
 
-<script type="text/javascript">
-$(document).ready(function ()
-{
-  // $("#supprimer<?= $emp['employee_id']?>").click(function() {
-  //   var currentValue = $(this).val();
-  //   alert(currentValue);
-  // });
-
-  var btn = $("[name='supprimer']");
-
-  for(var i = 0; i < btn.length; i++) {
-    btn[i].onclick = function() {
-      //alert(this.id);
-      var btnId = this.id;
-      $.ajax({
-      type: "POST",
-      url: 'rh',
-      data: { id: btnId }, // name of the post variable ($_POST['id'])
-      success: function(data) {
-       console.log('successfully posted data! response body: ' + data);
-      },
-      error: function(data) {
-       console.log('error');
-      }
-      });
-    }
-  }
-});
-</script>
 

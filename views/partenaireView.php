@@ -18,7 +18,7 @@
         <h4><span class="glyphicon glyphicon-lock"></span>Ajouter un partenaire</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form id="partenaire_delete" role="form" method="POST">
+        <form id="client_edit" role="form" method="POST">
             <h5>INFORMATION PARTENAIRE</h5>
               <div class="form-group">
                 <label for="entreprise"><span class="glyphicon glyphicon-user"></span></label>
@@ -199,14 +199,11 @@
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
-        
         <td>
             <div class="edit">
-                <a href="#edit_<?= $partener['partener_id'] ?>" data-toggle="modal" class="btn btn-default"> 
+                <a href="#edit_<?php echo $partener['partener_id']; ?>" data-toggle="modal" class="btn btn-default"> 
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
                 </a>
-            </div>
-            <div class="delete">
                 <a href="#delete_<?= $partener['partener_id'] ?>" data-toggle="modal" class="btn btn-default">
                     <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
                 </a>

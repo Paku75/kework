@@ -106,61 +106,68 @@
         <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un client</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form id="client_edit" role="form">
+        <form method="POST" id="client_edit" role="form">
             <h5>- INFORMATION ENTREPRISE -</h5>
               <div class="form-group">
                 <label for="login"><span class="glyphicon glyphicon-user"></span> </label>
-                <input type="text" class="form-control" id="login" placeholder="Entreprise">
+                <!-- <input type="text" class="form-control" id="login" placeholder="Entreprise"> -->
+                <input name="entreprise" type="text" class="form-control" id="login" placeholder="Entreprise">
               </div>
               <div class="form-group">
                 <label for="email"><span class="glyphicon glyphicon-user"></span> </label>
-                <input type="text" class="form-control" id="email" placeholder="Effectifs">
+                <!-- <input type="text" class="form-control" id="email" placeholder="Effectifs"> -->
+                <input name="effectif" type="text" class="form-control" id="email" placeholder="Effectifs">
               </div>
             <h5>- ACTIVITE -</h5>
               <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <select>
-                    <option>CAC 40</option>
-                    <option>RELA estate</option>
-                    <option>Banque</option>
-                    <option>Cabinets avocats</option>
-                    <option>Family office</option>
+                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
+                <select name="activite">
+                  <option value="CAC 40">CAC 40</option>
+                  <option value="RELA estate">RELA estate</option>
+                  <option value="Banque">Banque</option>
+                  <option value="Cabinets avocats">Cabinets avocats</option>
+                  <option value="Family office">Family office</option>
                 </select>
               </div>
             <h5>- DEPARTEMENT ACHETEUR -</h5>
               <div class="form-group">
-                <select>
-                    <option>Services generaux</option>
-                    <option>Achats</option>
-                    <option>Commercials</option>
-                    <option>Conseils</option>
+                <select name="departement">
+                  <option value="Services generaux">Services generaux</option>
+                  <option value="Achats">Achats</option>
+                  <option value="Commercials">Commercials</option>
+                  <option value="Conseils">Conseils</option>
                 </select>
               </div>
             <h5>- CONTACT ENTREPRISE -</h5>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Nom">
+                <!-- <input type="text" class="form-control" id="pass" placeholder="Nom"> -->
+                <input name="nom" type="text" class="form-control" id="pass" placeholder="Nom">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Prénom">
+                <!-- <input type="text" class="form-control" id="pass" placeholder="Prénom"> -->
+                <input name="prenom" type="text" class="form-control" id="pass" placeholder="Prénom">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Téléphone">
+                <!-- <input type="text" class="form-control" id="pass" placeholder="Téléphone"> -->
+                <input name="tel" type="text" class="form-control" id="pass" placeholder="Téléphone">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <input type="text" class="form-control" id="pass" placeholder="Email">
+                <!-- <input type="text" class="form-control" id="pass" placeholder="Email"> -->
+                <input name="email" type="text" class="form-control" id="pass" placeholder="Email">
               </div>
             <h5>- SUIVI CLIENT -</h5>
               <div class="form-group">
-                <select>
-                    <option>Client en négociation</option>
-                    <option>Client pas interessé</option>
+                <select name="suivi">
+                  <option value="En negociation">Client en négociation</option>
+                  <option value="Pas interesse">Client pas interessé</option>
                 </select>
               </div>
-                <button type="submit" class="btn btn-success btn-block">Valider</button>
+                <!-- <button type="submit" class="btn btn-success btn-block">Valider</button> -->
+                <button name="clientadd" type="submit" class="btn btn-success btn-block">Valider</button>
         </form>
       </div>
     </div>
@@ -168,9 +175,12 @@
 </div>
 
 <!-- Modal edit-->
+<!--
 <div class="modal fade" id="myModal_edit_client" role="dialog">
   <div class="modal-dialog">
-    <!-- Modal content-->
+-->
+    <!-- Modal content -->
+    <!--
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -260,6 +270,7 @@
     </div>
   </div>
 </div>
+-->
 
 <!--Table 1-->
 <div class="table-responsive">
@@ -365,14 +376,18 @@
         
         <td>
             <div class="edit">
-                <a id="btn_edit" class="btn btn-default"> 
+                <!-- <a id="btn_edit" class="btn btn-default"> -->
+                <a href="#edit_<?php echo $client['client_id']; ?>" data-toggle="modal" class="btn btn-default">
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
                 </a>
-                <a id="supprimer" class="btn btn-default"> 
-                    <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+                <!-- <a id="supprimer" class="btn btn-default"> -->
+                    <!-- <i id="edit" class="fa fa-trash fa-lg remove-item "> </i> -->
+                <a href="#delete_<?= $client['client_id'] ?>" data-toggle="modal" class="btn btn-default">
+                  <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
                 </a>
             </div>
         </td>
+        <?php include ('Modals/client.php') ?>
       </tr>
     <?php } ?>
     </tbody>

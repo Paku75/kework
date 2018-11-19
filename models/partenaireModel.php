@@ -26,7 +26,7 @@
             try
             {
                 $requete->execute();
-                header('Location: partenaire');
+//                header('Location: partenaire');
             }
             catch(PDOException $e)
             {   
@@ -37,40 +37,37 @@
       <?php }
     }
 
-    function edit_client($entreprise,$effetif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi,$date,$historique,$service)
+    function edit_partenaire($id,$entreprise,$activite,$departement,$nom,$tel,$portable,$email,$date,$historique)
     {
             global $bdd;
-            $requete = $bdd->prepare(" UPDATE clients SET 
-                                            client_entreprise = :entreprise,
-                                            client_effectif = :effectif,
-                                            client_menu_famille = :activite,
-                                            client_fonction_occupee = :departement,
-                                            client_nom = :nom,
-                                            client_prenom = :prenom,
-                                            client_tel = :tel,
-                                            client_email = :email,
-                                            client_suivi = :suivi,
-                                            client_date = :date,
-                                            client_historique = :historique,
-                                            client_services = :service
+            $requete = $bdd->prepare(" UPDATE parteners SET 
+                                            partener_entreprise = :entreprise,
+                                            partener_activite = :activite,
+                                            partener_departement_soucripteur= :departement,
+                                            partener_nom = :nom,
+                                            partener_tel = :tel,
+                                            partener_portable = :portable,
+                                            partener_email = :email,
+                                            partener_date = :date,
+                                            partener_historique = :historique
+                                        WHERE partener_id = :id
                                     ");
+            $requete->bindValue(":id",$id);
             $requete->bindValue(":entreprise",$entreprise);
-            $requete->bindValue(":effectif",$effetif);
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
-            $requete->bindValue(":prenom",$prenom); 
             $requete->bindValue(":tel",$tel);
+            $requete->bindValue(":portable",$portable); 
             $requete->bindValue(":email",$email);
-            $requete->bindValue(":suivi",$suivi);
             $requete->bindValue(":date",$date);
             $requete->bindValue(":historique",$historique);
-            $requete->bindValue(":service",$service);
                
             try
             {
                 $requete->execute();
-                header('Location: client');
+                header('Location: partenaire');
+                var_dump($requete);
             }
             catch(PDOException $e)
             {   
@@ -80,7 +77,6 @@
                <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
       <?php }
     }
-
 
     function delete_partenaire($id)
     {
@@ -108,4 +104,4 @@
                <script src="Toastr/toastr.min.js"></script>
                <script>toastr.error('Error on deleting this partener', 'Error', {timeOut: 5000});</script>;
       <?php }
-    }
+    } 
