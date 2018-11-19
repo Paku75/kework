@@ -106,7 +106,7 @@
         <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un client</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form id="client_edit" role="form">
+        <form method="POST" id="client_edit" role="form">
             <h5>- INFORMATION ENTREPRISE -</h5>
               <div class="form-group">
                 <label for="login"><span class="glyphicon glyphicon-user"></span> </label>
@@ -275,6 +275,9 @@
             <div class="edit">
                 <a href="#edit_<?php echo $client['client_id']; ?>" data-toggle="modal" class="btn btn-default"> 
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
+                </a>
+                <a href="#delete_<?= $client['client_id'] ?>" data-toggle="modal" class="btn btn-default">
+                    <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
                 </a>
             </div>
         </td>

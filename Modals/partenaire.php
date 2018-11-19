@@ -10,10 +10,11 @@
         <h4><span class="glyphicon glyphicon-lock"></span> Modifier le client</h4>
       </div>
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
-        <form id="client_edit" role="form">
+        <form method="POST" id="client_edit" role="form">
             <h5>- INFORMATION ENTREPRISE -</h5>
               <div class="form-group">
                 <label for="login"><span class="glyphicon glyphicon-user"></span> </label>
+                <input type="hidden" name="id_edit" value="<?= $partener['partener_id'] ?>">
                 <input type="text" name="entreprise_edit" class="form-control" id="login" placeholder="Entreprise" value="<?= $partener['partener_entreprise'] ?>">
               </div>
               <div class="form-group">
@@ -61,27 +62,24 @@
     </div>
   </div>
 </div>
- <?php
-    if(isset($_POST['partenaireedit']))
-        {    
-              echo("ok");
-//            file_put_contents("test222.php","slt");
-//            $entreprise = $_POST['entreprise_edit'];
-//            $activite = $_POST['activite_edit'];
-//            $departement = $_POST['departement_edit'];
-//            $nom= $_POST['nom_edit'];
-//            $tel = $_POST['tel_edit'];
-//            $portable = $_POST['portable'];
-//            $email = $_POST['email_edit'];
-//            $date = $_POST['date_edit'];
-//            $historique = $_POST['historique_edit'];
 
-            
-//            edit_partenaire($entreprise,$activite,$departement,$nom,$tel,$portable,$email,$date,$historique);
-//            var_dump("apres");
-        } else {
-//            file_put_contents("test333.php","slt");
-//              echo("no");      
-    }
-                       
-?>
+
+
+<!-- Modal delete-->
+<div class="modal fade" id="delete_<?= $partener['partener_id'] ?>" role="dialog" aria-labelledby="myModalLabedelete" aria-hidden="true">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-lock"></span>Supprimer un partenaire</h4>
+      </div>
+      <div style="color:black;" class="modal-body" style="padding:40px 50px;">
+        <form id="partenaire_delete" role="form" method="POST">
+         <p>Voulez-vous supprimer "<?= $partener['partener_entreprise'] ?>"!</p>
+         <button type="submit" name="partenaire_delete" class="btn btn-success btn-block">Ok</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 

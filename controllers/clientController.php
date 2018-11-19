@@ -14,10 +14,12 @@
             $email = $_POST['email'];
             $suivi = $_POST['suivi'];
 
-            add_client($entreprise,$effetif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
+            add_client($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
         }
-     else if(isset($_POST['clientedit']))
+
+    if(isset($_POST['clientedit']))
         {
+            $id = $_POST['client_id'];
             $entreprise = $_POST['entreprise'];
             $effectif = $_POST['effectif'];
             $activite = $_POST['activite'];
@@ -27,10 +29,14 @@
             $tel = $_POST['tel'];
             $email = $_POST['email'];
             $suivi = $_POST['suivi'];
-            $date = $_POST['date'];
-            $historique = $_POST['historique'];
-            $service = $_POST['service'];
 
-            edit_client($entreprise,$effetif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi,$date,$historique,$service);
+            edit_client($id,$entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
         }
+    
+     
+    if(isset($_POST['client_delete']))
+    {
+        $id = @$client['client_id'];
+         delete_client($id);
+    }
 ?>

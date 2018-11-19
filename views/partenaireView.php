@@ -204,8 +204,8 @@
                 <a href="#edit_<?php echo $partener['partener_id']; ?>" data-toggle="modal" class="btn btn-default"> 
                     <i id="edit" class="fa fa-pencil fa-lg"> </i>
                 </a>
-                <a id="supprimer" class="btn btn-default"> 
-                    <i id="edit" class="fa fa-trash fa-lg remove-item "> </i>
+                <a href="#delete_<?= $partener['partener_id'] ?>" data-toggle="modal" class="btn btn-default">
+                    <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
                 </a>
             </div>
         </td>
