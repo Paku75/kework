@@ -7,17 +7,16 @@
   <hr>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Horus</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Kework</a>
+      <a class="nav-item nav-link active" id="nav-horus-tab" data-toggle="tab" href="#nav-horus" role="tab" aria-controls="nav-horus" aria-selected="true">Horus</a>
+      <a class="nav-item nav-link" id="nav-kework-tab" data-toggle="tab" href="#nav-kework" role="tab" aria-controls="nav-kework" aria-selected="false">Kework</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-horus-tab"><br>
+    <div class="tab-pane fade show active" id="nav-horus" role="tabpanel" aria-labelledby="nav-horus-tab"><br>
       <?= getContent("Horus"); ?>
     </div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-kework-tab"><br>
+    <div class="tab-pane fade" id="nav-kework" role="tabpanel" aria-labelledby="nav-kework-tab"><br>
       <?= getContent("Kework"); ?>
   </div>
 </div>
-
 

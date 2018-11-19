@@ -154,7 +154,7 @@ li a #filterOptions{
 }
 
 .container .navbar .navbar-collapse .navbar-nav .dropdown-menu {
-    background-color: rgb(0, 0, 0, 0.7)!important;
+    background-color: rgb(0, 0, 0, 0.98)!important;
     transition: all .5s ease;
 }
 

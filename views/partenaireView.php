@@ -176,9 +176,9 @@
           <input type="hidden" class="edit-input1" />
         </td>
         <td>
-          <label id="historique" for="historique" class="control-label">
+          <label id="p_historique" for="p_historique" class="control-label">
             <?php echo $partener['partener_historique']; ?>
-          </label>\
+          </label>
           <input type="hidden" class="edit-input1" />
         </td>
         <td>
