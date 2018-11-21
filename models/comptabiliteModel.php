@@ -1,9 +1,10 @@
 <?php
-    function getCategories()
+    function getCategoriesByCompanyName($companyName)
     {
         global $bdd;
         
-        $requete = $bdd->prepare("SELECT * FROM categories");
+        $requete = $bdd->prepare("SELECT * FROM categories WHERE cat_entreprise = :companyName OR cat_entreprise = 'both'");
+        $requete->bindValue(":companyName", $companyName);
         $requete->execute();
         return $requete->fetchAll();
     }
@@ -59,8 +60,30 @@
 
 	function showTables($companyName, $description)
 	{
-    	$categories = getCategories();
+        $categories = getCategoriesByCompanyName($companyName);
 
 		include __DIR__ ."/../views/tablesComptabiliteView.php";
 	}
+
+    function addCategorie($nomCategorie, $entreprise)
+    {
+        global $bdd;
+        $requete = $bdd->prepare("
+          INSERT INTO categories(nom_categorie, cat_entreprise) VALUES (:nomCategorie, :entreprise)");
+        $requete->bindValue(":nomCategorie", $nomCategorie);
+        $requete->bindValue(":entreprise", $entreprise);
+
+        try
+        {
+            $requete->execute();
+            header('Location: comptabilite');
+        }
+        catch(PDOException $e)
+        {   
+        ?> 
+           <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+           <script src="Toastr/toastr.min.js"></script>
+           <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+        <?php }
+    }
 ?>

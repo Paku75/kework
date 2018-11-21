@@ -20,3 +20,26 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
+<script type="text/javascript">
+  $(document).ready(function() {
+    /*
+     * START TABS: REFRESH AND STAY IN SAME TAB
+     */
+    $('#nav-tab a').click(function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+    // store the currently selected tab in the hash value
+    $("div.nav-tabs > a").on("shown.bs.tab", function(e) {
+      var id = $(e.target).attr("href").substr(1);
+      window.location.hash = id;
+    });
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#nav-tab a[href="' + hash + '"]').tab('show');
+    /*
+     * END TABS: REFRESH AND STAY IN SAME TAB
+     */
+  });
+</script>

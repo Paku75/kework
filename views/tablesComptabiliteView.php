@@ -1,6 +1,13 @@
-<div class="comptabiliteContainer">
-    <h3><?= $companyName ?></h3>
+<?php
+  include __DIR__ ."/../Modals/comptabilite.php";
+?>
+
+    <div class="comptabiliteContainer">
+      <h3><?= $companyName ?></h3>
       <p><?= $description ?></p><br>
+      <a href="#" id="btn_add_categorie_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une categorie</a>
+      <a href="#" id="btn_add_fonction_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une fonction</a>
+      <br><br><br><br>
       <div class="">
         <table class="darkTable" style="">
           <thead>
@@ -217,3 +224,15 @@
         </table>
       </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#btn_add_categorie_<?= $companyName ?>").click(function() {
+          $("#myModal_add_categorie_<?= $companyName ?>").modal();
+      });
+      $("#btn_add_fonction_<?= $companyName ?>").click(function() {
+          $("#myModal_add_fonction_<?= $companyName ?>").modal();
+      });
+  });
+</script>

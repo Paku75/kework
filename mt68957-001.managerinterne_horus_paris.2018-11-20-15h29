@@ -1,0 +1,173 @@
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
+--
+-- Host: 172.17.0.58    Database: managerinterne_horus_paris
+-- ------------------------------------------------------
+-- Server version	5.7.21-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clients` (
+  `client_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_entreprise` varchar(255) DEFAULT NULL,
+  `client_effectif` int(11) DEFAULT NULL,
+  `client_menu_famille` varchar(255) DEFAULT NULL,
+  `client_fonction_occupee` varchar(255) DEFAULT NULL,
+  `client_nom` varchar(255) DEFAULT NULL,
+  `client_prenom` varchar(255) DEFAULT NULL,
+  `client_tel` varchar(255) DEFAULT NULL,
+  `client_email` varchar(255) DEFAULT NULL,
+  `client_suivi` varchar(255) DEFAULT NULL,
+  `client_date` varchar(255) DEFAULT NULL,
+  `client_historique` text,
+  `client_services` varchar(255) DEFAULT NULL,
+  `client_contrat_deb` varchar(255) DEFAULT NULL,
+  `client_contrat_fin` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clients`
+--
+
+LOCK TABLES `clients` WRITE;
+/*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` VALUES (1,'Archon ',6,'CAC 40','Services generaux','Archisio','Francoise','0142121500','email@gmail.com','Client en nÃ©gociation','05/01/2016','le 021215 a 17H36 : presentaiton amil envoyee de mail victoria suite echnge tel . le 02 12 15 : echnage call avec MME Antoine nous ayant communqiue son adresse mail . Durant cet echange Mme Antoije nous a egalement transmis recevoir regulierement des Invites etrnagers , et nous a precise qu\'a ce jour le groupe Ajjirwafa représentait 25 agences sur paris et 150 collaborateurs.Le 021215 a 16H30 : echnage call Mme Fauconnierdu service juridique nous ayant transmis 2 contacts : celui de la Direction , Mme Antoine ligne directe 0153757516 et de sservice sgeneraux 0153758131. .  le 021215: echange call avec serive sgeneraux nous disant de voir avec MME Fauconnier','Conciergerie','01/01/2014','01/01/2016');
+/*!40000 ALTER TABLE `clients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employeurs`
+--
+
+DROP TABLE IF EXISTS `employeurs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employeurs` (
+  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `date_de_naissance` date NOT NULL,
+  `n_ss` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(11) NOT NULL,
+  `addresse` varchar(255) NOT NULL,
+  `poste_occupee` varchar(255) NOT NULL,
+  `date_entree_entreprise` date NOT NULL,
+  `date_sortie_entreprise` date NOT NULL,
+  `departement_ratache` varchar(255) NOT NULL,
+  `access_departement` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employeurs`
+--
+
+LOCK TABLES `employeurs` WRITE;
+/*!40000 ALTER TABLE `employeurs` DISABLE KEYS */;
+INSERT INTO `employeurs` VALUES (39,'SEIGNEURET ','MARTIN ','1999-03-10','1823456579872','martinseigneuret@gmail.com','','','','1970-01-01','1970-01-01','',1,NULL);
+/*!40000 ALTER TABLE `employeurs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parteners`
+--
+
+DROP TABLE IF EXISTS `parteners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parteners` (
+  `partener_id` int(11) NOT NULL AUTO_INCREMENT,
+  `partener_entreprise` varchar(255) DEFAULT NULL,
+  `partener_activite` varchar(255) DEFAULT NULL,
+  `partener_departement_soucripteur` varchar(255) DEFAULT NULL,
+  `partener_nom` varchar(255) DEFAULT NULL,
+  `partener_tel` varchar(255) DEFAULT NULL,
+  `partener_portable` varchar(255) DEFAULT NULL,
+  `partener_email` varchar(255) DEFAULT NULL,
+  `partener_ca_rapporte` text,
+  `partener_date` date DEFAULT NULL,
+  `partener_historique` varchar(255) DEFAULT 'Aucune historique',
+  `partener_contrat` varchar(255) DEFAULT NULL,
+  `partener_debut_contrat` date DEFAULT NULL,
+  `partener_fin_contrat` date DEFAULT NULL,
+  PRIMARY KEY (`partener_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parteners`
+--
+
+LOCK TABLES `parteners` WRITE;
+/*!40000 ALTER TABLE `parteners` DISABLE KEYS */;
+INSERT INTO `parteners` VALUES (33,'02 ','Garde d\'enfants ','Horus Paris','LAURA LECUREUIL ','02 43 72 02 02','','laura.lecureuil@o2.fr',NULL,'2018-11-20','Le 201118 , call avec MME Lecureuil qui doit nous faire retour mail avec tableau Chiffre le 30 11 18 ',NULL,NULL,NULL),(28,'BIO CULTURE ','PANIERS BIO - ','Horus Paris','ADRIEN','01 41 14 18 10','N/A','N/A',NULL,'2018-11-01','Aucune historique',NULL,NULL,NULL),(34,'02 ','MENAGE , REPASSAGE , AIDE AUX DEVOIRS...','Horus Paris','LECUREUIL LAURA','02 43 72 02 02','07 75 26 61 03 ','laura.lecureuil@o2.fr',NULL,NULL,'Aucune historique',NULL,NULL,NULL),(35,'GALERIES LAFAYETTE','','Horus Paris','','','','',NULL,NULL,'Aucune historique',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `parteners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(255) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_date_inscription` date NOT NULL,
+  `user_poste` varchar(255) NOT NULL,
+  `user_level` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'paku','ffbdcb6949ae829a4cf2aa836b6187a198ee9988','paku@gmail.com','2018-11-05','Dev',1),(2,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@gmail.com','2018-11-04','',1),(3,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','test@gmail.com','2018-11-13','Informatique',0),(4,'test2','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','test2@gmail.com','2018-11-13','DÃ©veloppement commercial',0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'managerinterne_horus_paris'
+--
+
+--
+-- Dumping routines for database 'managerinterne_horus_paris'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-11-20 15:29:06

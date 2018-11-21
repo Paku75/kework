@@ -121,6 +121,7 @@
                     $("#myModal_detailRH").modal();
                 });
             });
+
         
          // Delete user
 //            $(document).ready(function(){

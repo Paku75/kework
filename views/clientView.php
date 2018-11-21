@@ -272,7 +272,7 @@
 
 <!--Table 1-->
 <div class="table-responsive">
-  <table id="myTable" class="table table-bordered display">
+  <table id="myTable" class="display">
     <thead>
      
       <tr>

@@ -14,4 +14,12 @@
 
     	showTables($companyName, $description);
     }
+
+    if (isset($_POST['categorie_add_submit']))
+    {
+        $catEntreprise = $_POST['cat_entreprise'];
+        $nomCategorie = $_POST['nom_categorie'];
+
+        addCategorie($nomCategorie, $catEntreprise);
+    }
 ?>
