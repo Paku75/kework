@@ -1,5 +1,3 @@
-
-
 <!-- Modal edit-->
 <div class="modal fade" id="edit_<?php echo $partener['partener_id']; ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -55,14 +53,13 @@
                 <input type="text" name="historique_edit" class="form-control" id="pass" placeholder="Historique" value="<?= $partener['partener_historique'] ?>">
               </div>
             <h5>- INFO CONTRAT -</h5>
-              
+
             <button type="submit" name="partenaireedit" class="btn btn-success btn-block">Valider</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
 
 
 <!-- Modal delete-->
@@ -77,6 +74,7 @@
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
         <form id="partenaire_delete" role="form" method="POST">
          <p>Voulez-vous supprimer "<?= $partener['partener_entreprise'] ?>"!</p>
+         <input type="hidden" name="id_delete" value="<?= $partener['partener_id'] ?>">
          <button type="submit" name="partenaire_delete" class="btn btn-success btn-block">Ok</button>
         </form>
       </div>

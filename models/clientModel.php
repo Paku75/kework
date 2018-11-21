@@ -1,16 +1,4 @@
 <?php
-	/*
-    function get_client($deb, $fin)
-    {
-        global $bdd;
-        
-        $requete = $bdd->prepare("SELECT * FROM clients LIMIT {$deb},{$fin}");
-        $requete->execute();
-        return $requete->fetchAll();
-    }
-
-    $clients = get_client(0, 10);
-    */
 
     function get_client()
     {
@@ -23,14 +11,33 @@
  
     $clients = get_client();
 
-    function add_client($entreprise,$effetif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
+    function add_client($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
     {
             global $bdd;
-            $requete = $bdd->prepare("
-              INSERT INTO clients(client_entreprise,client_effectif,client_menu_famille,client_fonction_occupee,client_nom,client_prenom,client_tel,client_email,client_suivi) VALUES (:entreprise, :effectif, :activite, :departement, :nom, :prenom, :tel, :email, :suivi)
-                                ");
+            $requete = $bdd->prepare("INSERT INTO clients( 
+                                                            client_entreprise,
+                                                            client_effectif,
+                                                            client_menu_famille,
+                                                            client_fonction_occupee,
+                                                            client_nom,client_prenom,
+                                                            client_tel,client_email,
+                                                            client_suivi
+                                                         ) 
+                                                         
+                                                   VALUES(
+                                                            :entreprise,
+                                                            :effectif,
+                                                            :activite,
+                                                            :departement,
+                                                            :nom,
+                                                            :prenom,
+                                                            :tel,
+                                                            :email,
+                                                            :suivi
+                                                         )
+                                    ");
             $requete->bindValue(":entreprise",$entreprise);
-            $requete->bindValue(":effectif",$effetif);
+            $requete->bindValue(":effectif",$effectif);
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
@@ -65,7 +72,7 @@
                                             client_prenom = :prenom,
                                             client_tel = :tel,
                                             client_email = :email,
-                                            client_suivi = :suivi,
+                                            client_suivi = :suivi
                                         WHERE client_id = :id
                                     ");
             $requete->bindValue(":id",$id);
@@ -78,7 +85,7 @@
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":email",$email);
             $requete->bindValue(":suivi",$suivi);
-               
+        
             try
             {
                 $requete->execute();
@@ -90,6 +97,49 @@
                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
                <script src="Toastr/toastr.min.js"></script>
                <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+      <?php }
+    }
+    
+//    function enlever_barre($service)
+    function enlever_barre($str)
+{
+    for ($i = 0; $i < strlen($str); ++$i) {
+        if (ctype_alpha($str[strlen($str) - 1]) == false) {
+            $str = substr($str, 0, -1);
+            $i = 0;
+        }
+    }
+    return ($str);
+}
+
+    function edit_services($id,$accueil,$conciergerie,$buisness,$happiness,$cowork)
+    {
+            global $bdd;
+            $requete = $bdd->prepare("UPDATE clients  SET
+                                            client_services = :services
+                                     WHERE client_id = :id
+                                     ");
+            $service = "$accueil "."| ";
+            $service .= "$conciergerie"."| ";
+            $service .= "$buisness"."| ";
+            $service .= "$happiness"."| ";
+            $service .= "$cowork"."| ";
+        
+            $service = enlever_barre($service);
+        
+            $requete->bindValue(":id", $id);
+            $requete->bindValue(":services", $service);
+
+            try
+            {
+                $requete->execute();
+            }
+            catch(PDOException $e)
+            {
+            ?> 
+               <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+               <script src="Toastr/toastr.min.js"></script>
+               <script>toastr.warning('Impossible de modifier les services installés', 'Warning', {timeOut: 5000});</script>;
       <?php }
     }
 

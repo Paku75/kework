@@ -64,23 +64,22 @@
                     <option>Client pas interessé</option>
                 </select>
               </div>
-<!--
             <h5>- SERVICES INSTALLES -</h5>
-                Accueil<input type="checkbox" id="Accueil" name="Accueil"> 
-              
               <div class="form-group">
-                Conciergerie<input type="checkbox" id="Accueil" name="Accueil" > 
+                <label for="case">Accueil</label> <input type="checkbox" id="case" value="Accueil" name="accueil"> 
               </div>
               <div class="form-group">
-                Buisness office<input type="checkbox" id="Accueil" name="Accueil" > 
+                <label for="case">Conciergerie</label> <input type="checkbox" id="case" value="Conciergerie" name="conciergerie" > 
               </div>
               <div class="form-group">
-                Happiness<input type="checkbox" id="Accueil" name="Accueil" > 
+                <label for="case">Buisness office</label> <input type="checkbox" id="case" value="Buisness office" name="buisness" > 
               </div>
               <div class="form-group">
-                Cowork<input type="checkbox" id="Accueil" name="Accueil" > 
+                <label for="case">Happiness</label> <input type="checkbox" id="case" value="Happiness" name="happiness" > 
               </div>
--->
+              <div class="form-group">
+                <label for="case">Cowork</label> <input type="checkbox" id="case" value="Cowork" name="cowork" > 
+              </div>
                 <button type="submit" name="clientedit" class="btn btn-success btn-block">Valider</button>
         </form>
       </div>
@@ -99,8 +98,9 @@
         <h4><span class="glyphicon glyphicon-lock"></span>Supprimer un partenaire</h4>
       </div>
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
-        <form id="partenaire_delete" role="form" method="POST">
+        <form id="client_delete" role="form" method="POST">
          <p>Voulez-vous supprimer "<?= $client['client_entreprise'] ?>"!</p>
+         <input type="hidden" name="id_delete" value="<?= $client['client_id'] ?>">
          <button type="submit" name="client_delete" class="btn btn-success btn-block">Ok</button>
         </form>
       </div>

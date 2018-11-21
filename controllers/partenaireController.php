@@ -35,7 +35,7 @@
      
     if(isset($_POST['partenaire_delete']))
     {
-        $id = @$partener['partener_id'];
-         delete_partenaire($id);
+        $id = $_POST['id_delete'];
+        delete_partenaire($id);
     }
 ?>

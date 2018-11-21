@@ -41,7 +41,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRES INTERNES <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class="dropdown-item"><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
-                    <li class="dropdown-item"><a href="#" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
+                    <li class="dropdown-item"><a href="comptabilite" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
                     <li class="dropdown-item"><a href="#">JURIDIQUE</a></li>
                     <li class="dropdown-item"><a href="#">COMMUNITY</a></li>
                     <li class="dropdown-item"><a href="#">AUTRE</a></li>
@@ -53,7 +53,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOI <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                     <li class="dropdown-item"><a href="#" title="Lien 1">Profil</a></li>
+                     <li class="dropdown-item"><a href="profil" title="Lien 1">Profil</a></li>
                      <li class="dropdown-item"><a href="register">Inscire un nouveau utilisateur</a></li>
                      <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
                   </ul>

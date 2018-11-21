@@ -15,3 +15,14 @@
     <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 
 <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+
+
+
+
+<!--
+
+// Afficher vardump dans un autre fichier
+        ob_flush();    
+        ob_start();
+        var_dump($_POST);
+        file_put_contents("test22.php",ob_get_flush());-->

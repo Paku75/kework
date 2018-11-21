@@ -1,15 +1,12 @@
 
-    <!-- <h3><?= $companyName ?></h3> -->
-      <!-- <p><?= $description ?></p><br> -->
-    <h3>NOM ENTREPRISE</h3>
-      <p>Description entreprise</p><br>
+    <h3><?= $companyName ?></h3>
+      <p><?= $description ?></p><br>
       <div class="table-responsive">
         <table class="detail" style="color: black;" style="width:100%">
           <thead>
             <tr id="modal_menu_detail">
               <th colspan="2">I-CHARGES COURANTES ENTREPRISE</th>
-              <!-- <th colspan="5"><?= $companyName ?></th> -->
-              <th colspan="5">NOM ENTREPRISE</th>
+              <th colspan="5"><?= $companyName ?></th>
             </tr>
             <tr id="modal_sous_menu_detail">
               <th>
@@ -90,8 +87,7 @@
           <thead>
             <tr id="modal_menu_detail">
               <th colspan="2">II-ENREGISTREMENT FACTURES PRO</th>
-              <!-- <th colspan="7"><?= $companyName ?></th> -->
-              <th colspan="7">NOM ENTREPRISE</th>
+              <th colspan="7"><?= $companyName ?></th>
             </tr>
             <tr id="modal_menu_detail">
               <th colspan="3">Partie 1</th>

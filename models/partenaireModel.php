@@ -26,7 +26,7 @@
             try
             {
                 $requete->execute();
-//                header('Location: partenaire');
+                header('Location: partenaire');
             }
             catch(PDOException $e)
             {   
