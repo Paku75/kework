@@ -9,12 +9,25 @@
         return $requete->fetchAll();
     }
 
-    function get_fonctions()
+    function getFonctions()
     {
         global $bdd;
         
         $requete = $bdd->prepare("SELECT * FROM fonctions");
         $requete->execute();
+        return $requete->fetchAll();
+    }
+
+
+    function getFonctionsByCategoryId($categoryId)
+    {
+        global $bdd;
+
+        $requete = $bdd->prepare("SELECT * FROM fonctions WHERE id_categorie = :categoryId");
+
+        $requete->bindValue(":categoryId", $categoryId);
+        $requete->execute();
+
         return $requete->fetchAll();
     }
 
@@ -55,7 +68,19 @@
         return $requete->fetchAll();
     }
 
-    $fonctions = get_fonctions();
+    function getChargesByIdFonction($idFonction)
+    {
+        global $bdd;
+
+        $requete = $bdd->prepare("SELECT * FROM charges WHERE id_fonction = :idFonction");
+
+        $requete->bindValue(":idFonction", $idFonction);
+        $requete->execute();
+
+        return $requete->fetchAll();
+    }
+
+    //$fonctions = getFonctions();
     // $charges = get_charges();
 
 	function showTables($companyName, $description)
@@ -68,8 +93,7 @@
     function addCategorie($nomCategorie, $entreprise)
     {
         global $bdd;
-        $requete = $bdd->prepare("
-          INSERT INTO categories(nom_categorie, cat_entreprise) VALUES (:nomCategorie, :entreprise)");
+        $requete = $bdd->prepare("INSERT INTO categories(nom_categorie, cat_entreprise) VALUES (:nomCategorie, :entreprise)");
         $requete->bindValue(":nomCategorie", $nomCategorie);
         $requete->bindValue(":entreprise", $entreprise);
 
@@ -77,6 +101,63 @@
         {
             $requete->execute();
             header('Location: comptabilite');
+        }
+        catch(PDOException $e)
+        {   
+        ?> 
+           <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+           <script src="Toastr/toastr.min.js"></script>
+           <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+        <?php }
+    }
+
+    function addFonction($nomFonction, $idCategorie)
+    {
+        global $bdd;
+        $requete = $bdd->prepare("INSERT INTO fonctions(nom_fonction, id_categorie) VALUES (:nomFonction, :idCategorie)");
+        $requete->bindValue(":nomFonction", $nomFonction);
+        $requete->bindValue(":idCategorie", $idCategorie);
+
+        try
+        {
+            $requete->execute();
+            header('Location: comptabilite');
+        }
+        catch(PDOException $e)
+        {
+        ?> 
+           <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+           <script src="Toastr/toastr.min.js"></script>
+           <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+        <?php }
+    }
+
+    function addCharge($idFonction, $entreprise, $prestataire, $coutMois, $tauxTva, $annivContrat, $historique, $contentieux)
+    {
+        global $bdd;
+        $requete = $bdd->prepare("INSERT INTO charges(id_fonction, entreprise, prestataire, cout_mois, taux_tva, anniv_contrat, historique, contentieux)
+            VALUES(:idFonction, :entreprise, :prestataire, :coutMois, :tauxTva, :annivContrat, :historique, :contentieux)");
+        $requete->bindValue(":idFonction", $idFonction);
+        $requete->bindValue(":entreprise", $entreprise);
+        $requete->bindValue(":prestataire", $prestataire);
+        $requete->bindValue(":coutMois", $coutMois);
+        $requete->bindValue(":tauxTva", $tauxTva);
+        $requete->bindValue(":annivContrat", $annivContrat);
+        $requete->bindValue(":historique", $historique);
+        $requete->bindValue(":contentieux", $contentieux);
+
+        try
+        {
+            echo "<b><br>idFonction = ". $idFonction ."<br>";
+            echo "entreprise = ". $entreprise ."<br>";
+            echo "prestataire = ". $prestataire ."<br>";
+            echo "coutMois = ". $coutMois ."<br>";
+            echo "tauxTva = ". $tauxTva ."<br>";
+            echo "annivContrat = ". $annivContrat ."<br>";
+            echo "historique = ". $historique ."<br>";
+            echo "contentieux = ". $contentieux ."<br><br></b>";
+            //$requete->execute();
+            //header('Location: comptabilite');
         }
         catch(PDOException $e)
         {   
