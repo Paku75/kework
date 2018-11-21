@@ -1,6 +1,6 @@
-<div class="login">
-	<h1>Inscrire une personne</h1>
-    <form action="" method="post">
+<form class="loginForm"action="" method="post">
+  <h1>Inscrire une personne</h1>
+      <div class="inset">
     	<input type="text" name="username" placeholder="Username"/>
         <input type="text" name="email1" placeholder="Email"/>
         <input type="text" name="email2" placeholder="Confirmation de l'email"/>
@@ -16,9 +16,9 @@
           <option value="Ressources humaines">Ressources humaines</option>
           <option value="Administrative">Administrative</option>
         </select>
-        <br><br>
-        <button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Valider</button>
-    </form>
+        <input type="submit" name="submit" value="Valider">
+      </div>
+</form>
     
     <?php 
         if(isset($erreur))
@@ -26,4 +26,3 @@
             echo '<font color="red">'.$erreur."</font>";
         }
     ?>
-</div>

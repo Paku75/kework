@@ -1,4 +1,4 @@
-
+<div class="comptabiliteContainer">
     <h3><?= $companyName ?></h3>
       <p><?= $description ?></p><br>
       <div class="">
@@ -216,46 +216,4 @@
           </tbody>
         </table>
       </div>
-
-<style type="text/css">
-/* START - TABLES STYLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-th,
-td {
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-th {
-  text-align: left;
-}
-thead th {
-  background-color: #55608f;
-}
-tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-tbody td {
-  position: relative;
-  width: 100%; /* Extend the cell as much as possible */
-  max-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-tbody td:hover:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -9999px;
-  bottom: -9999px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: -1;
-}
-
-/* END   - TABLES STYLE */
-</style>
+</div>

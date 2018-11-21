@@ -17,10 +17,10 @@
   </head>
 
   <body>
+<?php if(isset($_SESSION['connecte'])) { ?>
 <div id="app" class="container">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
-            <?php if(isset($_SESSION['connecte'])) { ?>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="admin">HOME</a>
@@ -65,12 +65,12 @@
                   </ul>
                 </li>
             </ul>
-            <?php } else { ?>
-            <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li>
-            <?php } ?>
         </div>
     </nav>
 </div>
+            <?php } else { ?>
+            <!-- <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li> -->
+            <?php } ?>
 
         <?php 
             echo $content;

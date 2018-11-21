@@ -2,10 +2,8 @@
 <h1>REGISTRE UNIQUE DU PERSONNEL</h1>
 
 <br><br>
-    
-    <a id="btn_add" class="btn btn-default" data-target="#myModal_add_rh"> 
-        Ajouter un collaborateur
-    </a>
+
+<a href="#" id="btn_add" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#myModal_add_rh">Ajouter un collaborateur</a>
     
 <br><br>
 
@@ -139,7 +137,7 @@
                   <option value="0" selected>Non</option>
               </select>
             </div>
-              <button name="rhadd" type="submit" class="btn btn-success btn-block ">Valider</button>
+              <input name="rhadd" type="submit" class="btn btn-success btn-block" value="Valider">
           </form>
         </div>
       </div>
@@ -148,7 +146,7 @@
 
 <!--Table-->
 <div class="table-responsive">
-    <table style="color: black;" id="myTable" class="table table-bordered display" style="width:100%">
+    <table id="myTable" class="table table-bordered display" style="width:100%">
         <thead>
            <tr class="menuPrincipalTab">
               <th colspan="4">IDENTITE</th>

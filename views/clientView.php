@@ -2,9 +2,7 @@
 <h1>PROSPECTION CLIENT</h1>
 <br><br>
 
-<a id="btn_add" class="btn btn-default"> 
-        Ajouter un client
-</a>
+<a href="#" id="btn_add" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter un client</a>
 <br><br><br>
 
 
@@ -15,12 +13,11 @@
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span> Détail</h4>
+        <h4><span class=""></span>Détail</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
         <!--Table modal-->
-        <div class="table-responsive">
-            <table class="detail" style="color: black;" style="width:100%">
+            <table>
                 <thead>
                    <tr id="modal_menu_detail">
                        <th colspan="4">CONTACT ENTREPRISE</th>
@@ -90,12 +87,12 @@
             <?php } ?>
                 </tbody>
             </table>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- BEGIN # MODAL ADD -->
 <!-- Modal add-->
 <div class="modal fade" id="myModal_add_client" role="dialog">
   <div class="modal-dialog">
@@ -167,12 +164,13 @@
                 </select>
               </div>
                 <!-- <button type="submit" class="btn btn-success btn-block">Valider</button> -->
-                <button name="clientadd" type="submit" class="btn btn-success btn-block">Valider</button>
+                <input name="clientadd" type="submit" class="btn btn-success btn-block" value="Valider">
         </form>
       </div>
     </div>
   </div>
 </div>
+<!-- END # MODAL ADD -->
 
 <!-- Modal edit-->
 <!--
@@ -274,10 +272,10 @@
 
 <!--Table 1-->
 <div class="table-responsive">
-  <table style="color: black;" id="myTable" class="display" style="width:100%">
+  <table id="myTable" class="table table-bordered display">
     <thead>
      
-      <tr class="menuPrincipalTab">
+      <tr>
         <th colspan="1"></th>
         <th colspan="4">INFORMATION ENTREPRISE</th>
         <th colspan="3">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
