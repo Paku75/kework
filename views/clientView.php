@@ -2,9 +2,7 @@
 <h1>PROSPECTION CLIENT</h1>
 <br><br>
 
-<a id="btn_add" class="btn btn-default"> 
-        Ajouter un client
-</a>
+<a href="#" id="btn_add" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter un client</a>
 <br><br><br>
 
 
@@ -15,12 +13,11 @@
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span> Détail</h4>
+        <h4><span class=""></span>Détail</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
         <!--Table modal-->
-        <div class="table-responsive">
-            <table class="detail" style="color: black;" style="width:100%">
+            <table>
                 <thead>
                    <tr id="modal_menu_detail">
                        <th colspan="4">CONTACT ENTREPRISE</th>
@@ -90,12 +87,12 @@
             <?php } ?>
                 </tbody>
             </table>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- BEGIN # MODAL ADD -->
 <!-- Modal add-->
 <div class="modal fade" id="myModal_add_client" role="dialog">
   <div class="modal-dialog">
@@ -167,22 +164,24 @@
                 </select>
               </div>
                 <!-- <button type="submit" class="btn btn-success btn-block">Valider</button> -->
-                <button name="clientadd" type="submit" class="btn btn-success btn-block">Valider</button>
+                <input name="clientadd" type="submit" class="btn btn-success btn-block" value="Valider">
         </form>
       </div>
     </div>
   </div>
 </div>
+<!-- END # MODAL ADD -->
+
 
 <!--Table 1-->
 <div class="table-responsive">
-  <table style="color: black;" id="myTable" class="display" style="width:100%">
+  <table id="myTable" class="table table-bordered display">
     <thead>
      
-      <tr class="menuPrincipalTab">
+      <tr>
         <th colspan="1"></th>
         <th colspan="4">INFORMATION ENTREPRISE</th>
-        <th colspan="3">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
+        <th colspan="1">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
         <th colspan="1">SUIVI CLIENT</th>
         <th colspan="1"></th>
       </tr>
@@ -207,12 +206,6 @@
           Services installés sur site
         </th>
         <th>
-          Début
-        </th>
-        <th>
-          Fin
-        </th>
-        <th>
           Statut
         </th>
         <th>
@@ -230,7 +223,7 @@
           <label id="entreprise" for="entreprise" class="control-label">
             <?php echo $client['client_entreprise']; ?>
           </label>
-          <input type="hidden" class="edit-input1" />
+          <input type="hidden" name="client_id" id="client_id" value="<?= $client['client_id'] ?>"/>
         </td>
         <td>
           <label id="entreprise" for="entreprise" class="control-label">
@@ -250,25 +243,14 @@
           </label>
           <input type="hidden" class="edit-input1" />
         </td>
-        <td id="show_detail">
-          <label id="entreprise" for="entreprise" class="control-label">
+        <td id="show_contract_detail">
+          <input id="client_id" type="hidden" class="edit-input1" value="<?php echo $client['client_id']; ?>"/>
+          <label id="client_service" for="client_service" class="control-label">
             <?php echo $client['client_services']; ?>
           </label>
-          <input type="hidden" class="edit-input1" />
         </td>
         
-        <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
-            <?php echo $client['client_contrat_deb']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
-            <?php echo $client['client_contrat_fin']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
+        
         <td>
           <label id="fonction_occupee" for="fonction_occupee" class="control-label">
             <?php echo $client['client_suivi']; ?>
@@ -293,4 +275,14 @@
   </table>
 </div>
 
+<script>document.getElementById("show_contract_detail").onclick = function(){
+            $("#modalshow").modal();
+            var clientID = $(this).find('#client_id').val();
+            var clientService = $(this).find('#client_service').val();
+            var data = {
+                clientID: clientID,
+            }
+            console.log(clientService);
+        }
+</script>
 

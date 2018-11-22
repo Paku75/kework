@@ -2,6 +2,16 @@
     require __DIR__ ."/../models/clientModel.php";
     require __DIR__ ."/../views/clientView.php";
 
+    
+//    if(isset($_GET['client_id']))
+//    {
+//        $id = $_GET['client_id'];
+//        $services = get_contrat_service($id);
+//    } else 
+//        {
+//            file_put_contents("test123.php","");
+//        }
+    
     if(isset($_POST['clientadd']))
     {
         $entreprise = $_POST['entreprise'];

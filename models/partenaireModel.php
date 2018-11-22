@@ -26,7 +26,7 @@
             try
             {
                 $requete->execute();
-                header('Location: partenaire');
+//                header('Location: partenaire');
             }
             catch(PDOException $e)
             {   
@@ -67,10 +67,8 @@
             {
                 $requete->execute();
                 header('Location: partenaire');
-                var_dump($requete);
             }
-            catch(PDOException $e)
-            {   
+            catch(PDOException $e) {
             ?> 
                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
                <script src="Toastr/toastr.min.js"></script>

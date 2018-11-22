@@ -8,9 +8,19 @@
         $requete->execute();
         return $requete->fetchAll();
     }
- 
     $clients = get_client();
 
+    function get_contrat_service($id)
+    {
+        global $bdd;
+        
+        $requete = $bdd->prepare("SELECT * FROM contrat_service WHERE client_id = :id");
+        
+        $requete->bindValue(":id",$id);
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+    
     function add_client($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
     {
             global $bdd;

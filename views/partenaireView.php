@@ -2,9 +2,7 @@
 <h1>PARTENAIRES</h1>
 <br><br>
 
-<a id="btn_add" class="btn btn-default">
-  Ajouter un partenaire
-</a>
+<a href="#" id="btn_add" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter un partenaire</a>
 <br><br><br>
 
 
@@ -59,7 +57,7 @@
                 <input type="text" class="form-control" name="_modal" id="xxxxx_modal" placeholder="xxxxx">
               </div>
               -->
-            <button type="submit" name="partenaireadd" class="btn btn-success btn-block">Valider</button>
+              <input name="partenaireadd" type="submit" class="btn btn-success btn-block" value="Valider">
         </form>
       </div>
     </div>
@@ -72,14 +70,14 @@
   <h1>
     <?php //echo $_POST['entreprise_modal']; ?>
   </h1>
-  <table style="color: black;" id="myTable" class="display" style="width:100%">
+  <table class="darkTable" id="myTable" class="display" style="width:100%">
     <thead>
-      
-      <tr class="menuPrincipalTab">
+      <tr>
         <th colspan="3">INFORMATION PARTENAIRE</th>
         <th colspan="4">COORDONNES</th>
         <th colspan="2">CHIFRES / HISTORIQUE</th>
         <th colspan="3">INFO CONRACT</th>
+        <th></th>
       </tr>
       
       <tr>

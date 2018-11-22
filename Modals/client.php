@@ -1,3 +1,21 @@
+<!--Modal contrat detail-->
+<div class="modal fade" id="modalshow" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-lock"></span> Detail contrat pour <?= $client['client_entreprise']; ?></h4>
+      </div>
+      <div style="color:white;" class="modal-body" style="padding:40px 50px;">
+          <label id="tel" for="tel" class="control-label">
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Modal edit-->
 <div class="modal fade" id="edit_<?php echo $client['client_id']; ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -66,19 +84,19 @@
               </div>
             <h5>- SERVICES INSTALLES -</h5>
               <div class="form-group">
-                <label for="case">Accueil</label> <input type="checkbox" id="case" value="Accueil" name="accueil"> 
+                <label style="color:white;" for="case">Accueil</label> <input type="checkbox" id="case" value="Accueil" name="accueil"> 
               </div>
               <div class="form-group">
-                <label for="case">Conciergerie</label> <input type="checkbox" id="case" value="Conciergerie" name="conciergerie" > 
+                <label style="color:white;" for="case">Conciergerie</label> <input type="checkbox" id="case" value="Conciergerie" name="conciergerie" > 
               </div>
               <div class="form-group">
-                <label for="case">Buisness office</label> <input type="checkbox" id="case" value="Buisness office" name="buisness" > 
+                <label style="color:white;" for="case">Buisness office</label> <input type="checkbox" id="case" value="Buisness office" name="buisness" > 
               </div>
               <div class="form-group">
-                <label for="case">Happiness</label> <input type="checkbox" id="case" value="Happiness" name="happiness" > 
+                <label style="color:white;" for="case">Happiness</label> <input type="checkbox" id="case" value="Happiness" name="happiness" > 
               </div>
               <div class="form-group">
-                <label for="case">Cowork</label> <input type="checkbox" id="case" value="Cowork" name="cowork" > 
+                <label style="color:white;" for="case">Cowork</label> <input type="checkbox" id="case" value="Cowork" name="cowork" > 
               </div>
                 <button type="submit" name="clientedit" class="btn btn-success btn-block">Valider</button>
         </form>

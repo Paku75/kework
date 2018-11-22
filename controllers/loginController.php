@@ -16,7 +16,7 @@
 
                 if($user_level==1)
                 {
-                    header("Location:admin");   
+                    header("Location:admin");
                 }
                 else
                 { 

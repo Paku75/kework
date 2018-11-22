@@ -1,8 +1,13 @@
-<div class="login">
-	<h1>Login</h1>
-    <form method="post">
-    	<input type="text" name="username" placeholder="Username" required="required" />
-        <input type="password" name="pass" placeholder="Password" required="required" />
-        <button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Se connecter</button>
-    </form>
+<div class="background-wrap">
+  <div class="background"></div>
 </div>
+
+<form class="loginForm" id="accesspanel" action="login" method="post">
+  <h1>Manager interne</h1>
+  <div class="inset">
+	<input type="text" name="username" placeholder="Username" required="required" />
+	<input type="password" class="input" name="pass" id="password" placeholder="Password" required="required"/>
+
+	<input type="submit" name="submit" id="submit" value="Login">
+  </div>
+</form>
