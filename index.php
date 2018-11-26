@@ -36,8 +36,14 @@ else
 {
 	if(!file_exists("controllers/".$_GET['p']."Controller.php"))
 		$page = "404";
+	// start - partie en plus - matin 26/11/18
+	else if (strpos($page, '#') !== false) {
+	    $page = substr($page, 0, '#');
+	}
+	// end - partie en plus - matin 26/11/18
 	else
 	    $page = $_GET['p'];
+	
 }
     ob_start();
     //permet de suspendre l'affichage
