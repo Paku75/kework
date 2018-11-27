@@ -1,3 +1,7 @@
+<?php 
+    require_once "models/loginModel.php";
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,11 +27,12 @@
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="admin">HOME</a>
+                <a class="nav-link" href="accueil">HOME</a>
               </li>
             </ul>
+            <?php if($_SESSION['user_poste'] == 'Developpement commercial' || $_SESSION['user_level'] == '1') { ?>
             <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DEV & RELATION CLIENTS <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class="dropdown-item dropdown"><a href="client">PROSPECTION CLIENT</a></li>
@@ -37,39 +42,61 @@
                   </ul>
                 </li>
             </ul>
+            <?php } ?>
+            <?php if($_SESSION['user_poste'] == 'Communication presse' || $_SESSION['user_level'] == '1') { ?>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="partenaire">PARTENAIRES</a>
               </li>
             </ul>
+            <?php } ?>
+            <?php if($_SESSION['user_poste'] == 'Ressources humaines' || $_SESSION['user_level'] == '1') { ?>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRES INTERNES <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li class="dropdown-item"><a href="rh" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">RH</a></li>
                     <li class="dropdown-item"><a href="comptabilite" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
-                    <li class="dropdown-item"><a href="#">JURIDIQUE</a></li>
-                    <li class="dropdown-item"><a href="#">COMMUNITY</a></li>
-                    <li class="dropdown-item"><a href="#">AUTRE</a></li>
-                    <li class="dropdown-item"><a href="#">LOGISTIQUE</a></li>
+                    <li class="dropdown-item"><a href="juridique">JURIDIQUE</a></li>
+                    <li class="dropdown-item"><a href="community">COMMUNITY</a></li>
+                    <li class="dropdown-item"><a href="autre">AUTRE</a></li>
+                    <li class="dropdown-item"><a href="logistique">LOGISTIQUE</a></li>
                   </ul>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RESSOURCES HUMAINES <b class="caret"></b></a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="dropdown-item"><a href="rp" title="Registre du personnel - Calendrier - Identité - Tableau salaires...">REGISTRE UNIQUE DU PERSONNEL</a></li>
+                    <li class="dropdown-item"><a href="testtables">ECOLE / PARTENAIRE</a></li>
+                    <li class="dropdown-item"><a href="sr">SUIVI RECRUTEMENT</a></li>
+                    <li class="dropdown-item"><a href="contrat">CONTRAT</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <?php } ?>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOI <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                      <li class="dropdown-item"><a href="#" title="Lien 1">Profil</a></li>
-                     <li class="dropdown-item"><a href="register">Inscire un nouveau utilisateur</a></li>
                      <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
                   </ul>
                 </li>
             </ul>
+            <?php if($_SESSION['user_level'] == '1') { ?>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="register">INSCRIRE UN NOUVEL UTILISATEUR</a>
+              </li>
+            </ul>
+            <?php } ?>
         </div>
     </nav>
 </div>
             <?php } else { ?>
             <!-- <li><a class="se_connecter" href="login"><button type="button" class="btn btn-primary">Se connecter</button></a></li> -->
+            
             <?php } ?>
 
         <?php 
@@ -108,9 +135,24 @@
          // Modal add 
             $(document).ready(function(){
                 $("#btn_add").click(function(){
+//                    alert("ok");
                     $("#myModal_add_rh").modal();
                     $("#myModal_add_partenaire").modal();
                     $("#myModal_add_client").modal();
+                    $("#myModal_add_ep").modal();
+                    $("#myModal_add_contrat").modal();
+                });
+                
+                $("#btn_add_ep2").click(function(){
+                    $("#addmodal2").modal();
+                });
+                
+                $("#btn_add3").click(function(){
+                    $("#addmodal3").modal();
+                });
+                
+                $("#btn_add4").click(function(){
+                    $("#addmodal4").modal();
                 });
             });
 
@@ -121,6 +163,7 @@
                     $("#myModal_detailRH").modal();
                 });
             });
+
         
          // Delete user
 //            $(document).ready(function(){

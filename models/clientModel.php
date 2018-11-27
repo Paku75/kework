@@ -112,15 +112,15 @@
     
 //    function enlever_barre($service)
     function enlever_barre($str)
-{
-    for ($i = 0; $i < strlen($str); ++$i) {
-        if (ctype_alpha($str[strlen($str) - 1]) == false) {
+    {
+        for ($i = 0; $i < strlen($str); ++$i) {
+            if (ctype_alpha($str[strlen($str) - 1]) == false) {
             $str = substr($str, 0, -1);
             $i = 0;
+            }
         }
-    }
     return ($str);
-}
+    }
 
     function edit_services($id,$accueil,$conciergerie,$buisness,$happiness,$cowork)
     {

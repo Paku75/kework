@@ -12,6 +12,7 @@
             $tel = $_POST['tel'];
             $portable = $_POST['portable'];
             $email = $_POST['email'];
+            $test = "test";
             add_partenaire($entreprise,$activite,$departement,$nom,$tel,$portable,$email);
         }
  
@@ -38,4 +39,8 @@
         $id = $_POST['id_delete'];
         delete_partenaire($id);
     }
+
+    
+    
+
 ?>

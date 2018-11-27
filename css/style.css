@@ -153,7 +153,7 @@ input[type=text]:disabled, input[type=password]:disabled {
   padding-top: 8px;
 }
 
-input[type=submit], #btn_add {
+input[type=submit], #btn_add, #btn_add_ep2, #btn_add3, #btn_add4 {
   background: #fc1;
   border: 1px solid rgba(0,0,0,0.4);
   border-radius: .3em;
@@ -166,7 +166,7 @@ input[type=submit], #btn_add {
   padding: 5px 20px;
   width: 100%;
 }
-#btn_add {
+#btn_add, #btn_add_ep2, #btn_add3, #btn_add4 {
   width: auto;
 }
 
@@ -339,3 +339,14 @@ tbody:hover tr:hover td {
   color: #FFF!important;
 }
 /* END DATATABLE STYLE */
+
+.accueil{
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:45%;
+    top:50%;
+    margin-left:-50px;
+    margin-top:-50px;
+    font-size: 60px;
+}

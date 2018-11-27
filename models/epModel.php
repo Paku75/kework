@@ -1,32 +1,36 @@
 <?php
-    function get_partener()
+    function get_ep()
     {
-            global $bdd;
+        global $bdd;
         
-            $requete = $bdd->prepare("SELECT * FROM parteners");
-            $requete->execute();
-            return $requete->fetchAll();
+        $requete = $bdd->prepare("SELECT * FROM ecole_partenaire");
+        $requete->execute();
+        return $requete->fetchAll();
     }
-            $parteners = get_partener();
+    $eps = get_ep();
     
-    function add_partenaire($entreprise,$activite,$departement,$nom,$tel,$portable,$email)
+    function add_ep($ecole,$specialite,$departement,$nom,$tel,$portable,$email,$calendrier,$historique,$debut_stage,$fin_stage)
     {
             global $bdd;
             $requete = $bdd->prepare("
-              INSERT INTO parteners(partener_entreprise,partener_activite,partener_departement_soucripteur,partener_nom,partener_tel,partener_portable,partener_email) VALUES (:entreprise, :activite, :departement, :nom, :tel, :portable, :email)
+              INSERT INTO ecole_partenaire(ecole,specialite,departement,nom,tel,portable,email,calendrier,historique,debut_stage,fin_stage) VALUES (:ecole, :specialite, :departement, :nom, :tel, :portable, :email, :calendrier, :historique, :debut_stage, :fin_stage )
                                 ");
-            $requete->bindValue(":entreprise",$entreprise);
-            $requete->bindValue(":activite",$activite);
+            $requete->bindValue(":ecole",$ecole);
+            $requete->bindValue(":specialite",$specialite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":portable",$portable);
             $requete->bindValue(":email",$email);
+            $requete->bindValue(":calendrier",$calendrier);
+            $requete->bindValue(":historique",$historique);
+            $requete->bindValue(":debut_stage",$debut_stage);
+            $requete->bindValue(":fin_stage",$fin_stage);
                
             try
             {
                 $requete->execute();
-                header('Location: partenaire');
+                header('Location: ep');
             }
             catch(PDOException $e)
             {   
@@ -37,36 +41,40 @@
       <?php }
     }
 
-    function edit_partenaire($id,$entreprise,$activite,$departement,$nom,$tel,$portable,$email,$date,$historique)
+    function edit_ep($id,$ecole,$specialite,$departement,$nom,$tel,$portable,$email,$calendrier,$historique,$debut,$fin)
     {
             global $bdd;
-            $requete = $bdd->prepare(" UPDATE parteners SET 
-                                            partener_entreprise = :entreprise,
-                                            partener_activite = :activite,
-                                            partener_departement_soucripteur= :departement,
-                                            partener_nom = :nom,
-                                            partener_tel = :tel,
-                                            partener_portable = :portable,
-                                            partener_email = :email,
-                                            partener_date = :date,
-                                            partener_historique = :historique
-                                        WHERE partener_id = :id
+            $requete = $bdd->prepare(" UPDATE ecole_partenaire SET 
+                                            ecole = :ecole,
+                                            specialite = :specialite,
+                                            departement= :departement,
+                                            nom = :nom,
+                                            tel = :tel,
+                                            portable = :portable,
+                                            email = :email,
+                                            calendrier = :calendrier,
+                                            historique = :historique,
+                                            debut_stage = :debut,
+                                            fin_stage = :fin
+                                        WHERE id_ep = :id
                                     ");
             $requete->bindValue(":id",$id);
-            $requete->bindValue(":entreprise",$entreprise);
-            $requete->bindValue(":activite",$activite);
+            $requete->bindValue(":ecole",$ecole);
+            $requete->bindValue(":specialite",$specialite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":portable",$portable); 
             $requete->bindValue(":email",$email);
-            $requete->bindValue(":date",$date);
+            $requete->bindValue(":calendrier",$calendrier);
             $requete->bindValue(":historique",$historique);
+            $requete->bindValue(":debut",$debut);
+            $requete->bindValue(":fin",$fin);
                
             try
             {
                 $requete->execute();
-                header('Location: partenaire');
+                header('Location: ep');
             }
             catch(PDOException $e) {
             ?> 
@@ -76,10 +84,10 @@
       <?php }
     }
 
-    function delete_partenaire($id)
+    function delete_ep($id)
     {
             global $bdd;
-            $requete = $bdd->prepare( "DELETE FROM parteners WHERE partener_id =:id" );
+            $requete = $bdd->prepare( "DELETE FROM ecole_partenaire WHERE id_ep =:id" );
             $requete->bindParam(':id', $id);
                
             try
@@ -92,7 +100,7 @@
                toastr.success('Partener deleted successfully!', 'Success', {timeOut: 5000, fadeOut: 1000});
                </script>;
                <?php
-                header('Location: partenaire');
+                header('Location: ep');
             }
             catch(PDOException $e)
             {
@@ -102,4 +110,4 @@
                <script src="Toastr/toastr.min.js"></script>
                <script>toastr.error('Error on deleting this partener', 'Error', {timeOut: 5000});</script>;
       <?php }
-    }
+    } 

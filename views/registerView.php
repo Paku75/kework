@@ -6,12 +6,13 @@
         <input type="text" name="email2" placeholder="Confirmation de l'email"/>
         <input type="password" name="pass1" placeholder="Password"/>
         <input type="password" name="pass2" placeholder="Confirmation du mot de passe"/>
+        <input type="hidden" name="pass"/>
 <!--        <input type="hidden" name="date"/>-->
         <br>
         <select name="user_poste">
           <option value="Informatique">Informatique</option>
           <option value="Communication presse">Communication presse</option>
-          <option value="Développement commercial">Développement commercial</option>
+          <option value="Developpement commercial">Développement commercial</option>
           <option value="Comptable">Comptable</option>
           <option value="Ressources humaines">Ressources humaines</option>
           <option value="Administrative">Administrative</option>

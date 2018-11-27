@@ -1,7 +1,7 @@
 <?php 
     
-    require_once __DIR__ ."/../models/rhModel.php";
-    require_once __DIR__ ."/../views/rhView.php";
+    require_once __DIR__ ."/../models/rpModel.php";
+    require_once __DIR__ ."/../views/rpView.php";
 
 
     if(isset($_POST['rhadd']))

@@ -85,7 +85,7 @@
       </div>
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
         <form id="rh_delete" role="form" method="POST">
-         <p>Voulez-vous supprimer "<?= $emp['nom'] ?>"!</p>
+         <p style="color:white;">Voulez-vous supprimer "<?= $emp['nom'] ?>"?</p>
          <input type="hidden" name="id_delete" value="<?= $emp['employee_id'] ?>">
          <button type="submit" name="rh_delete" class="btn btn-success btn-block">Ok</button>
         </form>

@@ -265,7 +265,7 @@
                             </a>
             </div>
                     </td>
-                    <?php include ('Modals/rh.php') ?>
+                    <?php include ('Modals/rp.php') ?>
                 </tr>
                 <?php } ?>
         </tbody>

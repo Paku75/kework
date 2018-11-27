@@ -117,7 +117,7 @@
       </div>
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
         <form id="client_delete" role="form" method="POST">
-         <p>Voulez-vous supprimer "<?= $client['client_entreprise'] ?>"!</p>
+         <p style="color:white;">Voulez-vous supprimer "<?= $client['client_entreprise'] ?>"?</p>
          <input type="hidden" name="id_delete" value="<?= $client['client_id'] ?>">
          <button type="submit" name="client_delete" class="btn btn-success btn-block">Ok</button>
         </form>

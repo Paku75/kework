@@ -1,6 +1,13 @@
-<div class="comptabiliteContainer">
-    <h3><?= $companyName ?></h3>
+<?php
+  include __DIR__ ."/../Modals/comptabilite.php";
+?>
+    <div class="comptabiliteContainer">
+      <h3><?= $companyName ?></h3>
       <p><?= $description ?></p><br>
+      <a href="#" id="btn_add_categorie_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une categorie</a>
+      <a href="#" id="btn_add_fonction_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une fonction</a>
+      <a href="#" id="btn_add_charge_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une charge</a>
+      <br><br><br><br>
       <div class="">
         <table class="darkTable" style="">
           <thead>
@@ -40,74 +47,81 @@
           </thead>
           <tbody>
             <?php foreach ($categories as $categorie) { ?>
-            <tr>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $categorie['nom_categorie'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td colspan="8"></td>
-            </tr>
-            <?php $chargesOfThisCategorie = getChargesByCategorie($companyName, $categorie['nom_categorie']); ?>
-            <?php foreach ($chargesOfThisCategorie as $charge) { ?>
-            <tr>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['nom_fonction'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['prestataire'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['cout_mois'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= ($charge['cout_mois'] * 12) ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['tva'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['ttc'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['anniv_contrat'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['historique'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-              <td>
-                <label id="" for="" class="control-label">
-                  <?= $charge['contentieux'] ?>
-                </label>
-                <input type="hidden" class="edit-input1" />
-              </td>
-            </tr>
-            <?php } ?>
+              <tr class="categorie">
+                <td>
+                  <label id="" for="" class="control-label">
+                    <?= $categorie['nom_categorie'] ?>
+                  </label>
+                  <input type="hidden" class="edit-input1" />
+                </td>
+                <td colspan="8"></td>
+              </tr>
+              <?php $fonctionsOfThisCategorie = getFonctionsByCategoryId($categorie['id_categorie']); ?>
+              <?php foreach ($fonctionsOfThisCategorie as $fonction) { ?>
+                <tr>
+                  <td>
+                    <label id="" for="" class="control-label">
+                      <?= $fonction['nom_fonction'] ?>
+                    </label>
+                    <input type="hidden" class="edit-input1" />
+                  </td>
+                  <?php $chargesOfThisFonction = getChargesByIdFonction($fonction['id_fonction']); ?>
+                  <?php if (count($chargesOfThisFonction) == 0) { ?>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                  <?php } else { ?>
+                    <?php foreach ($chargesOfThisFonction as $charge) { ?>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['prestataire'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['cout_mois'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= ($charge['cout_mois'] * 12) ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['tva'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['ttc'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['anniv_contrat'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['historique'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                      <td>
+                        <label id="" for="" class="control-label">
+                          <?= $charge['contentieux'] ?>
+                        </label>
+                        <input type="hidden" class="edit-input1" />
+                      </td>
+                    <?php } ?>
+                  <?php } ?>
+                </tr>
+              <?php } ?>
             <?php } ?>
           </tbody>
         </table>
@@ -217,3 +231,18 @@
         </table>
       </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#btn_add_categorie_<?= $companyName ?>").click(function() {
+          $("#myModal_add_categorie_<?= $companyName ?>").modal();
+      });
+      $("#btn_add_fonction_<?= $companyName ?>").click(function() {
+          $("#myModal_add_fonction_<?= $companyName ?>").modal();
+      });
+      $("#btn_add_charge_<?= $companyName ?>").click(function() {
+          $("#myModal_add_charge_<?= $companyName ?>").modal();
+      });
+  });
+</script>

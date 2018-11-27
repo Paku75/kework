@@ -44,7 +44,7 @@
             try
             {
                 $requete->execute();
-                header('Location: rh');
+                header('Location: rp');
             }
             catch(PDOException $e)
             {
@@ -91,7 +91,7 @@
             try
             {
                 $requete->execute();
-                header('Location: rh');
+                header('Location: rp');
             }
             catch(PDOException $e)
             {                                             
@@ -111,7 +111,7 @@
 
       try {
         $requete->execute();
-        header('Location: rh');
+        header('Location: rp');
       }
       catch(PDOException $e) {
         echo $e->getMessage();

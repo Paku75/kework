@@ -52,7 +52,7 @@ else
 if(!isset($_GET['p']))
 {
     if(isset($_SESSION['connecte'])){
-        $page = "admin";
+        $page = "accueil";
     } else {
         $page = "login";
     }
