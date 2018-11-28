@@ -9,16 +9,17 @@
     }
             $parteners = get_partener();
     
-    function add_partenaire($entreprise,$activite,$departement,$nom,$tel,$portable,$email)
+    function add_partenaire($entreprise,$activite,$departement,$nom,$fonction,$tel,$portable,$email)
     {
             global $bdd;
             $requete = $bdd->prepare("
-              INSERT INTO parteners(partener_entreprise,partener_activite,partener_departement_soucripteur,partener_nom,partener_tel,partener_portable,partener_email) VALUES (:entreprise, :activite, :departement, :nom, :tel, :portable, :email)
+              INSERT INTO parteners(partener_entreprise,partener_activite,partener_departement_soucripteur,partener_nom,partener_fonction,partener_tel,partener_portable,partener_email) VALUES (:entreprise, :activite, :departement, :nom, :fonction, :tel, :portable, :email)
                                 ");
             $requete->bindValue(":entreprise",$entreprise);
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
+            $requete->bindValue(":fonction",$fonction); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":portable",$portable);
             $requete->bindValue(":email",$email);
@@ -37,7 +38,7 @@
       <?php }
     }
 
-    function edit_partenaire($id,$entreprise,$activite,$departement,$nom,$tel,$portable,$email,$date,$historique)
+    function edit_partenaire($id,$entreprise,$activite,$departement,$nom,$fonction,$tel,$portable,$email,$date,$historique)
     {
             global $bdd;
             $requete = $bdd->prepare(" UPDATE parteners SET 
@@ -45,6 +46,7 @@
                                             partener_activite = :activite,
                                             partener_departement_soucripteur= :departement,
                                             partener_nom = :nom,
+                                            partener_fonction = :fonction,
                                             partener_tel = :tel,
                                             partener_portable = :portable,
                                             partener_email = :email,
@@ -57,6 +59,7 @@
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
+            $requete->bindValue(":fonction",$fonction); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":portable",$portable); 
             $requete->bindValue(":email",$email);

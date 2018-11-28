@@ -40,6 +40,10 @@
                 <input type="text" class="form-control" name="nom" id="nom_modal" placeholder="Nom">
               </div>
               <div class="form-group">
+                <label for="nom"><span class="glyphicon glyphicon-eye-open"></span></label>
+                <input type="text" class="form-control" name="fonction" id="nom_modal" placeholder="Fonction">
+              </div>
+              <div class="form-group">
                 <label for="tel"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" class="form-control" name="tel" id="tel_modal" placeholder="Téléphone">
               </div>
@@ -74,7 +78,7 @@
     <thead>
       <tr>
         <th colspan="3">INFORMATION PARTENAIRE</th>
-        <th colspan="4">COORDONNES</th>
+        <th colspan="5">COORDONNES</th>
         <th colspan="2">CHIFRES / HISTORIQUE</th>
         <th colspan="3">INFO CONRACT</th>
         <th></th>
@@ -92,6 +96,9 @@
         </th>
         <th>
           Nom
+        </th>
+        <th>
+          Fonction
         </th>
         <th>
           Tel
@@ -146,6 +153,12 @@
         <td>
           <label id="nom" for="nom" class="control-label">
             <?php echo $partener['partener_nom']; ?>
+          </label>
+          <input type="hidden" class="edit-input1" />
+        </td>
+        <td>
+          <label id="nom" for="nom" class="control-label">
+            <?php echo $partener['partener_fonction']; ?>
           </label>
           <input type="hidden" class="edit-input1" />
         </td>

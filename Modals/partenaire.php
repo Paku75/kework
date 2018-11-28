@@ -34,6 +34,10 @@
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
+                <input type="text" name="fonction_edit" class="form-control" id="pass" placeholder="Fonction" value="<?= $partener['partener_fonction'] ?>">
+              </div>
+              <div class="form-group">
+                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <input type="text" name="tel_edit" class="form-control" id="pass" placeholder="Tel" value="<?= $partener['partener_tel'] ?>">
               </div>
               <div class="form-group">

@@ -7,10 +7,12 @@
             if($reponse = $requete->fetch()) 
             {
                 $_SESSION['connecte'] = true;
-                $user_id = $_SESSION['user_id'];
+//                $user_id = $_SESSION['user_id'];
 //                $user_login = $_SESSION['user_login'];
 //                $user_level = $_SESSION['user_level'];
+                $_SESSION['user_id'] = $reponse['user_id'];
                 $_SESSION['user_login'] = $reponse['user_login'];
+                $_SESSION['user_email'] = $reponse['user_email'];
                 $_SESSION['user_level'] = $reponse['user_level'];
                 $_SESSION['user_poste'] = $reponse['user_poste'];
 

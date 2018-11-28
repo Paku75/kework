@@ -52,10 +52,14 @@
             <?php } ?>
             <?php if($_SESSION['user_poste'] == 'Ressources humaines' || $_SESSION['user_level'] == '1') { ?>
             <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="comptabilite">COMPTABLITE</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRES INTERNES <b class="caret"></b></a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li class="dropdown-item"><a href="comptabilite" title="Banques - Contrats - Historique - Procédure - Factures">COMPTABLITE</a></li>
                     <li class="dropdown-item"><a href="juridique">JURIDIQUE</a></li>
                     <li class="dropdown-item"><a href="community">COMMUNITY</a></li>
                     <li class="dropdown-item"><a href="autre">AUTRE</a></li>
@@ -79,7 +83,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOI <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                     <li class="dropdown-item"><a href="#" title="Lien 1">Profil</a></li>
+                     <li class="dropdown-item"><a href="profil" title="Modifier votre profil">Profil</a></li>
                      <li class="dropdown-item"><a href="logout">Se déconnecter</a></li>
                   </ul>
                 </li>
@@ -129,6 +133,7 @@
                 $("#btn_edit").click(function(){
                     $("#myModal_edit_rh").modal();
                     $("#myModal_edit_client").modal();
+                    $("#myModal_edit_profil").modal();
                 });
             });
          
@@ -138,7 +143,7 @@
 //                    alert("ok");
                     $("#myModal_add_rh").modal();
                     $("#myModal_add_partenaire").modal();
-                    $("#myModal_add_client").modal();
+                    $("#myModal_add_client_horus").modal();
                     $("#myModal_add_ep").modal();
                     $("#myModal_add_contrat").modal();
                 });
@@ -159,7 +164,6 @@
          // Modal detail
             $(document).ready(function(){
                 $("#show_detail").click(function(){
-                    $("#myModal_detailClient").modal();
                     $("#myModal_detailRH").modal();
                 });
             });

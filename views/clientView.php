@@ -1,288 +1,45 @@
-<br><br>
-<h1>PROSPECTION CLIENT</h1>
-<br><br>
 
-<a href="#" id="btn_add" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter un client</a>
-<br><br><br>
-
-
-<!-- Modal detail-->
-<div class="modal fade higherWider" id="myModal_detailClient" role="dialog">
-  <div class="modal-dialog modal-lg" id="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header" style="padding:35px 50px;">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class=""></span>Détail</h4>
-      </div>
-      <div class="modal-body" style="padding:40px 50px;">
-        <!--Table modal-->
-            <table>
-                <thead>
-                   <tr id="modal_menu_detail">
-                       <th colspan="4">CONTACT ENTREPRISE</th>
-                       <th colspan="2">HISTORIQUE</th>
-                   </tr>
-                   <tr id="modal_sous_menu_detail">
-                       <th>
-                         Nom
-                       </th>
-                       <th>
-                         Prénom
-                       </th>
-                       <th>
-                         Tel
-                       </th>
-                       <th>
-                         Email
-                       </th>
-                       <th>
-                         Date
-                       </th>
-                       <th>
-                         Historique
-                       </th>
-                   </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($clients as $client) { ?>
-              <tr>
-                <td>
-                  <label id="nom" for="nom" class="control-label">
-                    <?php echo $client['client_nom']; ?>
-                  </label>
-                  <input type="hidden" class="edit-input1" />
-                </td>
-                <td>
-                  <label id="prenom" for="prenom" class="control-label">
-                    <?php echo $client['client_prenom']; ?>
-                  </label>
-                  <input type="hidden" class="edit-input1" />
-                </td>
-                <td>
-                  <label id="tel" for="tel" class="control-label">
-                    <?php echo $client['client_tel']; ?>
-                  </label>
-                  <input type="hidden" class="edit-input1" />
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_email']; ?>
-                  </label>
-                  <input type="hidden" class="edit-input1" />
-                </td>
-                <td>
-                  <label id="email" for="email" class="control-label">
-                    <?php echo $client['client_date']; ?>
-                  </label>
-                </td>
-                <td>
-                  <label id="historique" for="historique" class="control-label">
-                    <?php echo $client['client_historique']; ?>
-                  </label>
-                  <p><a href="#" onclick="document.getElementById('historique').style.display = 'block'; this.style.display = 'none';">Lire...</a></p>
-                  <input type="hidden" class="edit-input1" />
-                </td>
-              </tr>
-            <?php } ?>
-                </tbody>
-            </table>
-      </div>
+<div class="container">
+  <br><br>
+  <h2>PROSPECTION CLIENT</h2>
+  <p>Here you can find data about our companies</p>
+  <br>
+  <hr>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-horus-tab" data-toggle="tab" href="#nav-horus" role="tab" aria-controls="nav-horus" aria-selected="true">Horus</a>
+      <a class="nav-item nav-link" id="nav-kework-tab" data-toggle="tab" href="#nav-kework" role="tab" aria-controls="nav-kework" aria-selected="false">Kework</a>
     </div>
-  </div>
-</div>
-
-<!-- BEGIN # MODAL ADD -->
-<!-- Modal add-->
-<div class="modal fade" id="myModal_add_client" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header" style="padding:35px 50px;">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span> Ajouter un client</h4>
-      </div>
-      <div class="modal-body" style="padding:40px 50px;">
-        <form method="POST" id="client_edit" role="form">
-            <h5>- INFORMATION ENTREPRISE -</h5>
-              <div class="form-group">
-                <label for="login"><span class="glyphicon glyphicon-user"></span> </label>
-                <!-- <input type="text" class="form-control" id="login" placeholder="Entreprise"> -->
-                <input name="entreprise" type="text" class="form-control" id="login" placeholder="Entreprise">
-              </div>
-              <div class="form-group">
-                <label for="email"><span class="glyphicon glyphicon-user"></span> </label>
-                <!-- <input type="text" class="form-control" id="email" placeholder="Effectifs"> -->
-                <input name="effectif" type="text" class="form-control" id="email" placeholder="Effectifs">
-              </div>
-            <h5>- ACTIVITE -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
-                <select name="activite">
-                  <option value="CAC 40">CAC 40</option>
-                  <option value="RELA estate">RELA estate</option>
-                  <option value="Banque">Banque</option>
-                  <option value="Cabinets avocats">Cabinets avocats</option>
-                  <option value="Family office">Family office</option>
-                </select>
-              </div>
-            <h5>- DEPARTEMENT ACHETEUR -</h5>
-              <div class="form-group">
-                <select name="departement">
-                  <option value="Services generaux">Services generaux</option>
-                  <option value="Achats">Achats</option>
-                  <option value="Commercials">Commercials</option>
-                  <option value="Conseils">Conseils</option>
-                </select>
-              </div>
-            <h5>- CONTACT ENTREPRISE -</h5>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <!-- <input type="text" class="form-control" id="pass" placeholder="Nom"> -->
-                <input name="nom" type="text" class="form-control" id="pass" placeholder="Nom">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <!-- <input type="text" class="form-control" id="pass" placeholder="Prénom"> -->
-                <input name="prenom" type="text" class="form-control" id="pass" placeholder="Prénom">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <!-- <input type="text" class="form-control" id="pass" placeholder="Téléphone"> -->
-                <input name="tel" type="text" class="form-control" id="pass" placeholder="Téléphone">
-              </div>
-              <div class="form-group">
-                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <!-- <input type="text" class="form-control" id="pass" placeholder="Email"> -->
-                <input name="email" type="text" class="form-control" id="pass" placeholder="Email">
-              </div>
-            <h5>- SUIVI CLIENT -</h5>
-              <div class="form-group">
-                <select name="suivi">
-                  <option value="En negociation">Client en négociation</option>
-                  <option value="Pas interesse">Client pas interessé</option>
-                </select>
-              </div>
-                <!-- <button type="submit" class="btn btn-success btn-block">Valider</button> -->
-                <input name="clientadd" type="submit" class="btn btn-success btn-block" value="Valider">
-        </form>
-      </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-horus" role="tabpanel" aria-labelledby="nav-horus-tab"><br>
+      <?= getContent("Horus"); ?>
     </div>
-  </div>
-</div>
-<!-- END # MODAL ADD -->
-
-
-<!--Table 1-->
-<div class="table-responsive">
-  <table id="myTable" class="table table-bordered display">
-    <thead>
-     
-      <tr>
-        <th colspan="1"></th>
-        <th colspan="4">INFORMATION ENTREPRISE</th>
-        <th colspan="1">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
-        <th colspan="1">SUIVI CLIENT</th>
-        <th colspan="1"></th>
-      </tr>
-          
-      <tr>
-       <th>
-          Pertinance
-        </th>
-        <th>
-          Entreprise
-        </th>
-        <th>
-          Effectif
-        </th>
-        <th>
-          Activité
-        </th>
-        <th>
-          Département acheteur
-        </th>
-        <th>
-          Services installés sur site
-        </th>
-        <th>
-          Statut
-        </th>
-        <th>
-          Modifier
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($clients as $client) { ?>
-      <tr>
-       <td>
-           <i class="fa fa-exclamation-circle"></i>
-       </td>
-        <td id="show_detail">
-          <label id="entreprise" for="entreprise" class="control-label">
-            <?php echo $client['client_entreprise']; ?>
-          </label>
-          <input type="hidden" name="client_id" id="client_id" value="<?= $client['client_id'] ?>"/>
-        </td>
-        <td>
-          <label id="entreprise" for="entreprise" class="control-label">
-            <?php echo $client['client_effectif']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td id="show_detail">
-          <label id="entreprise" for="entreprise" class="control-label">
-            <?php echo $client['client_menu_famille']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
-            <?php echo $client['client_fonction_occupee']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        <td id="show_contract_detail">
-          <input id="client_id" type="hidden" class="edit-input1" value="<?php echo $client['client_id']; ?>"/>
-          <label id="client_service" for="client_service" class="control-label">
-            <?php echo $client['client_services']; ?>
-          </label>
-        </td>
-        
-        
-        <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
-            <?php echo $client['client_suivi']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
-        </td>
-        
-        <td>
-            <div class="edit">
-                <a href="#edit_<?php echo $client['client_id']; ?>" data-toggle="modal" class="btn btn-default">
-                    <i id="edit" class="fa fa-pencil fa-lg"> </i>
-                </a>
-                <a href="#delete_<?= $client['client_id'] ?>" data-toggle="modal" class="btn btn-default">
-                  <i id="delete" class="fa fa-trash fa-lg remove-item "> </i>
-                </a>
-            </div>
-        </td>
-        <?php include ('Modals/client.php') ?>
-      </tr>
-    <?php } ?>
-    </tbody>
-  </table>
+    <div class="tab-pane fade" id="nav-kework" role="tabpanel" aria-labelledby="nav-kework-tab"><br>
+      <?= getContent("Kework"); ?>
+    </div>
 </div>
 
-<script>document.getElementById("show_contract_detail").onclick = function(){
-            $("#modalshow").modal();
-            var clientID = $(this).find('#client_id').val();
-            var clientService = $(this).find('#client_service').val();
-            var data = {
-                clientID: clientID,
-            }
-            console.log(clientService);
-        }
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
+<script type="text/javascript">
+  $(document).ready(function() {
+    /*
+     * START TABS: REFRESH AND STAY IN SAME TAB
+     */
+    $('#nav-tab a').click(function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+    // store the currently selected tab in the hash value
+    $("div.nav-tabs > a").on("shown.bs.tab", function(e) {
+      var id = $(e.target).attr("href").substr(1);
+      window.location.hash = id;
+    });
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#nav-tab a[href="' + hash + '"]').tab('show');
+    /*
+     * END TABS: REFRESH AND STAY IN SAME TAB
+     */
+  });
 </script>
-

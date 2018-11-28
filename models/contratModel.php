@@ -32,6 +32,32 @@
       <?php }
     }
 
+    function edit_contrat($id,$nom,$date)
+    {
+            global $bdd;
+            $requete = $bdd->prepare(" UPDATE contrat SET 
+                                            nom_contrat = :nom,
+                                            date_contrat = :date
+                                        WHERE id_contrat = :id
+                                    ");
+            $requete->bindValue(":id",$id);
+            $requete->bindValue(":nom",$nom);
+            $requete->bindValue(":date",$date);
+            try
+            {
+                $requete->execute();
+                header('Location: contrat');
+            }
+            catch(PDOException $e)
+            {   
+            ?> 
+               <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+               <script src="Toastr/toastr.min.js"></script>
+               <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+      <?php }
+    }
+    
+    
 
     function delete_contrat($id)
     {

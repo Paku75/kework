@@ -12,7 +12,7 @@
 //            file_put_contents("test123.php","");
 //        }
     
-    if(isset($_POST['clientadd']))
+    if(isset($_POST['clientadd_horus']))
     {
         $entreprise = $_POST['entreprise'];
         $effectif = $_POST['effectif'];
@@ -23,12 +23,12 @@
         $tel = $_POST['tel'];
         $email = $_POST['email'];
         $suivi = $_POST['suivi'];
+        $entreprise_sous = $_POST['suivi'];
         
-        add_client($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
+        add_client_horus($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
     }
-    if(isset($_POST['clientedit']))
+    if(isset($_POST['clientadd_kework']))
     {
-        $id = $_POST['client_id'];
         $entreprise = $_POST['entreprise'];
         $effectif = $_POST['effectif'];
         $activite = $_POST['activite'];
@@ -37,6 +37,19 @@
         $prenom= $_POST['prenom'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
+        $suivi = $_POST['suivi'];
+        $entreprise_sous = $_POST['suivi'];
+        
+        add_client_kework($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
+    }
+
+    if(isset($_POST['clientedit']))
+    {
+        $id = $_POST['client_id'];
+        $entreprise = $_POST['entreprise'];
+        $effectif = $_POST['effectif'];
+        $activite = $_POST['activite'];
+        $departement = $_POST['departement'];
         $suivi = $_POST['suivi'];
         
         
@@ -49,10 +62,22 @@
             edit_services($id,$accueil,$conciergerie,$buisness,$happiness,$cowork);
         
         
-        edit_client($id,$entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi);
+        edit_client($id,$entreprise,$effectif,$activite,$departement,$suivi);
         
     }
     
+    if(isset($_POST['detail_client_edit']))
+    {
+        $id = $_POST['client_id'];
+        $nom= $_POST['nom'];
+        $prenom= $_POST['prenom'];
+        $tel = $_POST['tel'];
+        $email = $_POST['email'];
+        $date = date('Y-m-d', strtotime($_POST['date']));
+        $historique = $_POST['historique'];
+        
+        edit_detail_client($id,$nom,$prenom,$tel,$email,$date,$historique);
+    }
      
     if (isset($_POST['client_delete']))
     {

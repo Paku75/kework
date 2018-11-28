@@ -38,11 +38,20 @@ require __DIR__ ."/../views/contratView.php";
                         } else { echo "Impossible de enregistrer dans la base"; }
                     } else { echo "Votre fichier ne doit pas dépasser 2 Mo"; }
                 } else { echo "Une erreur est survenue"; }
-            } else { echo "<style color='.'"red"'.'>Le type de fichier est incorrect ou vous n'avez pas upload de fichier"; }
+            } else { echo "Le type de fichier est incorrect ou vous n'avez pas upload de fichier"; }
         } else 
             {
                 add_contrat($nom,$date_contrat);
             }
+    }
+
+    if(isset($_POST['contrat_edit']))
+    {
+        $id = $_POST['id_contrat'];
+        $nom = $_POST['nom'];
+        $date = date('Y-m-d', strtotime($_POST['date']));
+        
+        edit_contrat($id,$nom,$date);
     }
 
     if(isset($_POST['contrat_delete']))
