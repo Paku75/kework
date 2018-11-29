@@ -1,9 +1,10 @@
 
 <?php 
-    require_once "/../models/loginModel.php";
+//    require_once "/../models/loginModel.php";
 ?>
 <div class="accueil">
-Bienvenue <p style="font-style: italic;"><?= $_SESSION['user_login']; ?></p> <br>
-</div>
+Bienvenue sur votre espace <br>
 
+<p class="accueil_name"><?= $_SESSION['user_login'] ?></p>
+</div>
 <!--<a href="users">Liste des utilisateurs internes (ayant accès au Manager)</a>-->

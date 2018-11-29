@@ -2,7 +2,6 @@
 <div class="container">
   <br><br>
   <h2>PROSPECTION CLIENT</h2>
-  <p>Here you can find data about our companies</p>
   <br>
   <hr>
   <nav>

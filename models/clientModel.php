@@ -36,39 +36,18 @@
         include __DIR__ ."/../views/clientTable2View.php";
     }
     
-    function add_client_horus($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
+    function add_client_horus($entreprise,$effectif,$superficie,$activite,$departement,$nom,$prenom,$fonction,$tel,$email,$suivi)
     {
             global $bdd;
-            $requete = $bdd->prepare("INSERT INTO clients( 
-                                                            client_entreprise,
-                                                            client_effectif,
-                                                            client_menu_famille,
-                                                            client_fonction_occupee,
-                                                            client_nom,client_prenom,
-                                                            client_tel,client_email,
-                                                            client_suivi,
-                                                            entreprise
-                                                         ) 
-                                                         
-                                                   VALUES(
-                                                            :entreprise,
-                                                            :effectif,
-                                                            :activite,
-                                                            :departement,
-                                                            :nom,
-                                                            :prenom,
-                                                            :tel,
-                                                            :email,
-                                                            :suivi,
-                                                            'Horus'
-                                                         )
-                                    ");
+            $requete = $bdd->prepare("INSERT INTO clients(client_entreprise,client_effectif,client_superficie,client_menu_famille,client_fonction_occupee,client_nom,client_prenom,client_fonction,client_tel,client_email,client_suivi,entreprise) VALUES(:entreprise,:effectif,:superficie,:activite,:departement,:nom,:prenom,:fonction,:tel,:email,:suivi,'Horus')");
             $requete->bindValue(":entreprise",$entreprise);
             $requete->bindValue(":effectif",$effectif);
+            $requete->bindValue(":superficie",$superficie);
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
             $requete->bindValue(":prenom",$prenom); 
+            $requete->bindValue(":fonction",$fonction); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":email",$email);
             $requete->bindValue(":suivi",$suivi);
@@ -87,39 +66,18 @@
       <?php }
     }
     
-    function add_client_kework($entreprise,$effectif,$activite,$departement,$nom,$prenom,$tel,$email,$suivi)
+    function add_client_kework($entreprise,$effectif,$superficie,$activite,$departement,$nom,$prenom,$fonction,$tel,$email,$suivi)
     {
             global $bdd;
-            $requete = $bdd->prepare("INSERT INTO clients( 
-                                                            client_entreprise,
-                                                            client_effectif,
-                                                            client_menu_famille,
-                                                            client_fonction_occupee,
-                                                            client_nom,client_prenom,
-                                                            client_tel,client_email,
-                                                            client_suivi,
-                                                            entreprise
-                                                         ) 
-                                                         
-                                                   VALUES(
-                                                            :entreprise,
-                                                            :effectif,
-                                                            :activite,
-                                                            :departement,
-                                                            :nom,
-                                                            :prenom,
-                                                            :tel,
-                                                            :email,
-                                                            :suivi,
-                                                            'Kework'
-                                                         )
-                                    ");
+            $requete = $bdd->prepare("INSERT INTO clients(client_entreprise,client_effectif,client_superficie,client_menu_famille,client_fonction_occupee,client_nom,client_prenom,client_fonction,client_tel,client_email,client_suivi,entreprise) VALUES(:entreprise,:effectif,:superficie,:activite,:departement,:nom,:prenom,:fonction,:tel,:email,:suivi,'Kework')");
             $requete->bindValue(":entreprise",$entreprise);
             $requete->bindValue(":effectif",$effectif);
+            $requete->bindValue(":superficie",$superficie);
             $requete->bindValue(":activite",$activite);
             $requete->bindValue(":departement",$departement);
             $requete->bindValue(":nom",$nom); 
             $requete->bindValue(":prenom",$prenom); 
+            $requete->bindValue(":fonction",$fonction); 
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":email",$email);
             $requete->bindValue(":suivi",$suivi);
@@ -139,12 +97,13 @@
     }
 
 
-    function edit_detail_client($id,$nom,$prenom,$tel,$email,$date,$historique)
+    function edit_detail_client($id,$nom,$prenom,$fonction,$tel,$email,$date,$historique)
     {
             global $bdd;
             $requete = $bdd->prepare(" UPDATE clients SET 
                                             client_nom = :nom,
                                             client_prenom = :prenom,
+                                            client_fonction = :fonction,
                                             client_tel = :tel,
                                             client_email = :email,
                                             client_date = :date,
@@ -154,6 +113,7 @@
             $requete->bindValue(":id",$id);
             $requete->bindValue(":nom",$nom);
             $requete->bindValue(":prenom",$prenom);
+            $requete->bindValue(":fonction",$fonction);
             $requete->bindValue(":tel",$tel);
             $requete->bindValue(":email",$email);
             $requete->bindValue(":date",$date);
@@ -173,12 +133,13 @@
       <?php }
     }
 
-    function edit_client($id,$entreprise,$effectif,$activite,$departement,$suivi)
+    function edit_client($id,$entreprise,$effectif,$superficie,$activite,$departement,$suivi)
     {
             global $bdd;
             $requete = $bdd->prepare(" UPDATE clients SET 
                                             client_entreprise = :entreprise,
                                             client_effectif = :effectif,
+                                            client_superficie = :superficie,
                                             client_menu_famille = :client_menu_famille,
                                             client_fonction_occupee = :client_fonction_occupee,
                                             client_suivi = :suivi
@@ -187,6 +148,7 @@
             $requete->bindValue(":id",$id);
             $requete->bindValue(":entreprise",$entreprise);
             $requete->bindValue(":effectif",$effectif);
+            $requete->bindValue(":superficie",$superficie);
             $requete->bindValue(":client_menu_famille",$activite);
             $requete->bindValue(":client_fonction_occupee",$departement);
             $requete->bindValue(":suivi",$suivi);

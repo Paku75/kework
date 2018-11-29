@@ -29,6 +29,7 @@
     $('#nav-tab a').click(function(e) {
       e.preventDefault();
       $(this).tab('show');
+
     });
     // store the currently selected tab in the hash value
     $("div.nav-tabs > a").on("shown.bs.tab", function(e) {

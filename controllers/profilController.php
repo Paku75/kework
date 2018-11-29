@@ -2,15 +2,7 @@
     require __DIR__ ."/../models/profilModel.php";
     require __DIR__ ."/../views/profilView.php";
 
-    global $bdd;
-
-    $requser = $bdd->prepare("SELECT * FROM users WHERE user_id = ?");
-    $requser->execute(array($_SESSION['user_id']));
-    $user = $requser->fetch();
-
-    $_SESSION['user_id'] = $user['user_id'];
-    $_SESSION['user_login'] = $user['user_login'];
-    $_SESSION['user_email'] = $user['user_email'];
+    
 
     if(isset($_POST['login']) AND !empty($_POST['login']) AND $_POST['login'] != $user['user_login'])
     {

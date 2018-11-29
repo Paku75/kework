@@ -28,11 +28,17 @@
                 <!-- <input type="text" class="form-control" id="email" placeholder="Effectifs"> -->
                 <input name="effectif" type="text" class="form-control" id="email" placeholder="Effectifs">
               </div>
+              <div class="form-group">
+                <label for="email"><span class="glyphicon glyphicon-user"></span> </label>
+                <!-- <input type="text" class="form-control" id="email" placeholder="Effectifs"> -->
+                <input name="superficie" type="text" class="form-control" id="email" placeholder="Superficie">
+              </div>
             <h5>- ACTIVITE -</h5>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span></label>
                 <select name="activite">
                   <option value="CAC 40">CAC 40</option>
+                  <option value="Coworking">Coworking</option>
                   <option value="RELA estate">RELA estate</option>
                   <option value="Banque">Banque</option>
                   <option value="Cabinets avocats">Cabinets avocats</option>
@@ -46,6 +52,7 @@
                   <option value="Achats">Achats</option>
                   <option value="Commercials">Commercials</option>
                   <option value="Conseils">Conseils</option>
+                  <option value="A definir">A definir</option>
                 </select>
               </div>
             <h5>- CONTACT ENTREPRISE -</h5>
@@ -58,6 +65,11 @@
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
                 <!-- <input type="text" class="form-control" id="pass" placeholder="Prénom"> -->
                 <input name="prenom" type="text" class="form-control" id="pass" placeholder="Prénom">
+              </div>
+              <div class="form-group">
+                <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
+                <!-- <input type="text" class="form-control" id="pass" placeholder="Prénom"> -->
+                <input name="fonction" type="text" class="form-control" id="pass" placeholder="Fonction">
               </div>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
@@ -74,6 +86,8 @@
                 <select name="suivi">
                   <option value="En negociation">Client en négociation</option>
                   <option value="Pas interesse">Client pas interessé</option>
+                  <option value="A prospecter">A prospecter</option>
+                  <option value="Sous contrat">Sous contrat</option>
                 </select>
               </div>
                 <!-- <button type="submit" class="btn btn-success btn-block">Valider</button> -->
@@ -88,13 +102,13 @@
 
 <!--Table 1-->
 <div class="table-responsive">
-  <table id="myTable" class="table table-bordered display">
+  <table id="myTable" class="table table-bordered display" style="width:100%">
     <thead>
      
       <tr>
         <th colspan="1"></th>
-        <th colspan="4">INFORMATION ENTREPRISE</th>
-        <th colspan="1">CONTRAT ET SERVICES INSTALLES SUR SITE</th>
+        <th colspan="5">INFORMATION ENTREPRISE</th>
+        <th colspan="1"></th>
         <th colspan="1">SUIVI CLIENT</th>
         <th colspan="1"></th>
       </tr>
@@ -108,6 +122,9 @@
         </th>
         <th>
           Effectif
+        </th>
+        <th>
+          Superficie
         </th>
         <th>
           Activité
@@ -132,47 +149,33 @@
     <?php if($client['entreprise'] == "Horus") { ?>
       <tr>
        <td>
-           <i class="fa fa-exclamation-circle"></i>
+           <?php if($client['pertinance'] == '1') { ?>
+           <i class="fa fa-exclamation-circle fa-2x"></i>
+           <?php } ?>
        </td>
         <td>
          <a href="#detail_<?php echo $client['client_id']; ?>" data-toggle="modal" class="btn btn-default">
-          <label id="entreprise" for="entreprise" class="control-label">
             <?php echo $client['client_entreprise']; ?>
-          </label>
          </a>
           <input type="hidden" name="client_id" id="client_id" value="<?= $client['client_id'] ?>"/>
         </td>
         <td>
-          <label id="entreprise" for="entreprise" class="control-label">
             <?php echo $client['client_effectif']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
         </td>
         <td>
-          <label id="entreprise" for="entreprise" class="control-label">
+            <?php echo $client['client_superficie']; ?>
+        </td>
+        <td>
             <?php echo $client['client_menu_famille']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
         </td>
         <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
             <?php echo $client['client_fonction_occupee']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
         </td>
         <td id="show_contract_detail">
-          <input id="client_id" type="hidden" class="edit-input1" value="<?php echo $client['client_id']; ?>"/>
-          <label id="client_service" for="client_service" class="control-label">
             <?php echo $client['client_services']; ?>
-          </label>
         </td>
-        
-        
         <td>
-          <label id="fonction_occupee" for="fonction_occupee" class="control-label">
             <?php echo $client['client_suivi']; ?>
-          </label>
-          <input type="hidden" class="edit-input1" />
         </td>
         
         <td>
@@ -190,6 +193,38 @@
     <?php } ?>
     <?php } ?>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>
+              
+            </th>
+            <th>
+              
+            </th>
+            <th>
+              Effectif
+            </th>
+            <th>
+              
+            </th>
+            <th>
+              Activité
+            </th>
+            <th>
+              Département acheteur
+            </th>
+            <th>
+              
+            </th>
+            <th>
+              Statut
+            </th>
+            <th>
+              
+            </th>
+        </tr>
+        </tfoot>
   </table>
 </div>
 </div>
+

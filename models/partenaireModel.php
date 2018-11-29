@@ -34,7 +34,7 @@
             ?> 
                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
                <script src="Toastr/toastr.min.js"></script>
-               <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
+               <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>
       <?php }
     }
 
@@ -75,8 +75,8 @@
             ?> 
                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
                <script src="Toastr/toastr.min.js"></script>
-               <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>;
-      <?php }
+               <script>toastr.warning('Veuillez compléter tous les champs', 'Warning', {timeOut: 5000});</script>
+      <?php print_r($requete) ;}
     }
 
     function delete_partenaire($id)
@@ -103,6 +103,6 @@
             ?>
                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
                <script src="Toastr/toastr.min.js"></script>
-               <script>toastr.error('Error on deleting this partener', 'Error', {timeOut: 5000});</script>;
+               <script>toastr.error('Error on deleting this partener', 'Error', {timeOut: 5000});</script>
       <?php }
     }

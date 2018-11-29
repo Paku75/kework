@@ -1,12 +1,13 @@
 <?php
   include __DIR__ ."/../Modals/comptabilite.php";
 ?>
+
     <div class="comptabiliteContainer">
       <h3><?= $companyName ?></h3>
       <p><?= $description ?></p><br>
-      <a href="#" id="btn_add_categorie_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une categorie</a>
-      <a href="#" id="btn_add_fonction_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une fonction</a>
-      <a href="#" id="btn_add_charge_<?= $companyName ?>" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="">Ajouter une charge</a>
+      <a href="#" id="btn_add_categorie_<?= $companyName ?>" class="btn_add_cat">Ajouter une categorie</a>
+      <a href="#" id="btn_add_fonction_<?= $companyName ?>" class="btn_add_fn">Ajouter une fonction</a>
+      <a href="#" id="btn_add_charge_<?= $companyName ?>" class="btn_add_charge">Ajouter une charge</a>
       <br><br><br><br>
       <div class="">
         <table class="darkTable" style="">
@@ -44,7 +45,31 @@
                 CONTENTIEUX
               </th>
             </tr>
+
           </thead>
+          <tfoot>
+            <tr>
+              <td colspan="1">
+                BALANCE
+              </td>
+              <td>
+              </td>
+              <td>
+                <?= calculateBalanceOf("cout_mois", $companyName) ?>
+              </td>
+              <td>
+                <?= calculateBalanceOf("cout_annee", $companyName) ?>
+              </td>
+              <td>
+                <?= calculateBalanceOf("tva", $companyName) ?>
+              </td>
+              <td>
+                <?= calculateBalanceOf("ttc", $companyName) ?>
+              </td>
+              <td colspan="3">
+              </td>
+            </tr>
+          </tfoot>
           <tbody>
             <?php foreach ($categories as $categorie) { ?>
               <tr class="categorie">
@@ -58,8 +83,8 @@
               </tr>
               <?php $fonctionsOfThisCategorie = getFonctionsByCategoryId($categorie['id_categorie']); ?>
               <?php foreach ($fonctionsOfThisCategorie as $fonction) { ?>
-                <tr>
-                  <td>
+                <tr class="charges">
+                  <td class="fonction">
                     <label id="" for="" class="control-label">
                       <?= $fonction['nom_fonction'] ?>
                     </label>

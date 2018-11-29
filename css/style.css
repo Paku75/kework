@@ -153,7 +153,7 @@ input[type=text]:disabled, input[type=password]:disabled {
   padding-top: 8px;
 }
 
-input[type=submit], #btn_add, #btn_add_ep2, #btn_add3, #btn_add4, #btn_add_kework, #btn_edit {
+input[type=submit], #btn_add, #btn_add_ep2, #btn_add3, #btn_add4, #btn_add_kework, #btn_edit, .btn_add_cat, .btn_add_fn, .btn_add_charge {
   background: #fc1;
   border: 1px solid rgba(0,0,0,0.4);
   border-radius: .3em;
@@ -166,7 +166,7 @@ input[type=submit], #btn_add, #btn_add_ep2, #btn_add3, #btn_add4, #btn_add_kewor
   padding: 5px 20px;
   width: 100%;
 }
-#btn_add, #btn_add_ep2, #btn_add3, #btn_add4, #btn_add_kework, #btn_edit {
+#btn_add, #btn_add_ep2, #btn_add3, #btn_add4, #btn_add_kework, #btn_edit, .btn_add_cat, .btn_add_fn, .btn_add_charge {
   width: auto;
 }
 
@@ -342,11 +342,17 @@ tbody:hover tr:hover td {
 
 .accueil{
     position:absolute;
-    width:100px;
+    width:500px;
     height:100px;
-    left:45%;
+    left:35%;
     top:50%;
     margin-left:-50px;
-    margin-top:-50px;
+    margin-top:-90px;
     font-size: 40px;
+}
+
+.accueil_name {
+    font-style: italic;
+    margin-top:30px;
+    margin-left:170px;
 }

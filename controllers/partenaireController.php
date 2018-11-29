@@ -28,7 +28,7 @@
             $tel = $_POST['tel_edit'];
             $portable = $_POST['portable_edit'];
             $email = $_POST['email_edit'];
-            $date = $_POST['date_edit'];
+            $date = date('Y-m-d H:i:s');
             $historique = $_POST['historique_edit'];
 
             edit_partenaire($id,$entreprise,$activite,$departement,$nom,$fonction,$tel,$portable,$email,$date,$historique);
