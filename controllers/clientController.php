@@ -50,13 +50,13 @@
     if(isset($_POST['clientedit']))
     {
         $id = $_POST['client_id'];
+        $pertinance = $_POST['pertinance'];
         $entreprise = $_POST['entreprise'];
         $effectif = $_POST['effectif'];
         $superficie = $_POST['superficie'];
         $activite = $_POST['activite'];
         $departement = $_POST['departement'];
         $suivi = $_POST['suivi'];
-        
         
         
             $accueil = $_POST['accueil'];
@@ -67,7 +67,7 @@
             edit_services($id,$accueil,$conciergerie,$buisness,$happiness,$cowork);
         
         
-        edit_client($id,$entreprise,$effectif,$superficie,$activite,$departement,$suivi);
+        edit_client($id,$pertinance,$entreprise,$effectif,$superficie,$activite,$departement,$suivi);
         
     }
     

@@ -1,4 +1,4 @@
-<div class="comptabiliteContainer">
+<div class="clientContainer">
      <h3><?= $tableName ?></h3>
 
 

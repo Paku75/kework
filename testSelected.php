@@ -1,5 +1,5 @@
 <!-- Modal detail-->
-<div class="modal fade" id="detail_<?= $client['client_id'] ?>" role="dialog">
+<div class="modal fade" id="detail_<?php echo $client['client_id']; ?>" role="dialog">
   <div class="modal-dialog modal-lg" id="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -92,12 +92,12 @@
         <h4><span class="glyphicon glyphicon-lock"></span> Modifier le client</h4>
       </div>
       <div style="color:black;" class="modal-body" style="padding:40px 50px;">
-        <form method="POST" role="form">
-              <h5>- PERTINANCE -</h5>
+        <form method="POST" id="client_edit" role="form">
+            <h5>- PERTINANCE -</h5>
               <div class="form-group">
                 <select name="pertinance" id="pertinance">
-                    <option <?php if ($client['pertinance']==1) { ?>selected="true" <?php }; ?>value="1">Important</option>
-                    <option <?php if ($client['pertinance']==0) { ?>selected="true" <?php }; ?>value="0">Non important</option>
+                    <option <?= ($client['pertinance']=="1") ? "selected" : ""?>>Important</option>
+                    <option <?= ($client['pertinance']=="0") ? "selected" : ""?>>Non important</option>
                 </select>
               </div>
               <h5>- INFORMATION ENTREPRISE -</h5>
@@ -119,54 +119,49 @@
             <h5>- ACTIVITE -</h5>
               <div class="form-group">
                 <label for="pass"><span class="glyphicon glyphicon-eye-open"></span> </label>
-                <select name="activite">
-                    <option <?php if ($client['client_menu_famille']=="CAC 40") { ?>selected="true" <?php }; ?>value="CAC 40">CAC 40</option>
-                    <option <?php if ($client['client_menu_famille']=="Coworking") { ?>selected="true" <?php }; ?>value="Coworking">Coworking</option>
-                    <option <?php if ($client['client_menu_famille']=="RELA estate") { ?>selected="true" <?php }; ?>value="RELA estate">RELA estate</option>
-                    <option <?php if ($client['client_menu_famille']=="Banque") { ?>selected="true" <?php }; ?>value="Banque">Banque</option>
-                    <option <?php if ($client['client_menu_famille']=="Cabinets avocats") { ?>selected="true" <?php }; ?>value="Cabinets avocats">Cabinets avocats</option>
-                    <option <?php if ($client['client_menu_famille']=="Family office") { ?>selected="true" <?php }; ?>value="Family office">Family office</option>
+                <select name="activite" id="activite">
+                    <option <?= ($client['client_menu_famille']=="Banque") ? "selected" : ""?>>Banque</option>
+                    <option <?= ($client['client_menu_famille']=="Cabinets avocats") ? "selected" : ""?>>Cabinets avocats</option>
+                    <option <?= ($client['client_menu_famille']=="CAC 40") ? "selected" : ""?>>CAC 40</option>
+                    <option <?= ($client['client_menu_famille']=="Coworking") ? "selected" : ""?>>Coworking</option>
+                    <option <?= ($client['client_menu_famille']=="Family office") ? "selected" : ""?>>Family office</option>
+                    <option <?= ($client['client_menu_famille']=="RELA estate") ? "selected" : ""?>>RELA estate</option>
                 </select>
               </div>
             <h5>- DEPARTEMENT ACHETEUR -</h5>
               <div class="form-group">
                 <select name="departement">
-                    <option <?php if ($client['client_fonction_occupee']=="Services generaux") { ?>selected="true" <?php }; ?>value="Services generaux">Services generaux</option>
-                    <option <?php if ($client['client_fonction_occupee']=="Achats") { ?>selected="true" <?php }; ?>value="Achats">Achats</option>
-                    <option <?php if ($client['client_fonction_occupee']=="Commercials") { ?>selected="true" <?php }; ?>value="Commercials">Commercials</option>
-                    <option <?php if ($client['client_fonction_occupee']=="Conseils") { ?>selected="true" <?php }; ?>value="Conseils">Conseils</option>
-                    <option <?php if ($client['client_fonction_occupee']=="A definir") { ?>selected="true" <?php }; ?>value="A definir">A definir</option>
+                    <option <?= ($client['client_fonction_occupee']=="Services generaux") ? "selected" : ""?>>Services generaux</option>
+                    <option <?= ($client['client_fonction_occupee']=="Achats") ? "selected" : ""?>>Achats</option>
+                    <option <?= ($client['client_fonction_occupee']=="Commercials") ? "selected" : ""?>>Commercials</option>
+                    <option <?= ($client['client_fonction_occupee']=="Conseils") ? "selected" : ""?>>Conseils</option>
+                    <option <?= ($client['client_fonction_occupee']=="A definir") ? "selected" : ""?>>A definir</option>
                 </select>
               </div>
             <h5>- SUIVI CLIENT -</h5>
               <div class="form-group">
                 <select name="suivi">
-                    <option <?php if ($client['client_suivi']=="Client en negociation") { ?>selected="true" <?php }; ?>value="Client en negociation">Client en negociation</option>
-                    <option <?php if ($client['client_suivi']=="Client pas interesse") { ?>selected="true" <?php }; ?>value="Client pas interesse">Client pas interesse</option>
-                    <option <?php if ($client['client_suivi']=="A prospecter") { ?>selected="true" <?php }; ?>value="A prospecter">A prospecter</option>
-                    <option <?php if ($client['client_suivi']=="Sous contrat") { ?>selected="true" <?php }; ?>value="Sous contrat">Sous contrat</option>
+                    <option <?= ($client['client_suivi']=="Client en negociation") ? "selected" : ""?>>Client en negociation</option>
+                    <option <?= ($client['client_suivi']=="Client pas interesse") ? "selected" : ""?>>Client pas interesse</option>
+                    <option <?= ($client['client_suivi']=="A prospecter") ? "selected" : ""?>>A prospecter</option>
+                    <option <?= ($client['client_suivi']=="Sous contrat") ? "selected" : ""?>>Sous contrat</option>
                 </select>
               </div>
             <h5>- SERVICES INSTALLES -</h5>
               <div class="form-group">
-                <label style="color:white;" for="accueil">Accueil</label>
-                <input type="checkbox" value="Accueil" id="accueil" name="accueil" <?php if(!empty($_POST['accueil'])) echo "checked='checked'"; ?> > 
+                <label style="color:white;" for="case">Accueil</label> <input type="checkbox" value="Accueil" name="accueil"> 
               </div>
               <div class="form-group">
-                <label style="color:white;" for="conciergerie">Conciergerie</label> 
-                <input type="checkbox" id="conciergerie" value="Conciergerie" name="conciergerie" <?php if(!empty($_POST['conciergerie'])) echo "checked='checked'"; ?> > 
+                <label style="color:white;" for="case">Conciergerie</label> <input type="checkbox" id="case" value="Conciergerie" name="conciergerie" > 
               </div>
               <div class="form-group">
-                <label style="color:white;" for="buisness">Buisness office</label> 
-                <input type="checkbox" id="buisness" value="Buisness office" name="buisness" <?php if(!empty($_POST['buisness'])) echo "checked='checked'"; ?> > 
+                <label style="color:white;" for="case">Buisness office</label> <input type="checkbox" id="case" value="Buisness office" name="buisness" > 
               </div>
               <div class="form-group">
-                <label style="color:white;" for="happiness">Happiness</label> 
-                <input type="checkbox" id="happiness" value="Happiness" name="happiness" <?php if(!empty($_POST['happiness'])) echo "checked='checked'"; ?> > 
+                <label style="color:white;" for="case">Happiness</label> <input type="checkbox" id="case" value="Happiness" name="happiness" > 
               </div>
               <div class="form-group">
-                <label style="color:white;" for="cowork">Cowork</label> 
-                <input type="checkbox" id="cowork" value="Cowork" name="cowork" <?php if(!empty($_POST['cowork'])) echo "checked='checked'"; ?> > 
+                <label style="color:white;" for="case">Cowork</label> <input type="checkbox" id="case" value="Cowork" name="cowork" > 
               </div>
                 <button type="submit" name="clientedit" class="btn btn-success btn-block">Valider</button>
         </form>

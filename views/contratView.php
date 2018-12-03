@@ -26,10 +26,6 @@
                 <!-- <input type="text" class="form-control" id="login" placeholder="Entreprise"> -->
                 <input name="nom" type="text" class="form-control" id="login" placeholder="Nom">
               </div>
-            <h5>- DATE -</h5>
-              <div class="form-group">
-                <input name="date" type="date" class="form-control" id="pass">
-              </div>
               <div class="form-group">
                 <label>Upload : </label>
                 <input type="file" name="file"> 
@@ -46,7 +42,7 @@
 
 <!--Table-->
 <div class="table-responsive">
-    <table id="myTable" class="table table-bordered display" style="width:100%">
+    <table id="contratTable" class="contratTable" style="width:100%">
         <thead>
             <tr>
                 <th>

@@ -133,10 +133,11 @@
       <?php }
     }
 
-    function edit_client($id,$entreprise,$effectif,$superficie,$activite,$departement,$suivi)
+    function edit_client($id,$pertinance,$entreprise,$effectif,$superficie,$activite,$departement,$suivi)
     {
             global $bdd;
             $requete = $bdd->prepare(" UPDATE clients SET 
+                                            pertinance = :pertinance,
                                             client_entreprise = :entreprise,
                                             client_effectif = :effectif,
                                             client_superficie = :superficie,
@@ -146,6 +147,7 @@
                                         WHERE client_id = :id
                                     ");
             $requete->bindValue(":id",$id);
+            $requete->bindValue(":pertinance",$pertinance);
             $requete->bindValue(":entreprise",$entreprise);
             $requete->bindValue(":effectif",$effectif);
             $requete->bindValue(":superficie",$superficie);

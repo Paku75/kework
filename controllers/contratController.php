@@ -5,7 +5,7 @@ require __DIR__ ."/../views/contratView.php";
     if(isset($_POST['contratadd']))
     {   
         $nom = $_POST['nom'];
-        $date = date('Y-m-d', strtotime($_POST['date']));
+        $date = date('Y-m-d');
         
         if(!empty($_FILES['file']))
         {
@@ -18,13 +18,13 @@ require __DIR__ ."/../views/contratView.php";
 
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
-            $allowed = array('jpg','jpeg','png','pdf');
+            $allowed = array('pdf');
 
             if(in_array($fileActualExt, $allowed))
             {
                 if($fileError === 0)
                 {
-                    if($fileSize < 2097152)
+                    if($fileSize < 10000000)
                     {
                         $fileNameNew = uniqid('',true).".".$fileActualExt;
                         $fileDestination = 'uploaded/'.$fileName;

@@ -1,5 +1,4 @@
 
-<div class="container">
   <br><br>
   <h2>PROSPECTION CLIENT</h2>
   <br>
@@ -10,15 +9,14 @@
       <a class="nav-item nav-link" id="nav-kework-tab" data-toggle="tab" href="#nav-kework" role="tab" aria-controls="nav-kework" aria-selected="false">Kework</a>
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-horus" role="tabpanel" aria-labelledby="nav-horus-tab"><br>
-      <?= getContent("Horus"); ?>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-horus" role="tabpanel" aria-labelledby="nav-horus-tab"><br>
+          <?= getContent("Horus"); ?>
+        </div>
+        <div class="tab-pane fade" id="nav-kework" role="tabpanel" aria-labelledby="nav-kework-tab"><br>
+          <?= getContent("Kework"); ?>
+        </div>
     </div>
-    <div class="tab-pane fade" id="nav-kework" role="tabpanel" aria-labelledby="nav-kework-tab"><br>
-      <?= getContent("Kework"); ?>
-    </div>
-</div>
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
 <script type="text/javascript">
   $(document).ready(function() {

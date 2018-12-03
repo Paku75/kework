@@ -1,4 +1,4 @@
-<div class="comptabiliteContainer">
+<div class="clientContainer">
      <h3><?= $tableName ?></h3>
 
 
@@ -102,7 +102,7 @@
 
 <!--Table 1-->
 <div class="table-responsive">
-  <table id="myTable" class="table table-bordered display" style="width:100%">
+  <table id="myTable" class="table table-bordered display">
     <thead>
      
       <tr>

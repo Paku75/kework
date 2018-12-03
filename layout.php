@@ -123,9 +123,18 @@
          
 
     <script type="text/javascript">
-        // DataTable with filter
+        // DataTable client (with filter)
         $(document).ready(function() {
             $('table.display').DataTable( {
+                columnDefs: [
+                    { 
+                        width: 40, targets: [1,2,3,4,5], 
+                        width: 50, targets: 6 
+                    }
+                ],
+//                "scrollX": "100%",
+                  responsive: true,
+                
                 initComplete: function () {
                     this.api().columns([2,4,5,6,7]).every( function () {
                         var column = this;
@@ -149,14 +158,14 @@
                             }
                         } );
                     } );
-                }
+                } 
             } );
         } );
         
          // DataTable
-//            $(document).ready(function() {
-//                $('table.display').DataTable();
-//            });
+            $(document).ready(function() {
+                $('#contratTable').DataTable();
+            });
          
          // Modal edit
             $(document).ready(function(){
